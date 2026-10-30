@@ -1506,7 +1506,8 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({
 interface EnquiryDetailModalProps {
   enquiry?: Enquiry | null;
   onClose: () => void;
-  onUpdateStatus: (enquiryId: string, status: EnquiryStatus, notes?: string) => void;
+  onUpdateStatus: (enquiryOrId: Enquiry | string, status: EnquiryStatus, notes?: string) => void;
+  onUpdateNotes?: (enquiry: Enquiry, notes: string) => void;
 }
 
 export const EnquiryDetailModal: React.FC<EnquiryDetailModalProps> = ({
@@ -1761,7 +1762,8 @@ interface ConfirmDeleteModalProps {
   title: string;
   message: string;
   onConfirm: () => void;
-  onCancel: () => void;
+  onCancel?: () => void;
+  onClose?: () => void;
 }
 
 export const ConfirmDeleteModal: React.FC<ConfirmDeleteModalProps> = ({
@@ -1769,9 +1771,11 @@ export const ConfirmDeleteModal: React.FC<ConfirmDeleteModalProps> = ({
   title,
   message,
   onConfirm,
-  onCancel
+  onCancel,
+  onClose
 }) => {
   if (!isOpen) return null;
+  const handleCancel = onCancel || onClose || (() => {});
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#24241F]/60 backdrop-blur-xs animate-in fade-in duration-150 select-none">
@@ -1788,7 +1792,7 @@ export const ConfirmDeleteModal: React.FC<ConfirmDeleteModalProps> = ({
         </div>
 
         <div className="flex items-center justify-end gap-2 pt-2">
-          <button type="button" onClick={onCancel} className="btn-secondary text-xs">
+          <button type="button" onClick={handleCancel} className="btn-secondary text-xs">
             Cancel
           </button>
           <button

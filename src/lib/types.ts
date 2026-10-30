@@ -64,6 +64,7 @@ export interface BlogPost {
   updatedAt?: string;
   seoTitle?: string;
   seoDesc?: string;
+  seoDescription?: string;
   seoKeywords?: string;
   views: number;
   featured?: boolean;
@@ -154,6 +155,8 @@ export interface DashboardStats {
     '30d': ChartPoint[];
     '90d': ChartPoint[];
   };
+}
+
 export interface ServiceItem {
   id: string;
   title: string;

@@ -444,11 +444,12 @@ export default function AdminDashboardPage() {
   /* =======================================================================
      ENQUIRY ACTIONS
      ======================================================================= */
-  const handleUpdateEnquiryStatus = async (enquiry: Enquiry, newStatus: EnquiryStatus) => {
-    const updated = enquiries.map(e => e.id === enquiry.id ? { ...e, status: newStatus } : e);
+  const handleUpdateEnquiryStatus = async (enquiryOrId: Enquiry | string, newStatus: EnquiryStatus, notes?: string) => {
+    const id = typeof enquiryOrId === 'string' ? enquiryOrId : enquiryOrId.id;
+    const updated = enquiries.map(e => e.id === id ? { ...e, status: newStatus, ...(notes !== undefined ? { notes } : {}) } : e);
     setEnquiries(updated);
-    if (selectedEnquiry && selectedEnquiry.id === enquiry.id) {
-      setSelectedEnquiry({ ...selectedEnquiry, status: newStatus });
+    if (selectedEnquiry && selectedEnquiry.id === id) {
+      setSelectedEnquiry({ ...selectedEnquiry, status: newStatus, ...(notes !== undefined ? { notes } : {}) });
     }
     refreshStats(projects, blogs, updated, testimonials);
     showToast(`Status updated to ${newStatus}`);
@@ -456,7 +457,7 @@ export default function AdminDashboardPage() {
       await fetch('/api/enquiries', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: enquiry.id, status: newStatus })
+        body: JSON.stringify({ id, status: newStatus, ...(notes !== undefined ? { notes } : {}) })
       });
     } catch (_) {}
   };

@@ -1,4 +1,4 @@
-import { Project, BlogPost, Testimonial, Enquiry, SiteSetting, DashboardStats, ServiceItem, PageContent } from './types';
+import { Project, BlogPost, Testimonial, Enquiry, SiteSetting, DashboardStats, ServiceItem, PageContent, NewsletterSubscriber } from './types';
 
 // Seed Projects featuring high-end architectural images
 export const initialProjects: Project[] = [

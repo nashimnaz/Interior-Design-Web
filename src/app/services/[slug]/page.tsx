@@ -11,7 +11,7 @@ import { ArrowLeft, CheckCircle2, ArrowRight } from 'lucide-react';
 import { ServiceItem } from '@/lib/types';
 import { initialServices } from '@/lib/store';
 
-export default function DynamicServicePage() {
+function DynamicServiceContent() {
   const params = useParams();
   const slug = params?.slug as string;
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
@@ -211,5 +211,13 @@ export default function DynamicServicePage() {
       <Footer onOpenConsultation={() => setIsConsultationOpen(true)} />
       <ConsultationModal isOpen={isConsultationOpen} onClose={() => setIsConsultationOpen(false)} />
     </main>
+  );
+}
+
+export default function DynamicServicePage() {
+  return (
+    <React.Suspense fallback={<div className="w-full bg-[#F5F0E8] min-h-screen" />}>
+      <DynamicServiceContent />
+    </React.Suspense>
   );
 }
