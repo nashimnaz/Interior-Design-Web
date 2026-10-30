@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  --font-serif: var(--font-serif), 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-sans: var(--font-sans), 'Plus Jakarta Sans', var(--font-dm-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@layer base {
+  :root {
+    --bg-main: #F7F4EE;
+    --bg-surface: #FCFAF6;
+    --bg-surface-secondary: #EFECE5;
+    --text-primary: #1F2522;
+    --text-secondary: #656B66;
+    --border-color: #E2DDD4;
+    --accent: #C2633E;
+    --accent-hover: #AA5330;
+    --accent-sage: #536453;
+    --accent-sage-hover: #435243;
+    --accent-tint: #ECE7DF;
+    color-scheme: light;
+  }
+
+  .dark, [data-theme="dark"] {
+    --bg-main: #202422;
+    --bg-surface: #282D2A;
+    --bg-surface-secondary: #323835;
+    --text-primary: #F5F2EB;
+    --text-secondary: #B5BDB7;
+    --border-color: #38403C;
+    --accent: #D97E5B;
+    --accent-hover: #E39070;
+    --accent-sage: #819981;
+    --accent-sage-hover: #96AD96;
+    --accent-tint: #2B332F;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-sans), 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  h1, h2, h3, h4, .font-editorial, .font-serif {
+    font-family: var(--font-serif), 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* Subtle, minimal architectural scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DDD5C9;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #3E3C33;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C7BDB0;
+}
+
+/* Understated Architecture Surfaces */
+.studio-surface {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+.studio-surface-subtle {
+  background-color: var(--bg-surface-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--accent);
+  color: #FCFAF6;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 14px;
+  transition: all 0.15s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.btn-secondary {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 14px;
+  transition: all 0.15s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-surface-secondary);
+  border-color: #C7BDB0;
+}
+
+/* Inputs & Form Controls */
+.studio-input {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 13px;
+  padding: 7px 12px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.studio-input:focus {
+  border-color: var(--accent);
+}
+
+.studio-input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+/* Earthy status badges */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+/* Smooth Editorial Service Page Transition */
+@keyframes servicePageFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.service-page-enter {
+  animation: servicePageFadeIn 0.25s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-page-enter {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Infinite slow marquee animations for Testimonials Dual Rows */
+@keyframes tickerScrollLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes tickerScrollRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-ticker-left {
+  display: flex;
+  width: max-content;
+  animation: tickerScrollLeft 32s linear infinite;
+  will-change: transform;
+}
+
+.animate-ticker-right {
+  display: flex;
+  width: max-content;
+  animation: tickerScrollRight 32s linear infinite;
+  will-change: transform;
+}
+
+.animate-ticker-left:hover,
+.animate-ticker-right:hover {
+  animation-play-state: paused;
+}
+
+

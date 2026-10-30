@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  description String
+  category    String
+  location    String?
+  clientName  String?
+  year        String?
+  areaSqFt    Int?
+  coverImage  String
+  images      String[]
+  featured    Boolean  @default(false)
+  status      String   @default("PUBLISHED") // DRAFT, PUBLISHED, ARCHIVED
+  displayOrder Int     @default(0)
+  seoTitle    String?
+  seoDesc     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Blog {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  excerpt     String
+  content     String
+  coverImage  String
+  category    String
+  tags        String[]
+  author      String   @default("Studio Principal")
+  readTime    String   @default("5 min read")
+  status      String   @default("PUBLISHED") // DRAFT, PUBLISHED, ARCHIVED
+  publishedAt DateTime?
+  seoTitle    String?
+  seoDesc     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Testimonial {
+  id          String   @id @default(cuid())
+  clientName  String
+  clientRole  String?
+  clientPhoto String?
+  quote       String
+  rating      Int      @default(5)
+  projectTitle String?
+  status      String   @default("APPROVED") // PENDING, APPROVED, HIDDEN
+  featured    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Enquiry {
+  id          String   @id @default(cuid())
+  clientName  String
+  email       String
+  phone       String
+  service     String
+  budget      String
+  timeline    String?
+  message     String
+  status      String   @default("NEW") // NEW, IN_PROGRESS, CONTACTED, PROPOSAL_SENT, CONVERTED, ARCHIVED
+  notes       String?
+  assignedTo  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SiteSetting {
+  id           String   @id @default("global")
+  studioName   String   @default("LUMEN Interior Architecture")
+  tagline      String   @default("Bespoke High-End Architectural & Interior Design")
+  contactEmail String   @default("contact@lumenstudio.design")
+  contactPhone String   @default("+1 (212) 555-0199")
+  address      String   @default("590 Madison Avenue, 28th Floor, New York, NY 10022")
+  instagram    String?  @default("https://instagram.com/lumenstudio")
+  linkedin     String?  @default("https://linkedin.com/company/lumenstudio")
+  updatedAt    DateTime @updatedAt
+}
