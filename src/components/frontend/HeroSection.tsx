@@ -21,18 +21,6 @@ export function HeroSection({ onOpenConsultation, onExploreServices }: HeroSecti
   const descRef = useRef<HTMLParagraphElement>(null);
   const ctaDesktopRef = useRef<HTMLDivElement>(null);
   const ctaMobileRef = useRef<HTMLDivElement>(null);
-  const mobileVideoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (mobileVideoRef.current) {
-      mobileVideoRef.current.defaultMuted = true;
-      mobileVideoRef.current.muted = true;
-      const playPromise = mobileVideoRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {});
-      }
-    }
-  }, []);
 
   useEffect(() => {
     fetch('/api/content?page=home')
@@ -100,6 +88,7 @@ export function HeroSection({ onOpenConsultation, onExploreServices }: HeroSecti
   }, []);
 
   const desktopImage = content.heroImageDesktop || '/images/AA4DD01B-86D5-45F3-991A-BC3AD98FE52B.png';
+  const mobileImage = content.heroImageMobile || '/images/Sunlit Arched Nook with Olive Branches.png';
   const eyebrow = content.heroEyebrow || 'SPACES THAT FEEL LIKE YOU';
   const line1 = content.heroHeadlineLine1 || 'Thoughtfully';
   const line2 = content.heroHeadlineLine2 || 'Designed.';
@@ -122,19 +111,18 @@ export function HeroSection({ onOpenConsultation, onExploreServices }: HeroSecti
         />
       </div>
 
-      {/* Mobile-Only Portrait 9:16 Architectural Background Video (< md / up to 767px) */}
-      <div className="block md:hidden absolute inset-0 z-0 bg-[#EAE4D9] overflow-hidden">
-        <video
-          ref={mobileVideoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className="w-full h-full object-cover object-[20%_bottom] select-none pointer-events-none"
-        >
-          <source src="/videos/hero-mobile.mp4" type="video/mp4" />
-        </video>
+      {/* Mobile-Only Portrait 9:16 Architectural Background Image (< md / up to 767px) */}
+      <div className="block md:hidden absolute inset-0 z-0 bg-[#EAE4D9]">
+        <SmoothImage
+          src={mobileImage}
+          alt="Excorto Architectural Interior Design Studio - Sunlit Nook"
+          fill
+          priority
+          loading="eager"
+          unoptimized
+          sizes="100vw"
+          className="object-cover object-[20%_bottom] select-none pointer-events-none"
+        />
       </div>
 
       {/* Main Content Container - Centralized vertically with balanced space above & below */}

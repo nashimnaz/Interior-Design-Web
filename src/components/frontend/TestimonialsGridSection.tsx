@@ -7,10 +7,20 @@ import { Testimonial } from '@/lib/types';
 import { initialTestimonials } from '@/lib/store';
 import { SmoothImage } from '@/components/frontend/SmoothImage';
 
-function TestimonialCard({ item, index }: { item: Testimonial; index: number }) {
+function TestimonialCard({ 
+  item, 
+  index, 
+  className = '' 
+}: { 
+  item: Testimonial; 
+  index: number; 
+  className?: string; 
+}) {
   return (
     <article 
-      className="w-[330px] sm:w-[370px] lg:w-[410px] h-[225px] sm:h-[235px] shrink-0 bg-[#FCFAF4] border border-[#E5DFD4] rounded-[4px] p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-lg hover:border-[#94745F]/50 hover:-translate-y-1 select-text"
+      className={`shrink-0 bg-[#FCFAF4] border border-[#E5DFD4] rounded-[4px] p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-lg hover:border-[#94745F]/50 select-text ${
+        className || 'w-[330px] sm:w-[370px] lg:w-[410px] h-[225px] sm:h-[235px] hover:-translate-y-1'
+      }`}
       aria-label={`Testimonial from ${item.clientName}`}
     >
       <div>
@@ -86,8 +96,8 @@ export function TestimonialsGridSection() {
       });
   }, []);
 
-  // Split testimonials into 2 balanced rows and repeat for continuous infinite loop
-  const { row1Items, row2Items } = useMemo(() => {
+  // Split testimonials into 2 balanced rows for desktop and repeat for continuous infinite loop
+  const { row1Items, row2Items, mobileItems } = useMemo(() => {
     const half = Math.ceil(testimonials.length / 2);
     const row1Base = testimonials.slice(0, half);
     const row2Base = testimonials.slice(half);
@@ -104,10 +114,14 @@ export function TestimonialsGridSection() {
     const r1 = padList(row1Base, 6);
     const r2 = padList(row2Base, 6);
 
-    // Duplicated twice for seamless translate3d(-50%, 0, 0) / translate3d(0, 0, 0) infinite marquee
+    // Mobile single column: duplicate full approved list twice for seamless -50% vertical scroll
+    const mBase = padList(testimonials, 6);
+
+    // Duplicated twice for seamless translate3d infinite marquee
     return {
       row1Items: [...r1, ...r1],
       row2Items: [...r2, ...r2],
+      mobileItems: [...mBase, ...mBase],
     };
   }, [testimonials]);
 
@@ -139,20 +153,13 @@ export function TestimonialsGridSection() {
             </p>
             <span className="inline-flex items-center gap-2 font-sans text-[11px] tracking-[0.16em] uppercase text-[#94745F]/80 font-medium">
               <span className="w-1.5 h-1.5 rounded-full bg-[#94745F]/70 animate-pulse" />
-              Hover over any card to pause scrolling
+              Hover or touch any card to pause scrolling
             </span>
           </div>
         </div>
       </div>
 
-      {/* =========================================================================
-          DUAL-ROW SLOW INFINITE TICKER / MARQUEE
-          - Row 1: Slowly scrolls to the LEFT
-          - Row 2: Slowly scrolls to the RIGHT
-          - Approx. 3 compact cards visible in view horizontally
-          - Pause on hover for effortless reading
-          ========================================================================= */}
-      {/* Embedded CSS for guaranteed hardware-accelerated continuous scrolling */}
+      {/* Embedded CSS for hardware-accelerated continuous scrolling */}
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes scrollRowLeft {
           0% {
@@ -172,6 +179,15 @@ export function TestimonialsGridSection() {
           }
         }
 
+        @keyframes scrollColUp {
+          0% {
+            transform: translate3d(0, 0, 0);
+          }
+          100% {
+            transform: translate3d(0, -50%, 0);
+          }
+        }
+
         .scroll-row-left {
           display: flex !important;
           width: max-content !important;
@@ -186,20 +202,69 @@ export function TestimonialsGridSection() {
           will-change: transform;
         }
 
+        .scroll-col-up {
+          display: flex !important;
+          flex-direction: column !important;
+          animation: scrollColUp 12s linear infinite !important;
+          will-change: transform;
+        }
+
         .scroll-row-left:hover,
-        .scroll-row-right:hover {
+        .scroll-row-right:hover,
+        .scroll-col-up:hover,
+        .scroll-col-up:active {
           animation-play-state: paused !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .scroll-row-left,
+          .scroll-row-right,
+          .scroll-col-up {
+            animation: none !important;
+          }
         }
       `}} />
 
       {/* =========================================================================
-          DUAL-ROW SLOW INFINITE TICKER / MARQUEE
+          MOBILE VIEW: SINGLE-COLUMN VERTICAL MARQUEE MOVING UPWARDS (< md)
+          - Single centered column of cards moving upwards
+          - Soft top & bottom ivory gradient masks
+          - Touch/hover to pause
+          ========================================================================= */}
+      <div className="md:hidden relative w-full h-[520px] overflow-hidden py-2 px-4">
+        {/* Top & Bottom Soft Ivory Gradient Masks */}
+        <div 
+          className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-[#F4F0E9] via-[#F4F0E9]/85 to-transparent pointer-events-none z-20" 
+          aria-hidden="true"
+        />
+        <div 
+          className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-[#F4F0E9] via-[#F4F0E9]/85 to-transparent pointer-events-none z-20" 
+          aria-hidden="true"
+        />
+
+        <div className="flex justify-center w-full h-full">
+          <div className="scroll-col-up flex flex-col gap-4 w-full max-w-[360px] mx-auto will-change-transform">
+            {mobileItems.map((item, idx) => (
+              <TestimonialCard 
+                key={`mobile-col-${item.id}-${idx}`} 
+                item={item} 
+                index={idx}
+                className="w-full h-[225px]"
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* =========================================================================
+          DESKTOP & TABLET VIEW: DUAL-ROW SLOW INFINITE TICKER (md and above)
           - Row 1: First row scrolling to the LEFT
           - Row 2: Second row scrolling to the RIGHT
           - Approx. 3 compact cards visible in view horizontally
           - Pause on hover for effortless reading
+          - Completely unchanged for desktop
           ========================================================================= */}
-      <div className="relative w-full overflow-hidden py-1">
+      <div className="hidden md:block relative w-full overflow-hidden py-1">
         {/* Left & Right Soft Ivory Gradient Masks for Seamless Infinity Edges */}
         <div 
           className="absolute top-0 bottom-0 left-0 w-16 sm:w-28 md:w-44 bg-gradient-to-r from-[#F4F0E9] via-[#F4F0E9]/80 to-transparent pointer-events-none z-20" 
