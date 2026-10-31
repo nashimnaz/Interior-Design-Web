@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Layers, Building2 } from 'lucide-react';
 
@@ -53,6 +53,35 @@ export function ServicesSection() {
   ];
 
   const [services, setServices] = useState(defaultServices);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    // Respect reduced motion
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setHasAnimated(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasAnimated(true);
+          observer.disconnect(); // Trigger strictly once on scroll arrival
+        }
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -60px 0px',
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     fetch('/api/services?status=Published')
@@ -84,7 +113,11 @@ export function ServicesSection() {
   };
 
   return (
-    <section id="services" className="w-full bg-[#FAF7F2] border-y border-[#ECE5DC]/80 relative z-20">
+    <section 
+      ref={sectionRef} 
+      id="services" 
+      className="w-full bg-[#FAF7F2] border-y border-[#ECE5DC]/80 relative z-20 overflow-hidden"
+    >
       <div className="max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 py-12 lg:py-16">
         <div className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-0">
           {/* Vertical Side Tag: OUR SERVICES */}
@@ -92,6 +125,14 @@ export function ServicesSection() {
             href="/services"
             className="hidden lg:flex items-center justify-center pr-8 xl:pr-10 border-r border-[#E5DDD2] shrink-0 group focus:outline-none"
             aria-label="View all services"
+            style={{
+              opacity: hasAnimated ? 1 : 0,
+              transform: hasAnimated ? 'translateY(0)' : 'translateY(16px)',
+              transitionProperty: 'opacity, transform',
+              transitionDuration: '750ms',
+              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+              transitionDelay: hasAnimated ? '100ms' : '0ms',
+            }}
           >
             <div className="flex items-center gap-3 -rotate-90 origin-center whitespace-nowrap select-none transition-transform duration-300 group-hover:scale-105">
               <span className="w-5 h-[1px] bg-[#9C7A63]" />
@@ -106,6 +147,13 @@ export function ServicesSection() {
           <Link 
             href="/services" 
             className="flex lg:hidden items-center justify-between mb-2 group"
+            style={{
+              opacity: hasAnimated ? 1 : 0,
+              transform: hasAnimated ? 'translateY(0)' : 'translateY(-14px)',
+              transitionProperty: 'opacity, transform',
+              transitionDuration: '700ms',
+              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
           >
             <div className="flex items-center gap-2">
               <span className="w-4 h-[1px] bg-[#9C7A63]" />
@@ -118,46 +166,59 @@ export function ServicesSection() {
             </span>
           </Link>
 
-          {/* 4 Services Columns */}
+          {/* 4 Services Columns: Alternating Left-to-Right & Right-to-Left Simultaneous Stagger */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 flex-1 divide-y sm:divide-y-0 lg:divide-x divide-[#E5DDD2]">
-            {services.map((item, idx) => (
-              <ScrollReveal
-                key={item.id}
-                staggerIndex={idx}
-                distance={14}
-                className="flex flex-col"
-              >
-                <Link 
-                  href={getServiceHref(item.id, idx)}
-                  className={`group flex flex-col justify-between h-full py-6 sm:py-4 lg:py-2 transition-all duration-300 hover:bg-[#F3EDE2]/50 cursor-pointer ${
-                    idx === 0 ? 'lg:pl-8 xl:pl-10 lg:pr-8' : 'lg:px-8 xl:px-10'
-                  }`}
+            {services.map((item, idx) => {
+              // Even indices (0, 2): slide in from Left to Right (-64px -> 0)
+              // Odd indices (1, 3): slide in from Right to Left (64px -> 0)
+              const initialX = idx % 2 === 0 ? '-64px' : '64px';
+              const delay = idx * 150; // Staggered sequence: 0ms, 150ms, 300ms, 450ms
+
+              return (
+                <div
+                  key={item.id}
+                  className="flex flex-col will-change-transform"
+                  style={{
+                    opacity: hasAnimated ? 1 : 0,
+                    transform: hasAnimated ? 'translateX(0)' : `translateX(${initialX})`,
+                    transitionProperty: 'opacity, transform',
+                    transitionDuration: '850ms',
+                    transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                    transitionDelay: hasAnimated ? `${delay}ms` : '0ms',
+                  }}
                 >
-                  <div>
-                    {/* Icon */}
-                    <div className="h-10 flex items-center mb-4 transition-transform duration-300 group-hover:scale-105">
-                      {item.icon}
+                  <Link 
+                    href={getServiceHref(item.id, idx)}
+                    className={`group flex flex-col justify-between h-full py-6 sm:py-4 lg:py-2 transition-all duration-300 hover:bg-[#F3EDE2]/50 cursor-pointer ${
+                      idx === 0 ? 'lg:pl-8 xl:pl-10 lg:pr-8' : 'lg:px-8 xl:px-10'
+                    }`}
+                  >
+                    <div>
+                      {/* Icon */}
+                      <div className="h-10 flex items-center mb-4 transition-transform duration-300 group-hover:scale-105">
+                        {item.icon}
+                      </div>
+
+                      {/* Service Title */}
+                      <h3 className="font-sans text-[12px] sm:text-[12.5px] font-semibold tracking-[0.18em] uppercase text-[#2C2018] group-hover:text-[#9C7A63] transition-colors mb-2.5">
+                        {item.title}
+                      </h3>
+
+                      {/* Service Description */}
+                      <p className="font-sans text-[13px] sm:text-[13.5px] text-[#665B51] leading-[1.62]">
+                        {item.description}
+                      </p>
                     </div>
 
-                    {/* Service Title */}
-                    <h3 className="font-sans text-[12px] sm:text-[12.5px] font-semibold tracking-[0.18em] uppercase text-[#2C2018] group-hover:text-[#9C7A63] transition-colors mb-2.5">
-                      {item.title}
-                    </h3>
-
-                    {/* Service Description */}
-                    <p className="font-sans text-[13px] sm:text-[13.5px] text-[#665B51] leading-[1.62]">
-                      {item.description}
-                    </p>
-                  </div>
-
-                  {/* Subtle explore prompt */}
-                  <div className="mt-4 pt-2 flex items-center gap-1.5 text-[11px] font-sans font-medium uppercase tracking-[0.16em] text-[#9C7A63] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
-                    <span>Explore</span>
-                    <span>→</span>
-                  </div>
-                </Link>
-              </ScrollReveal>
-            ))}
+                    {/* Subtle explore prompt */}
+                    <div className="mt-4 pt-2 flex items-center gap-1.5 text-[11px] font-sans font-medium uppercase tracking-[0.16em] text-[#9C7A63] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
+                      <span>Explore</span>
+                      <span>→</span>
+                    </div>
+                  </Link>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

@@ -8,28 +8,31 @@ export function AboutStorySection() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    // Trigger on intersection or fallback timer on mount
+    // Respect user's reduced motion preferences
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setHasAnimated(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setHasAnimated(true);
+          observer.disconnect(); // Trigger strictly once when user scrolls and reaches the section
         }
       },
-      { threshold: 0.15 }
+      { 
+        threshold: 0.15,
+        rootMargin: '0px 0px -75px 0px',
+      }
     );
 
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
 
-    // Auto-trigger if already scrolled or in viewport on page load
-    const timer = setTimeout(() => {
-      setHasAnimated(true);
-    }, 250);
-
     return () => {
       observer.disconnect();
-      clearTimeout(timer);
     };
   }, []);
 

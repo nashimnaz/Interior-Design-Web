@@ -30,7 +30,7 @@ export function ScrollReveal({
   duration = 750,
   distance = 16,
   staggerIndex = 0,
-  threshold = 0.1,
+  threshold = 0.15,
   as: Component = 'div',
   style = {},
 }: ScrollRevealProps) {
@@ -48,12 +48,12 @@ export function ScrollReveal({
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // Trigger only once
+          observer.disconnect(); // Trigger strictly once when user scrolls and reaches the element
         }
       },
       {
         threshold,
-        rootMargin: '0px 0px -30px 0px',
+        rootMargin: '0px 0px -75px 0px',
       }
     );
 
@@ -72,16 +72,16 @@ export function ScrollReveal({
   return (
     <Component
       ref={ref}
-      className={`transition-all ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none motion-reduce:transform-none ${
-        isVisible
-          ? 'opacity-100 translate-y-0'
-          : `opacity-0 translate-y-[${distance}px]`
-      } ${className}`}
+      className={`motion-reduce:transition-none motion-reduce:transform-none ${className}`}
       style={{
         ...style,
-        transitionDuration: `${duration}ms`,
-        transitionDelay: isVisible ? `${totalDelay}ms` : '0ms',
+        opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : `translateY(${distance}px)`,
+        transitionProperty: 'opacity, transform',
+        transitionDuration: `${duration}ms`,
+        transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        transitionDelay: isVisible ? `${totalDelay}ms` : '0ms',
+        willChange: isVisible ? 'auto' : 'opacity, transform',
       }}
     >
       {children}
