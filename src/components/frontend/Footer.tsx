@@ -54,8 +54,8 @@ export function Footer({ onOpenConsultation }: FooterProps) {
     >
       <h2 id="footer-heading" className="sr-only">Footer Information</h2>
 
-      {/* Subtle Interior Line Art Watermark Background with Light Density */}
-      <div className="absolute inset-0 z-0 pointer-events-none select-none opacity-20 mix-blend-multiply overflow-hidden">
+      {/* Subtle Interior Line Art Watermark Background with Increased Opacity */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none opacity-65 mix-blend-multiply overflow-hidden">
         <SmoothImage
           src="/images/footer-interior-line-art.jpg"
           alt=""
@@ -64,8 +64,8 @@ export function Footer({ onOpenConsultation }: FooterProps) {
           sizes="100vw"
           className="object-cover object-[center_60%]"
         />
-        {/* Soft gradient wash to guarantee pristine text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#F6EFE2]/60 via-[#F6EFE2]/30 to-[#F6EFE2]/60 pointer-events-none" />
+        {/* Soft gradient wash calibrated for distinct illustration visibility while keeping text crisp */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#F6EFE2]/40 via-[#F6EFE2]/15 to-[#F6EFE2]/40 pointer-events-none" />
       </div>
 
       {/* Main 4-Column Footer Area */}

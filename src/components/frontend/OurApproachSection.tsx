@@ -302,7 +302,7 @@ export function OurApproachSection() {
         }
       `}} />
 
-      {/* Light minimal interior design architectural line art illustration in warm brown (strictly no text) */}
+      {/* Minimal interior design architectural line art illustration in warm brown */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
         <SmoothImage
           src="/images/approach-interior-line-art.jpg"
@@ -311,11 +311,11 @@ export function OurApproachSection() {
           priority
           unoptimized
           sizes="100vw"
-          className="object-cover object-[center_60%] opacity-[0.24] mix-blend-multiply"
+          className="object-cover object-[center_60%] opacity-[0.28] mix-blend-multiply"
         />
-        {/* Soft subtle gradient wash to guarantee crystalline text readability on all devices */}
+        {/* Soft subtle gradient wash calibrated for balanced, gentle illustration presence and pristine text contrast */}
         <div 
-          className="absolute inset-0 bg-gradient-to-r from-[#F8F3F0]/92 via-[#F8F3F0]/65 to-[#F8F3F0]/88 pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-r from-[#F8F3F0]/80 via-[#F8F3F0]/45 to-[#F8F3F0]/70 pointer-events-none"
           aria-hidden="true"
         />
       </div>
