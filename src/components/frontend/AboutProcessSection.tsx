@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { ScrollReveal } from '@/components/frontend/ScrollReveal';
 
 interface ProcessStep {
   number: string;
@@ -44,7 +45,7 @@ export function AboutProcessSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 items-start">
           
           {/* Left Column: Eyebrow and Main Heading */}
-          <div className="lg:col-span-4 xl:col-span-3 shrink-0">
+          <ScrollReveal distance={16} className="lg:col-span-4 xl:col-span-3 shrink-0">
             <span className="font-sans text-[11px] sm:text-[11.5px] uppercase tracking-[0.24em] font-medium text-[#9E7D66] mb-3 sm:mb-4 block">
               OUR APPROACH
             </span>
@@ -55,7 +56,7 @@ export function AboutProcessSection() {
               From Vision<br />
               to <span className="text-[#9E6E49]">Reality.</span>
             </h2>
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: 4-Step Process positioned directly to the right of the heading */}
           <div className="lg:col-span-8 xl:col-span-9 lg:pt-1">
@@ -64,7 +65,7 @@ export function AboutProcessSection() {
             <div className="hidden md:block relative">
               <div className="grid grid-cols-4 gap-4 lg:gap-5 xl:gap-8 relative z-10">
                 {steps.map((step, idx) => (
-                  <div key={step.number} className="group relative flex flex-col">
+                  <ScrollReveal key={step.number} staggerIndex={idx} distance={14} className="group relative flex flex-col">
                     
                     {/* Marker & Connecting Line */}
                     <div className="relative mb-5 flex items-center">
@@ -93,7 +94,7 @@ export function AboutProcessSection() {
                       {step.description}
                     </p>
 
-                  </div>
+                  </ScrollReveal>
                 ))}
               </div>
             </div>
@@ -101,7 +102,7 @@ export function AboutProcessSection() {
             {/* Mobile Vertical Process Timeline (< md) */}
             <div className="md:hidden relative space-y-7 pl-1">
               {steps.map((step, idx) => (
-                <div key={step.number} className="relative flex items-start gap-4">
+                <ScrollReveal key={step.number} staggerIndex={idx} distance={12} className="relative flex items-start gap-4">
                   
                   {/* Left Column: Circular Marker & Vertical Connecting Line */}
                   <div className="relative flex flex-col items-center shrink-0 w-11">
@@ -129,7 +130,7 @@ export function AboutProcessSection() {
                     </p>
                   </div>
 
-                </div>
+                </ScrollReveal>
               ))}
             </div>
 

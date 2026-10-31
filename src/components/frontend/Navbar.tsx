@@ -137,21 +137,21 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
             aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={isOpen}
           >
-            {/* Morphing 3-Line Hamburger to Elegant X */}
-            <div className="relative w-4 h-4 flex flex-col justify-center items-center pointer-events-none">
+            {/* Morphing 3-Line Hamburger to Elegant Centered X */}
+            <div className="relative w-4.5 h-4 flex items-center justify-center pointer-events-none">
               <span
-                className={`block h-[1.5px] w-4 bg-[#292722] rounded-full transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center ${
-                  isOpen ? 'translate-y-[1.5px] rotate-45' : '-translate-y-1'
+                className={`absolute w-4 h-[1.5px] bg-[#292722] rounded-full transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center motion-reduce:transition-none ${
+                  isOpen ? 'translate-y-0 rotate-45' : '-translate-y-[5px]'
                 }`}
               />
               <span
-                className={`block h-[1.5px] w-4 bg-[#292722] rounded-full transition-all duration-200 ease-out ${
+                className={`absolute w-4 h-[1.5px] bg-[#292722] rounded-full transition-all duration-250 ease-out origin-center motion-reduce:transition-none ${
                   isOpen ? 'opacity-0 scale-x-0' : 'opacity-100 scale-x-100'
                 }`}
               />
               <span
-                className={`block h-[1.5px] w-4 bg-[#292722] rounded-full transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center ${
-                  isOpen ? '-translate-y-[1.5px] -rotate-45' : 'translate-y-1'
+                className={`absolute w-4 h-[1.5px] bg-[#292722] rounded-full transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center motion-reduce:transition-none ${
+                  isOpen ? 'translate-y-0 -rotate-45' : 'translate-y-[5px]'
                 }`}
               />
             </div>
@@ -162,7 +162,7 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
       {/* =========================================================================
           PREMIUM GLASSMORPHISM NAVIGATION OVERLAY & FLOATING PANEL
           - Backdrop filter blur(24px)
-          - Translucent warm ivory / off-white (~90% opacity)
+          - Translucent warm ivory / off-white (~94% opacity)
           - Cormorant Garamond / Canela serif typography
           - Numbering in small coffee brown (#94745F)
           - Sage-green rounded CTA (#526653)
@@ -170,7 +170,7 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
       {mounted && createPortal(
         <div
           onClick={() => closeMenu()}
-          className={`fixed inset-0 z-[100] flex items-center justify-center p-3.5 sm:p-6 md:p-8 bg-[#292722]/30 backdrop-blur-[12px] [-webkit-backdrop-filter:blur(12px)] select-none transition-all duration-300 ${
+          className={`fixed inset-0 z-[100] flex items-center justify-center p-3.5 sm:p-6 md:p-8 bg-[#292722]/35 backdrop-blur-[12px] [-webkit-backdrop-filter:blur(12px)] select-none transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none ${
             isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
           }`}
           role="dialog"
@@ -178,119 +178,162 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
           aria-label="Site Navigation"
         >
           {/* Glass Panel Card (Floating architectural atelier menu - compact & zero-scroll) */}
-        <div
-          onClick={(e) => e.stopPropagation()}
-          style={{
-            backgroundColor: 'rgba(245, 242, 236, 0.94)',
-            backdropFilter: 'blur(24px)',
-            WebkitBackdropFilter: 'blur(24px)',
-          }}
-          className={`relative w-full max-w-[430px] flex flex-col justify-between rounded-[22px] sm:rounded-[26px] border border-white/70 shadow-[0_24px_60px_-15px_rgba(41,39,34,0.18),0_0_0_1px_rgba(120,100,80,0.12)] p-4 sm:p-6 md:p-7 overflow-hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] transition-all duration-300 ease-out ${
-            isOpen ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto' : 'opacity-0 scale-95 translate-y-3 pointer-events-none'
-          }`}
-        >
-          <div>
-            {/* Panel Top Header: Brand + Close Trigger */}
-            <div className="flex items-center justify-between pb-3 sm:pb-3.5 border-b border-[#786450]/15">
-              <Link
-                href="/"
-                onClick={() => closeMenu()}
-                className="group flex items-center gap-2.5 focus:outline-none"
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              backgroundColor: 'rgba(245, 242, 236, 0.94)',
+              backdropFilter: 'blur(24px)',
+              WebkitBackdropFilter: 'blur(24px)',
+            }}
+            className={`relative w-full max-w-[430px] flex flex-col justify-between rounded-[22px] sm:rounded-[26px] border border-white/70 shadow-[0_24px_60px_-15px_rgba(41,39,34,0.18),0_0_0_1px_rgba(120,100,80,0.12)] p-4 sm:p-6 md:p-7 overflow-hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none ${
+              isOpen 
+                ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto' 
+                : 'opacity-0 scale-[0.98] -translate-y-4 pointer-events-none'
+            }`}
+          >
+            <div>
+              {/* Panel Top Header: Brand + Close Trigger */}
+              <div 
+                style={{
+                  transitionDelay: isOpen ? '100ms' : '0ms',
+                }}
+                className={`flex items-center justify-between pb-3 sm:pb-3.5 border-b border-[#786450]/15 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none ${
+                  isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+                }`}
               >
-                <div className="relative w-6 h-6 sm:w-7 sm:h-7 shrink-0 transition-transform duration-300 group-hover:scale-105">
-                  <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 16C3 8.82 8.82 3 16 3V7.5C11.306 7.5 7.5 11.306 7.5 16H3Z" fill="#C2633E" />
-                    <path d="M17.5 3H18.5C25.404 3 31 8.596 31 15.5V28H17.5V3Z" fill="#526653" />
-                  </svg>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-sans text-[13px] sm:text-[14px] font-semibold tracking-[0.24em] text-[#292722] leading-none transition-colors group-hover:text-[#94745F]">
-                    EXCORTO
-                  </span>
-                  <span className="text-[6.5px] sm:text-[7px] font-semibold tracking-[0.28em] text-[#94745F] uppercase mt-0.5 leading-none">
-                    BUILDERS &amp; INTERIORS
-                  </span>
-                </div>
-              </Link>
-
-              {/* Close Button */}
-              <button
-                type="button"
-                onClick={() => closeMenu()}
-                className="w-8 h-8 rounded-full bg-[#F5F2EC]/90 hover:bg-[#EAE5DE] text-[#292722] border border-[#786450]/15 flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95"
-                aria-label="Close navigation menu"
-              >
-                <svg width="13" height="13" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M3 3L13 13M13 3L3 13"
-                    stroke="#292722"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            {/* Eyebrow / Architectural Subtitle */}
-            <div className="pt-2.5 pb-1 sm:pt-3 sm:pb-1.5 flex items-center justify-between">
-              <span className="font-mono text-[9px] font-medium tracking-[0.22em] uppercase text-[#94745F]">
-                01 – 07 · ARCHITECTURAL ATELIER
-              </span>
-              <span className="text-[8.5px] font-mono tracking-widest text-[#94745F]/60">
-                EST. 2018
-              </span>
-            </div>
-
-            {/* Navigation Links (01 to 07) - Compact & Elegant */}
-            <nav className="flex flex-col space-y-0.5 py-0.5" aria-label="Main Navigation">
-              {navLinks.map((link) => (
                 <Link
-                  key={link.label}
-                  href={link.href}
+                  href="/"
                   onClick={() => closeMenu()}
-                  className={`group flex items-center justify-between py-1.5 px-2.5 rounded-lg transition-all duration-200 ${
-                    link.active
-                      ? 'bg-[#94745F]/10 text-[#292722]'
-                      : 'text-[#292722] hover:bg-[#94745F]/5 hover:text-[#94745F]'
-                  }`}
+                  className="group flex items-center gap-2.5 focus:outline-none"
                 >
-                    {/* Link Number & Serif Heading */}
-                    <div className="flex items-baseline gap-2.5 sm:gap-3 transition-transform duration-200 ease-out group-hover:translate-x-1.5">
-                      <span className="font-mono text-[10px] sm:text-[10.5px] text-[#94745F] font-medium tracking-wider">
-                        {link.num}
-                      </span>
-                      <span
-                        className={`font-serif text-[17px] sm:text-[18px] font-normal tracking-tight leading-snug transition-colors duration-200 ${
-                          link.active ? 'text-[#292722] font-medium' : 'text-[#292722] group-hover:text-[#94745F]'
-                        }`}
-                      >
-                        {link.label}
-                      </span>
-                    </div>
+                  <div className="relative w-6 h-6 sm:w-7 sm:h-7 shrink-0 transition-transform duration-300 group-hover:scale-105">
+                    <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 16C3 8.82 8.82 3 16 3V7.5C11.306 7.5 7.5 11.306 7.5 16H3Z" fill="#C2633E" />
+                      <path d="M17.5 3H18.5C25.404 3 31 8.596 31 15.5V28H17.5V3Z" fill="#526653" />
+                    </svg>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-sans text-[13px] sm:text-[14px] font-semibold tracking-[0.24em] text-[#292722] leading-none transition-colors group-hover:text-[#94745F]">
+                      EXCORTO
+                    </span>
+                    <span className="text-[6.5px] sm:text-[7px] font-semibold tracking-[0.28em] text-[#94745F] uppercase mt-0.5 leading-none">
+                      BUILDERS &amp; INTERIORS
+                    </span>
+                  </div>
+                </Link>
 
-                    {/* Badge / Indicator */}
-                    <div className="flex items-center gap-2">
-                      {link.badge && (
-                        <span className="text-[8px] uppercase tracking-[0.16em] font-sans font-semibold text-[#94745F] bg-[#94745F]/10 border border-[#94745F]/20 px-2 py-0.5 rounded-full">
-                          {link.badge}
+                {/* Close Button with Subtle Rotation on Hover */}
+                <button
+                  type="button"
+                  onClick={() => closeMenu()}
+                  className="w-8 h-8 rounded-full bg-[#F5F2EC]/90 hover:bg-[#EAE5DE] text-[#292722] border border-[#786450]/15 flex items-center justify-center transition-all duration-300 cursor-pointer active:scale-95 group"
+                  aria-label="Close navigation menu"
+                >
+                  <svg 
+                    width="13" 
+                    height="13" 
+                    viewBox="0 0 16 16" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="transition-transform duration-300 group-hover:rotate-90"
+                  >
+                    <path
+                      d="M3 3L13 13M13 3L3 13"
+                      stroke="#292722"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Eyebrow / Architectural Subtitle */}
+              <div 
+                style={{
+                  transitionDelay: isOpen ? '140ms' : '0ms',
+                }}
+                className={`pt-2.5 pb-1 sm:pt-3 sm:pb-1.5 flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none ${
+                  isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+                }`}
+              >
+                <span className="font-mono text-[9px] font-medium tracking-[0.22em] uppercase text-[#94745F]">
+                  01 – 07 · ARCHITECTURAL ATELIER
+                </span>
+                <span className="text-[8.5px] font-mono tracking-widest text-[#94745F]/60">
+                  EST. 2018
+                </span>
+              </div>
+
+              {/* Navigation Links (01 to 07) - Compact & Elegant with Fluid Stagger */}
+              <nav className="flex flex-col space-y-0.5 py-0.5" aria-label="Main Navigation">
+                {navLinks.map((link, idx) => {
+                  const linkDelay = isOpen 
+                    ? `${170 + idx * 70}ms` 
+                    : `${(navLinks.length - 1 - idx) * 20}ms`;
+
+                  return (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      onClick={() => closeMenu()}
+                      style={{
+                        transitionDelay: linkDelay,
+                      }}
+                      className={`group flex items-center justify-between py-1.5 px-2.5 rounded-lg transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none ${
+                        isOpen 
+                          ? 'opacity-100 translate-y-0' 
+                          : 'opacity-0 translate-y-2.5'
+                      } ${
+                        link.active
+                          ? 'bg-[#94745F]/10 text-[#292722]'
+                          : 'text-[#292722] hover:bg-[#94745F]/5 hover:text-[#94745F]'
+                      }`}
+                    >
+                      {/* Link Number & Serif Heading */}
+                      <div className="flex items-baseline gap-2.5 sm:gap-3 transition-transform duration-200 ease-out group-hover:translate-x-1.5">
+                        <span className="font-mono text-[10px] sm:text-[10.5px] text-[#94745F] font-medium tracking-wider">
+                          {link.num}
                         </span>
-                      )}
-                      {link.active ? (
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#94745F]" title="Current Page" />
-                      ) : (
-                        <span className="opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 text-[#94745F] text-[11px]">
-                          →
+                        <span
+                          className={`font-serif text-[17px] sm:text-[18px] font-normal tracking-tight leading-snug transition-colors duration-200 ${
+                            link.active ? 'text-[#292722] font-medium' : 'text-[#292722] group-hover:text-[#94745F]'
+                          }`}
+                        >
+                          {link.label}
                         </span>
-                      )}
-                    </div>
-                  </Link>
-                ))}
+                      </div>
+
+                      {/* Badge / Indicator */}
+                      <div className="flex items-center gap-2">
+                        {link.badge && (
+                          <span className="text-[8px] uppercase tracking-[0.16em] font-sans font-semibold text-[#94745F] bg-[#94745F]/10 border border-[#94745F]/20 px-2 py-0.5 rounded-full">
+                            {link.badge}
+                          </span>
+                        )}
+                        {link.active ? (
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#94745F]" title="Current Page" />
+                        ) : (
+                          <span className="opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 text-[#94745F] text-[11px]">
+                            →
+                          </span>
+                        )}
+                      </div>
+                    </Link>
+                  );
+                })}
               </nav>
             </div>
 
-            {/* Panel Bottom: Sage Green CTA & Studio Details */}
-            <div className="pt-3 sm:pt-3.5 border-t border-[#786450]/15 mt-2 sm:mt-2.5 space-y-2 sm:space-y-2.5">
+            {/* Panel Bottom: Sage Green CTA & Studio Details with Fluid Entrance */}
+            <div 
+              style={{
+                transitionDelay: isOpen ? '540ms' : '0ms',
+              }}
+              className={`pt-3 sm:pt-3.5 border-t border-[#786450]/15 mt-2 sm:mt-2.5 space-y-2 sm:space-y-2.5 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none ${
+                isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+              }`}
+            >
               {/* Rounded Sage-Green CTA Button */}
               {onOpenConsultation ? (
                 <button

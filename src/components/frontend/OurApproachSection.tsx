@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import { SmoothImage } from '@/components/frontend/SmoothImage';
+import { ScrollReveal } from '@/components/frontend/ScrollReveal';
 
 interface ProcessStep {
   number: string;
@@ -303,7 +304,7 @@ export function OurApproachSection() {
 
       {/* Light minimal interior design architectural line art illustration in warm brown (strictly no text) */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
-        <Image
+        <SmoothImage
           src="/images/approach-interior-line-art.jpg"
           alt="Interior architectural line art sketch illustration"
           fill
@@ -323,7 +324,7 @@ export function OurApproachSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-10 items-start">
           
           {/* Left Column: Eyebrow and Large Display Heading (Static & Preserved) */}
-          <div className="lg:col-span-3 xl:col-span-3 flex flex-col justify-start">
+          <ScrollReveal distance={16} className="lg:col-span-3 xl:col-span-3 flex flex-col justify-start">
             {/* Eyebrow */}
             <span className="font-sans text-[11px] sm:text-[11.5px] lg:text-[12px] font-semibold tracking-[0.24em] uppercase text-[#8E7462] mb-3 sm:mb-4 block">
               OUR APPROACH
@@ -338,7 +339,7 @@ export function OurApproachSection() {
               Idea to the<br />
               Final Detail.
             </h2>
-          </div>
+          </ScrollReveal>
 
           {/* Right Area: Five-Step Timeline */}
           <div className="lg:col-span-9 xl:col-span-9 w-full">

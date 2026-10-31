@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import Image from 'next/image';
 import { Search, Loader2, RefreshCw, ArrowUpRight } from 'lucide-react';
 import { Project } from '@/lib/types';
+import { SmoothImage } from '@/components/frontend/SmoothImage';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -314,7 +314,7 @@ export function ProjectsGallerySection() {
                 >
                   {/* CRITICAL 4:5 Portrait Architectural Photograph */}
                   <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#E8E2D8] select-none rounded-none">
-                    <Image
+                    <SmoothImage
                       src={project.coverImage || '/images/projects/living-room.jpg'}
                       alt={project.title}
                       fill

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Star } from 'lucide-react';
 import { Testimonial } from '@/lib/types';
 import { initialTestimonials } from '@/lib/store';
+import { SmoothImage } from '@/components/frontend/SmoothImage';
 
 function TestimonialCard({ item, index }: { item: Testimonial; index: number }) {
   return (
@@ -38,7 +39,7 @@ function TestimonialCard({ item, index }: { item: Testimonial; index: number }) 
       <div className="flex items-center gap-3 pt-3.5 border-t border-[#EDE7DC]">
         {item.clientPhoto ? (
           <div className="relative w-9 h-9 rounded-full overflow-hidden bg-[#E5DFD4] shrink-0 border border-[#D9D0C4]">
-            <Image
+            <SmoothImage
               src={item.clientPhoto}
               alt={item.clientName}
               fill

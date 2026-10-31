@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import { SmoothImage } from '@/components/frontend/SmoothImage';
+import { ScrollReveal } from '@/components/frontend/ScrollReveal';
 
 interface AdvantageItem {
   number: string;
@@ -47,22 +48,12 @@ export function AboutWhyChooseSection({ onOpenConsultation }: AboutWhyChooseSect
 
   return (
     <section 
-      id="why-choose-excorto"
+      id="why-choose-excorto" 
       aria-labelledby="why-choose-excorto-heading"
       className="relative w-full flex items-center overflow-hidden bg-[#F5F0E8] text-[#292722] select-text py-10 sm:py-12 lg:py-12 xl:py-14"
     >
-      {/* =========================================================================
-          CONTINUOUS FULL-BLEED BACKGROUND IMAGE WITH LOW-DENSITY MOBILE WASH
-          Identical pattern to AboutStorySection ("OUR PHILOSOPHY"):
-          - On Mobile & Tablet: The living room photo spans the background in low density
-            via a soft warm ivory overlay (bg-[#F5F0E8]/90 sm:bg-[#F5F0E8]/85) for
-            exquisite atmosphere while maintaining high contrast text readability.
-          - On Desktop (lg+): The wash is transparent (lg:bg-transparent), revealing the
-            full living room photo and organic curve on the left, with the right side
-            remaining pure warm ivory for the text.
-          ========================================================================= */}
-      <div className="absolute inset-0 z-0 pointer-events-none select-none">
-        <Image
+      <div className="absolute inset-0 z-0 pointer-events-none select-none bg-[#EAE4D9]">
+        <SmoothImage
           src="/images/Warm Minimalist Living Room Still Life.png"
           alt="Excorto Builders & Interiors - Warm Minimalist Living Room with organic curved edge"
           fill
@@ -79,8 +70,6 @@ export function AboutWhyChooseSection({ onOpenConsultation }: AboutWhyChooseSect
 
       {/* =========================================================================
           MAIN EDITORIAL CONTENT CONTAINER
-          - Mobile: Content sits beautifully over the low-density background image.
-          - Desktop: Content is pinned strictly to the right empty ivory canvas (lg:ml-auto).
           ========================================================================= */}
       <div className="relative z-10 w-full max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-6 lg:gap-8">
@@ -92,7 +81,7 @@ export function AboutWhyChooseSection({ onOpenConsultation }: AboutWhyChooseSect
           />
 
           {/* Right Column: Kept strictly within the right empty space */}
-          <div className="lg:col-span-6 xl:col-span-5 flex flex-col justify-center max-w-[480px] xl:max-w-[500px] lg:ml-auto">
+          <ScrollReveal distance={16} className="lg:col-span-6 xl:col-span-5 flex flex-col justify-center max-w-[480px] xl:max-w-[500px] lg:ml-auto">
             
             {/* Small uppercase eyebrow */}
             <span className="font-sans text-[10.5px] sm:text-[11px] font-semibold tracking-[0.24em] uppercase text-[#8E7462] mb-1.5 sm:mb-2 block">
@@ -166,7 +155,7 @@ export function AboutWhyChooseSection({ onOpenConsultation }: AboutWhyChooseSect
               </a>
             </div>
 
-          </div>
+          </ScrollReveal>
 
         </div>
       </div>

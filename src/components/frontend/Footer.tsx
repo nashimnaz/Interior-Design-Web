@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { MapPin, Phone, Mail } from 'lucide-react';
+import { SmoothImage } from '@/components/frontend/SmoothImage';
 
 interface FooterProps {
   onOpenConsultation?: () => void;
@@ -56,7 +56,7 @@ export function Footer({ onOpenConsultation }: FooterProps) {
 
       {/* Subtle Interior Line Art Watermark Background with Light Density */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none opacity-20 mix-blend-multiply overflow-hidden">
-        <Image
+        <SmoothImage
           src="/images/footer-interior-line-art.jpg"
           alt=""
           fill

@@ -749,6 +749,166 @@
       "createdAt": "2026-08-12T13:45:00Z"
     }
   ],
+  "services": [
+    {
+      "id": "srv-1",
+      "number": "01",
+      "title": "Architectural Design",
+      "slug": "architectural-design",
+      "shortDescription": "Thoughtful architectural planning and consultation, creating functional, aesthetically balanced spaces that respond to your requirements and project vision.",
+      "fullDescription": "Excorto Builders & Interiors provides comprehensive architectural design services for residential and commercial projects. Our architectural methodology blends contextual sensitivity with modern spatial planning, ensuring structural elegance, passive environmental balance, and enduring material integrity.",
+      "heroImage": "/images/services/arch-card.jpg",
+      "additionalImages": [
+        "/images/services/arch-card.jpg",
+        "/images/Warm Modern Living Retreat.png"
+      ],
+      "deliverables": [
+        "Conceptual Masterplans & Site Planning",
+        "3D Photorealistic Exterior & Interior Visualizations",
+        "Complete Architectural & Structural Blueprints",
+        "Statutory Approvals & Liaisoning",
+        "Periodic Site Supervision & Milestone Handover"
+      ],
+      "features": [
+        "Contextual Environmental Orientation",
+        "Natural Ventilation & Daylight Optimization",
+        "Modern Tropical Architectural Idiom",
+        "End-to-End Milestone Tracking"
+      ],
+      "displayOrder": 1,
+      "status": "Published",
+      "seoTitle": "Architectural Design | Excorto Builders & Interiors",
+      "seoDesc": "Bespoke architectural planning, site analysis, and construction blueprints in Kerala.",
+      "createdAt": "2026-01-10T10:00:00Z"
+    },
+    {
+      "id": "srv-2",
+      "number": "02",
+      "title": "Interior Designing",
+      "slug": "interior-designing",
+      "shortDescription": "Personalized interior concepts combining space planning, materials, colours, lighting and design details to create beautiful and functional environments.",
+      "fullDescription": "Our interior design atelier curates refined living atmospheres tailored to your lifestyle. We harmonize tactile natural materials, custom woodwork, ambient architectural illumination, and timeless ergonomic spatial layouts.",
+      "heroImage": "/images/services/interior-card.jpg",
+      "additionalImages": [
+        "/images/services/interior-card.jpg",
+        "/images/about-clean-interior-sketch-v2.jpg"
+      ],
+      "deliverables": [
+        "Custom Joinery & Cabinetry Schematics",
+        "Lighting & False Ceiling Detailed Layouts",
+        "Material, Stone & Textile Swatches",
+        "Color Palette Direction & Mood Boards",
+        "Bespoke Furniture Procurement & Curation"
+      ],
+      "features": [
+        "Quiet Luxury Aesthetic & Tactile Finishes",
+        "Artisanal Woodwork & Stone Detailing",
+        "Ergonomic Kitchen & Living Space Optimization",
+        "Seamless Visual Harmony"
+      ],
+      "displayOrder": 2,
+      "status": "Published",
+      "seoTitle": "Interior Designing | Excorto Builders & Interiors",
+      "seoDesc": "Luxury residential and commercial interior architecture and styling in Kerala.",
+      "createdAt": "2026-01-12T10:00:00Z"
+    },
+    {
+      "id": "srv-3",
+      "number": "03",
+      "title": "Interior Installation",
+      "slug": "interior-installation",
+      "shortDescription": "Careful installation of approved interior elements, with attention to alignment, coordination, materials, detailing and finishing.",
+      "fullDescription": "From modular kitchens and custom wardrobes to acoustic ceiling paneling and architectural lighting fixtures, our experienced master craftsmen execute every installation with pinpoint precision and uncompromising quality.",
+      "heroImage": "/images/services/install-card.jpg",
+      "additionalImages": [
+        "/images/services/install-card.jpg",
+        "/images/projects/kitchen.jpg"
+      ],
+      "deliverables": [
+        "Precision Modular Kitchen Fitting",
+        "Custom Wardrobes & Vanity Execution",
+        "Acoustic Wall Paneling & Partitions",
+        "Electrical & Ambient Lighting Fixture Fitting",
+        "Multi-Point Quality Assurance & Handover"
+      ],
+      "features": [
+        "Strict Dimensional Tolerances",
+        "Premium European Hardware (Blum / Häfele)",
+        "Dust-Controlled On-Site Execution",
+        "Comprehensive Finish Inspection"
+      ],
+      "displayOrder": 3,
+      "status": "Published",
+      "seoTitle": "Interior Installation | Excorto Builders & Interiors",
+      "seoDesc": "Precision installation of custom joinery, modular kitchens, and bespoke finishes in Kerala.",
+      "createdAt": "2026-01-15T10:00:00Z"
+    },
+    {
+      "id": "srv-4",
+      "number": "04",
+      "title": "Design Consultation",
+      "slug": "consultation",
+      "shortDescription": "Start with a conversation. Discuss your requirements, project possibilities, planning considerations and the right direction for your space.",
+      "fullDescription": "Schedule a direct one-on-one consultation with our principal architects and interior specialists. We analyze your site or floor plan, review lifestyle aspirations, establish feasible budgets, and outline clear roadmap phases.",
+      "heroImage": "/images/services/consult-card.jpg",
+      "additionalImages": [
+        "/images/services/consult-card.jpg"
+      ],
+      "deliverables": [
+        "Site Feasibility & Space Assessment",
+        "Budgetary & Material Roadmap Formulation",
+        "Preliminary Space Distribution Sketches",
+        "Project Phasing & Timeline Advice"
+      ],
+      "features": [
+        "In-Person Studio or Virtual Meeting",
+        "Direct Interaction with Senior Architects",
+        "Transparent Financial Planning",
+        "Clear Next Steps"
+      ],
+      "displayOrder": 4,
+      "status": "Published",
+      "seoTitle": "Architectural & Interior Consultation | Excorto Builders",
+      "seoDesc": "Schedule a discovery session with Excorto architects in Thiruvananthapuram, Kerala.",
+      "createdAt": "2026-01-18T10:00:00Z"
+    }
+  ],
+  "pageContent": {
+    "home": {
+      "heroEyebrow": "SPACES THAT FEEL LIKE YOU",
+      "heroHeadlineLine1": "Thoughtfully",
+      "heroHeadlineLine2": "Designed.",
+      "heroHeadlineHighlight": "Beautifully Executed.",
+      "heroDescription": "Architecture and interiors designed with intent, crafted with care, and built to endure across generations.",
+      "heroImageDesktop": "/images/AA4DD01B-86D5-45F3-991A-BC3AD98FE52B.png",
+      "heroImageMobile": "/uploads/excorto-1793344405985-d5mzuh.png",
+      "heroCtaText": "START A CONVERSATION",
+      "aboutEyebrow": "ABOUT EXCORTO",
+      "aboutHeadline": "Designing Spaces. Shaping Experiences.",
+      "aboutDescription1": "A great space is more than what you see. It is how naturally it functions, how comfortably it feels, and how meaningfully it connects with the people who use it.",
+      "aboutDescription2": "At Excorto Builders & Interiors, we bring together architectural thinking and interior creativity to create environments that balance aesthetics with functionality.",
+      "aboutDescription3": "Every project is unique. We value personalized design, careful planning, suitable material selection, and clear communication throughout the process.",
+      "aboutCtaText": "MORE ABOUT US"
+    },
+    "about": {
+      "heroTitle": "Rooted in Context, Driven by Craft.",
+      "heroSubtitle": "EXCORTO is an architectural and interior design studio committed to crafting functional, timeless sanctuaries.",
+      "heroImage": "/images/about-living.jpg",
+      "storyHeadline": "Spaces Built with Human Centered Warmth",
+      "storyParagraph1": "Founded in Kerala, EXCORTO Builders & Interiors brings together multidisciplinary architects, spatial designers, and skilled construction specialists.",
+      "storyParagraph2": "Our studio believes that architectural design should honor its natural landscape while serving the daily rituals of those who dwell within it."
+    },
+    "contact": {
+      "heading": "Let's build something extraordinary together.",
+      "subheading": "DIRECT ENQUIRIES",
+      "description": "Every project begins with a conversation. Visit our architectural studio in Thiruvananthapuram or fill out the enquiry form to schedule your initial consultation.",
+      "email": "contact@excortobuilders.com",
+      "phone": "+91 98470 12345",
+      "address": "TC 15/1982, Kowdiar Main Avenue, Thiruvananthapuram, Kerala 695003",
+      "businessHours": "Monday – Saturday: 9:00 AM – 6:30 PM",
+      "mapsUrl": "https://maps.google.com/?q=Kowdiar+Thiruvananthapuram"
+    }
+  },
   "enquiries": [
     {
       "id": "enq-1793347709122",
@@ -998,166 +1158,6 @@
           "consultations": 98
         }
       ]
-    }
-  },
-  "services": [
-    {
-      "id": "srv-1",
-      "number": "01",
-      "title": "Architectural Design",
-      "slug": "architectural-design",
-      "shortDescription": "Thoughtful architectural planning and consultation, creating functional, aesthetically balanced spaces that respond to your requirements and project vision.",
-      "fullDescription": "Excorto Builders & Interiors provides comprehensive architectural design services for residential and commercial projects. Our architectural methodology blends contextual sensitivity with modern spatial planning, ensuring structural elegance, passive environmental balance, and enduring material integrity.",
-      "heroImage": "/images/services/arch-card.jpg",
-      "additionalImages": [
-        "/images/services/arch-card.jpg",
-        "/images/Warm Modern Living Retreat.png"
-      ],
-      "deliverables": [
-        "Conceptual Masterplans & Site Planning",
-        "3D Photorealistic Exterior & Interior Visualizations",
-        "Complete Architectural & Structural Blueprints",
-        "Statutory Approvals & Liaisoning",
-        "Periodic Site Supervision & Milestone Handover"
-      ],
-      "features": [
-        "Contextual Environmental Orientation",
-        "Natural Ventilation & Daylight Optimization",
-        "Modern Tropical Architectural Idiom",
-        "End-to-End Milestone Tracking"
-      ],
-      "displayOrder": 1,
-      "status": "Published",
-      "seoTitle": "Architectural Design | Excorto Builders & Interiors",
-      "seoDesc": "Bespoke architectural planning, site analysis, and construction blueprints in Kerala.",
-      "createdAt": "2026-01-10T10:00:00Z"
-    },
-    {
-      "id": "srv-2",
-      "number": "02",
-      "title": "Interior Designing",
-      "slug": "interior-designing",
-      "shortDescription": "Personalized interior concepts combining space planning, materials, colours, lighting and design details to create beautiful and functional environments.",
-      "fullDescription": "Our interior design atelier curates refined living atmospheres tailored to your lifestyle. We harmonize tactile natural materials, custom woodwork, ambient architectural illumination, and timeless ergonomic spatial layouts.",
-      "heroImage": "/images/services/interior-card.jpg",
-      "additionalImages": [
-        "/images/services/interior-card.jpg",
-        "/images/about-clean-interior-sketch-v2.jpg"
-      ],
-      "deliverables": [
-        "Custom Joinery & Cabinetry Schematics",
-        "Lighting & False Ceiling Detailed Layouts",
-        "Material, Stone & Textile Swatches",
-        "Color Palette Direction & Mood Boards",
-        "Bespoke Furniture Procurement & Curation"
-      ],
-      "features": [
-        "Quiet Luxury Aesthetic & Tactile Finishes",
-        "Artisanal Woodwork & Stone Detailing",
-        "Ergonomic Kitchen & Living Space Optimization",
-        "Seamless Visual Harmony"
-      ],
-      "displayOrder": 2,
-      "status": "Published",
-      "seoTitle": "Interior Designing | Excorto Builders & Interiors",
-      "seoDesc": "Luxury residential and commercial interior architecture and styling in Kerala.",
-      "createdAt": "2026-01-12T10:00:00Z"
-    },
-    {
-      "id": "srv-3",
-      "number": "03",
-      "title": "Interior Installation",
-      "slug": "interior-installation",
-      "shortDescription": "Careful installation of approved interior elements, with attention to alignment, coordination, materials, detailing and finishing.",
-      "fullDescription": "From modular kitchens and custom wardrobes to acoustic ceiling paneling and architectural lighting fixtures, our experienced master craftsmen execute every installation with pinpoint precision and uncompromising quality.",
-      "heroImage": "/images/services/install-card.jpg",
-      "additionalImages": [
-        "/images/services/install-card.jpg",
-        "/images/projects/kitchen.jpg"
-      ],
-      "deliverables": [
-        "Precision Modular Kitchen Fitting",
-        "Custom Wardrobes & Vanity Execution",
-        "Acoustic Wall Paneling & Partitions",
-        "Electrical & Ambient Lighting Fixture Fitting",
-        "Multi-Point Quality Assurance & Handover"
-      ],
-      "features": [
-        "Strict Dimensional Tolerances",
-        "Premium European Hardware (Blum / Häfele)",
-        "Dust-Controlled On-Site Execution",
-        "Comprehensive Finish Inspection"
-      ],
-      "displayOrder": 3,
-      "status": "Published",
-      "seoTitle": "Interior Installation | Excorto Builders & Interiors",
-      "seoDesc": "Precision installation of custom joinery, modular kitchens, and bespoke finishes in Kerala.",
-      "createdAt": "2026-01-15T10:00:00Z"
-    },
-    {
-      "id": "srv-4",
-      "number": "04",
-      "title": "Design Consultation",
-      "slug": "consultation",
-      "shortDescription": "Start with a conversation. Discuss your requirements, project possibilities, planning considerations and the right direction for your space.",
-      "fullDescription": "Schedule a direct one-on-one consultation with our principal architects and interior specialists. We analyze your site or floor plan, review lifestyle aspirations, establish feasible budgets, and outline clear roadmap phases.",
-      "heroImage": "/images/services/consult-card.jpg",
-      "additionalImages": [
-        "/images/services/consult-card.jpg"
-      ],
-      "deliverables": [
-        "Site Feasibility & Space Assessment",
-        "Budgetary & Material Roadmap Formulation",
-        "Preliminary Space Distribution Sketches",
-        "Project Phasing & Timeline Advice"
-      ],
-      "features": [
-        "In-Person Studio or Virtual Meeting",
-        "Direct Interaction with Senior Architects",
-        "Transparent Financial Planning",
-        "Clear Next Steps"
-      ],
-      "displayOrder": 4,
-      "status": "Published",
-      "seoTitle": "Architectural & Interior Consultation | Excorto Builders",
-      "seoDesc": "Schedule a discovery session with Excorto architects in Thiruvananthapuram, Kerala.",
-      "createdAt": "2026-01-18T10:00:00Z"
-    }
-  ],
-  "pageContent": {
-    "home": {
-      "heroEyebrow": "SPACES THAT FEEL LIKE YOU",
-      "heroHeadlineLine1": "Thoughtfully",
-      "heroHeadlineLine2": "Designed.",
-      "heroHeadlineHighlight": "Beautifully Executed.",
-      "heroDescription": "Architecture and interiors designed with intent, crafted with care, and built to endure across generations.",
-      "heroImageDesktop": "/images/AA4DD01B-86D5-45F3-991A-BC3AD98FE52B.png",
-      "heroImageMobile": "/uploads/excorto-1793344405985-d5mzuh.png",
-      "heroCtaText": "START A CONVERSATION",
-      "aboutEyebrow": "ABOUT EXCORTO",
-      "aboutHeadline": "Designing Spaces. Shaping Experiences.",
-      "aboutDescription1": "A great space is more than what you see. It is how naturally it functions, how comfortably it feels, and how meaningfully it connects with the people who use it.",
-      "aboutDescription2": "At Excorto Builders & Interiors, we bring together architectural thinking and interior creativity to create environments that balance aesthetics with functionality.",
-      "aboutDescription3": "Every project is unique. We value personalized design, careful planning, suitable material selection, and clear communication throughout the process.",
-      "aboutCtaText": "MORE ABOUT US"
-    },
-    "about": {
-      "heroTitle": "Rooted in Context, Driven by Craft.",
-      "heroSubtitle": "EXCORTO is an architectural and interior design studio committed to crafting functional, timeless sanctuaries.",
-      "heroImage": "/images/about-living.jpg",
-      "storyHeadline": "Spaces Built with Human Centered Warmth",
-      "storyParagraph1": "Founded in Kerala, EXCORTO Builders & Interiors brings together multidisciplinary architects, spatial designers, and skilled construction specialists.",
-      "storyParagraph2": "Our studio believes that architectural design should honor its natural landscape while serving the daily rituals of those who dwell within it."
-    },
-    "contact": {
-      "heading": "Let's build something extraordinary together.",
-      "subheading": "DIRECT ENQUIRIES",
-      "description": "Every project begins with a conversation. Visit our architectural studio in Thiruvananthapuram or fill out the enquiry form to schedule your initial consultation.",
-      "email": "contact@excortobuilders.com",
-      "phone": "+91 98470 12345",
-      "address": "TC 15/1982, Kowdiar Main Avenue, Thiruvananthapuram, Kerala 695003",
-      "businessHours": "Monday – Saturday: 9:00 AM – 6:30 PM",
-      "mapsUrl": "https://maps.google.com/?q=Kowdiar+Thiruvananthapuram"
     }
   }
 }

@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { HomeContent } from '@/lib/types';
+import { SmoothImage } from '@/components/frontend/SmoothImage';
+import { gsap } from 'gsap';
 
 interface HeroSectionProps {
   onOpenConsultation?: () => void;
@@ -13,6 +14,13 @@ interface HeroSectionProps {
 
 export function HeroSection({ onOpenConsultation, onExploreServices }: HeroSectionProps) {
   const [content, setContent] = useState<Partial<HomeContent>>({});
+  const sectionRef = useRef<HTMLElement>(null);
+  const eyebrowRef = useRef<HTMLParagraphElement>(null);
+  const headingLinesRef = useRef<HTMLSpanElement[]>([]);
+  const subheadingRef = useRef<HTMLParagraphElement>(null);
+  const descRef = useRef<HTMLParagraphElement>(null);
+  const ctaDesktopRef = useRef<HTMLDivElement>(null);
+  const ctaMobileRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetch('/api/content?page=home')
@@ -25,6 +33,60 @@ export function HeroSection({ onOpenConsultation, onExploreServices }: HeroSecti
       .catch(() => {});
   }, []);
 
+  useEffect(() => {
+    const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      // 1. Eyebrow Reveal
+      if (eyebrowRef.current) {
+        tl.fromTo(
+          eyebrowRef.current,
+          { opacity: 0, y: 15 },
+          { opacity: 1, y: 0, duration: 0.75 },
+          0.1
+        );
+      }
+
+      // 2. Line-by-Line Upward Heading Reveal
+      const validLines = headingLinesRef.current.filter(Boolean);
+      if (validLines.length > 0) {
+        tl.fromTo(
+          validLines,
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out' },
+          0.2
+        );
+      }
+
+      // 3. Subheading & Description Fade-Up
+      const descElements = [subheadingRef.current, descRef.current].filter(Boolean);
+      if (descElements.length > 0) {
+        tl.fromTo(
+          descElements,
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.85, stagger: 0.1 },
+          0.55
+        );
+      }
+
+      // 4. CTAs Fade-Up
+      const ctaElements = [ctaDesktopRef.current, ctaMobileRef.current].filter(Boolean);
+      if (ctaElements.length > 0) {
+        tl.fromTo(
+          ctaElements,
+          { opacity: 0, y: 16 },
+          { opacity: 1, y: 0, duration: 0.75 },
+          0.75
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   const desktopImage = content.heroImageDesktop || '/images/AA4DD01B-86D5-45F3-991A-BC3AD98FE52B.png';
   const mobileImage = content.heroImageMobile || '/images/Sunlit Arched Nook with Olive Branches.png';
   const eyebrow = content.heroEyebrow || 'SPACES THAT FEEL LIKE YOU';
@@ -34,10 +96,10 @@ export function HeroSection({ onOpenConsultation, onExploreServices }: HeroSecti
   const description = content.heroDescription || 'Welcome to Excorto Builders & Interiors, your partner in architectural design, interior design and interior installation in Thiruvananthapuram, Kerala.';
 
   return (
-    <section className="relative w-full h-screen min-h-screen flex items-start md:items-center overflow-hidden bg-[#F7F4EE]">
+    <section ref={sectionRef} className="relative w-full h-screen min-h-screen flex items-start md:items-center overflow-hidden bg-[#F7F4EE]">
       {/* Desktop & Tablet Background Architectural Interior Image (md and above) */}
-      <div className="hidden md:block absolute inset-0 z-0">
-        <Image
+      <div className="hidden md:block absolute inset-0 z-0 bg-[#EAE4D9]">
+        <SmoothImage
           src={desktopImage}
           alt="Excorto Architectural Interior Design Studio"
           fill
@@ -50,8 +112,8 @@ export function HeroSection({ onOpenConsultation, onExploreServices }: HeroSecti
       </div>
 
       {/* Mobile-Only Portrait 9:16 Architectural Background Image (< md / up to 767px) */}
-      <div className="block md:hidden absolute inset-0 z-0">
-        <Image
+      <div className="block md:hidden absolute inset-0 z-0 bg-[#EAE4D9]">
+        <SmoothImage
           src={mobileImage}
           alt="Excorto Architectural Interior Design Studio - Sunlit Nook"
           fill
@@ -67,31 +129,37 @@ export function HeroSection({ onOpenConsultation, onExploreServices }: HeroSecti
       <div className="relative z-10 w-full max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 pt-24 xs:pt-28 sm:pt-32 md:pt-16 pb-6 sm:pb-8">
         <div className="max-w-[275px] xs:max-w-[295px] sm:max-w-[360px] md:max-w-[560px] xl:max-w-[590px]">
           {/* Eyebrow Tag */}
-          <p className="text-[11px] sm:text-[11.5px] font-medium tracking-[0.22em] text-[#A07355] md:text-[#636A64] uppercase mb-2 sm:mb-3.5 select-text">
+          <p ref={eyebrowRef} className="text-[11px] sm:text-[11.5px] font-medium tracking-[0.22em] text-[#A07355] md:text-[#636A64] uppercase mb-2 sm:mb-3.5 select-text">
             {eyebrow}
           </p>
 
           {/* Main Headline - Larger luxury editorial serif with exact lettering format */}
-          <h1 className="font-serif text-[42px] xs:text-[45px] sm:text-[50px] md:text-[58px] lg:text-[64px] xl:text-[70px] leading-[1.02] sm:leading-[1.05] tracking-[-0.015em] font-normal select-text">
-            <span className="block font-normal text-[#1E2522]">{line1}</span>
-            <span className="block font-normal text-[#1E2522]">{line2}</span>
-            <span className="block font-normal text-[#8F5E3B] md:text-[#1E2522]">
-              {highlight}
+          <h1 className="font-serif text-[42px] xs:text-[45px] sm:text-[50px] md:text-[58px] lg:text-[64px] xl:text-[70px] leading-[1.12] sm:leading-[1.15] tracking-[-0.015em] font-normal select-text">
+            <span className="block">
+              <span ref={el => { if (el) headingLinesRef.current[0] = el; }} className="block font-normal text-[#1E2522]">{line1}</span>
+            </span>
+            <span className="block">
+              <span ref={el => { if (el) headingLinesRef.current[1] = el; }} className="block font-normal text-[#1E2522]">{line2}</span>
+            </span>
+            <span className="block">
+              <span ref={el => { if (el) headingLinesRef.current[2] = el; }} className="block font-normal text-[#8F5E3B] md:text-[#1E2522]">
+                {highlight}
+              </span>
             </span>
           </h1>
 
           {/* Subheading */}
-          <p className="font-sans font-medium text-[#29302C] text-[13.5px] xs:text-[14px] sm:text-[15px] lg:text-[17px] mt-3.5 sm:mt-4 mb-2 tracking-[-0.01em] leading-snug">
+          <p ref={subheadingRef} className="font-sans font-medium text-[#29302C] text-[13.5px] xs:text-[14px] sm:text-[15px] lg:text-[17px] mt-3.5 sm:mt-4 mb-2 tracking-[-0.01em] leading-snug">
             We Transform Ideas into Inspiring Spaces.
           </p>
 
           {/* Description Paragraph - Sized and constrained to stay in the left white area */}
-          <p className="font-sans font-normal text-[#5A605C] text-[11.5px] xs:text-[12px] sm:text-[12.5px] md:text-[14px] leading-[1.6] max-w-[260px] xs:max-w-[280px] sm:max-w-[340px] md:max-w-[440px]">
+          <p ref={descRef} className="font-sans font-normal text-[#5A605C] text-[11.5px] xs:text-[12px] sm:text-[12.5px] md:text-[14px] leading-[1.6] max-w-[260px] xs:max-w-[280px] sm:max-w-[340px] md:max-w-[440px]">
             {description}
           </p>
 
           {/* Mobile 2 Glass Effect Curved Edged Buttons */}
-          <div className="flex md:hidden flex-wrap items-center gap-2.5 mt-4 sm:mt-5">
+          <div ref={ctaMobileRef} className="flex md:hidden flex-wrap items-center gap-2.5 mt-4 sm:mt-5">
             {/* Explore Services Glass Button */}
             <button
               type="button"
@@ -111,7 +179,7 @@ export function HeroSection({ onOpenConsultation, onExploreServices }: HeroSecti
           </div>
 
           {/* Action CTAs - Hidden on mobile (< md), visible on desktop */}
-          <div className="hidden md:flex flex-wrap items-center gap-4 sm:gap-5 mt-6 sm:mt-7">
+          <div ref={ctaDesktopRef} className="hidden md:flex flex-wrap items-center gap-4 sm:gap-5 mt-6 sm:mt-7">
             {/* Primary Circular Sage Arrow Button */}
             <button
               type="button"

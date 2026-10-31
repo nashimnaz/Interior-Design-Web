@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { BlogPost } from '@/lib/types';
+import { SmoothImage } from '@/components/frontend/SmoothImage';
 
 interface BlogArticleCardProps {
   article?: BlogPost;
@@ -29,7 +29,7 @@ export function BlogArticleCard({ article, blog, priority = false }: BlogArticle
         tabIndex={-1}
         aria-hidden="true"
       >
-        <Image
+        <SmoothImage
           src={item.coverImage || '/images/blogs/creating-timeless-interiors.jpg'}
           alt={item.title}
           fill

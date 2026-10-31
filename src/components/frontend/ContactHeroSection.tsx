@@ -52,8 +52,8 @@ export function ContactHeroSection({ onDiscussProject }: ContactHeroSectionProps
       if (validHeadingLines.length > 0) {
         tl.fromTo(
           validHeadingLines,
-          { yPercent: 110, opacity: 0 },
-          { yPercent: 0, opacity: 1, duration: 1.05, stagger: 0.12 },
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out' },
           0.25
         );
       }
@@ -168,9 +168,9 @@ export function ContactHeroSection({ onDiscussProject }: ContactHeroSectionProps
           {/* Main Heading: Canela/Cormorant Garamond large serif */}
           <h1 
             id="contact-hero-heading"
-            className="font-serif text-[#292722] text-[38px] xs:text-[42px] sm:text-[48px] md:text-[54px] lg:text-[56px] xl:text-[62px] leading-[1.08] tracking-[-0.018em] font-normal mb-5 sm:mb-6 select-text"
+            className="font-serif text-[#292722] text-[38px] xs:text-[42px] sm:text-[48px] md:text-[54px] lg:text-[56px] xl:text-[62px] leading-[1.12] sm:leading-[1.15] tracking-[-0.018em] font-normal mb-5 sm:mb-6 select-text"
           >
-            <span className="block overflow-hidden py-0.5">
+            <span className="block">
               <span 
                 ref={(el) => { if (el) headingLinesRef.current[0] = el; }}
                 className="block will-change-transform"
@@ -178,7 +178,7 @@ export function ContactHeroSection({ onDiscussProject }: ContactHeroSectionProps
                 Let&apos;s Start
               </span>
             </span>
-            <span className="block overflow-hidden py-0.5">
+            <span className="block">
               <span 
                 ref={(el) => { if (el) headingLinesRef.current[1] = el; }}
                 className="block will-change-transform"
@@ -186,7 +186,7 @@ export function ContactHeroSection({ onDiscussProject }: ContactHeroSectionProps
                 a Conversation.
               </span>
             </span>
-            <span className="block overflow-hidden py-0.5">
+            <span className="block">
               <span 
                 ref={(el) => { if (el) headingLinesRef.current[2] = el; }}
                 className="block italic text-[#94745F] font-normal will-change-transform text-[28px] xs:text-[32px] sm:text-[36px] md:text-[42px] lg:text-[44px] xl:text-[48px] mt-1"

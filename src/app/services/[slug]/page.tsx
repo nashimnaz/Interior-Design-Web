@@ -10,6 +10,8 @@ import { ConsultationModal } from '@/components/frontend/ConsultationModal';
 import { ArrowLeft, CheckCircle2, ArrowRight } from 'lucide-react';
 import { ServiceItem } from '@/lib/types';
 import { initialServices } from '@/lib/store';
+import { SmoothImage } from '@/components/frontend/SmoothImage';
+import { ScrollReveal } from '@/components/frontend/ScrollReveal';
 
 function DynamicServiceContent() {
   const params = useParams();
@@ -118,7 +120,7 @@ function DynamicServiceContent() {
 
             <div className="lg:col-span-5">
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#E5DDD2] shadow-xl">
-                <Image
+                <SmoothImage
                   src={service?.heroImage || '/images/services/arch-card.jpg'}
                   alt={service?.title || 'Service Offering'}
                   fill
@@ -143,18 +145,19 @@ function DynamicServiceContent() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {deliverables.map((item, index) => (
-              <div
-                key={index}
-                className="bg-[#FAF7F2] p-6 sm:p-7 border border-[#E5DDD2] flex items-start gap-4 hover:border-[#94745F]/60 transition-colors"
-              >
-                <CheckCircle2 size={18} className="text-[#94745F] shrink-0 mt-0.5" />
-                <div>
-                  <span className="text-[11px] font-mono text-[#94745F] font-semibold block mb-1">
-                    {index + 1 < 10 ? `0${index + 1}` : index + 1}
-                  </span>
-                  <p className="font-sans text-sm text-[#292722] font-medium leading-snug">{item}</p>
+              <ScrollReveal key={index} staggerIndex={index % 3} distance={14}>
+                <div
+                  className="bg-[#FAF7F2] p-6 sm:p-7 border border-[#E5DDD2] flex items-start gap-4 hover:border-[#94745F]/60 transition-colors h-full"
+                >
+                  <CheckCircle2 size={18} className="text-[#94745F] shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-[11px] font-mono text-[#94745F] font-semibold block mb-1">
+                      {index + 1 < 10 ? `0${index + 1}` : index + 1}
+                    </span>
+                    <p className="font-sans text-sm text-[#292722] font-medium leading-snug">{item}</p>
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </section>

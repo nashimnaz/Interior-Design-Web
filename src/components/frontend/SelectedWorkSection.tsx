@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { SmoothImage } from '@/components/frontend/SmoothImage';
+import { ScrollReveal } from '@/components/frontend/ScrollReveal';
 
 interface SelectedWorkSectionProps {
   onOpenConsultation?: () => void;
@@ -94,7 +95,7 @@ export function SelectedWorkSection({ onOpenConsultation }: SelectedWorkSectionP
         >
           {/* Rectangular Architectural Photography with Sharp Corners */}
           <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#E5DFD4] rounded-none">
-            <Image
+            <SmoothImage
               src={project.image}
               alt={isDuplicate ? '' : project.alt}
               fill
@@ -160,7 +161,7 @@ export function SelectedWorkSection({ onOpenConsultation }: SelectedWorkSectionP
         <div className="flex flex-col lg:flex-row items-stretch lg:items-start gap-10 lg:gap-8 xl:gap-10">
           
           {/* Left Content Column (~20% Width) - Static */}
-          <div className="w-full lg:w-[22%] xl:w-[20%] shrink-0 flex flex-col justify-between pt-1 lg:pt-2">
+          <ScrollReveal distance={16} className="w-full lg:w-[22%] xl:w-[20%] shrink-0 flex flex-col justify-between pt-1 lg:pt-2">
             <div>
               {/* Eyebrow Label */}
               <span className="font-sans text-[11px] sm:text-[11.5px] uppercase tracking-[0.24em] font-medium text-[#94745F] mb-3 sm:mb-4 block">
@@ -187,7 +188,7 @@ export function SelectedWorkSection({ onOpenConsultation }: SelectedWorkSectionP
                 <ArrowRight size={13} className="text-[#94745F] group-hover:text-[#292722] transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Area: Continuously Moving Horizontal Project-Card Carousel */}
           <div className="flex-1 min-w-0 overflow-hidden relative marquee-carousel-wrapper">

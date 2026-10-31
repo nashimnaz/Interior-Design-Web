@@ -40,8 +40,8 @@ export function TestimonialsHeroSection({ onExploreStories }: TestimonialsHeroSe
       if (validHeadingLines.length > 0) {
         tl.fromTo(
           validHeadingLines,
-          { yPercent: 110, opacity: 0 },
-          { yPercent: 0, opacity: 1, duration: 1.05, stagger: 0.12 },
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out' },
           0.22
         );
       }
@@ -206,9 +206,9 @@ export function TestimonialsHeroSection({ onExploreStories }: TestimonialsHeroSe
           {/* Main Heading: Canela/Cormorant Garamond serif with "Stay With Us." highlighted */}
           <h1 
             id="testimonials-hero-heading"
-            className="font-serif text-[#292722] text-[40px] xs:text-[46px] sm:text-[52px] md:text-[58px] lg:text-[60px] xl:text-[66px] leading-[1.06] tracking-[-0.018em] font-normal mb-5 sm:mb-6 select-text"
+            className="font-serif text-[#292722] text-[40px] xs:text-[46px] sm:text-[52px] md:text-[58px] lg:text-[60px] xl:text-[66px] leading-[1.12] sm:leading-[1.15] tracking-[-0.018em] font-normal mb-5 sm:mb-6 select-text"
           >
-            <span className="block overflow-hidden py-0.5">
+            <span className="block">
               <span 
                 ref={(el) => { if (el) headingLinesRef.current[0] = el; }}
                 className="block will-change-transform"
@@ -216,7 +216,7 @@ export function TestimonialsHeroSection({ onExploreStories }: TestimonialsHeroSe
                 Words That
               </span>
             </span>
-            <span className="block overflow-hidden py-0.5">
+            <span className="block">
               <span 
                 ref={(el) => { if (el) headingLinesRef.current[1] = el; }}
                 className="block italic text-[#94745F] font-normal will-change-transform"

@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { BlogPost } from '@/lib/types';
 import { TrendingUp, FolderTree, Sparkles } from 'lucide-react';
+import { SmoothImage } from '@/components/frontend/SmoothImage';
 
 interface BlogSidebarProps {
   popularArticles: BlogPost[];
@@ -45,12 +45,13 @@ export function BlogSidebar({
               className="group flex items-start gap-4 transition-all"
             >
               <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-[3px] overflow-hidden bg-[#E8E1D5] shrink-0 border border-[#DDD5C7]">
-                <Image
+                <SmoothImage
                   src={article.coverImage || '/images/blogs/creating-timeless-interiors.jpg'}
                   alt={article.title}
                   fill
                   sizes="72px"
                   unoptimized
+                  fallbackSrc="/images/blogs/creating-timeless-interiors.jpg"
                   className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
                 />
               </div>

@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "@/context/ThemeContext";
+import { PageTransition } from "@/components/frontend/PageTransition";
 
 export default function RootLayout({
   children,
@@ -61,7 +62,9 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col font-sans antialiased text-[#221E1B] bg-[#F6F3EE] selection:bg-[#8D6545] selection:text-[#FFFFFF] transition-colors duration-200">
         <ThemeProvider>
-          {children}
+          <PageTransition>
+            {children}
+          </PageTransition>
         </ThemeProvider>
       </body>
     </html>

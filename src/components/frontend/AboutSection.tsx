@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { SmoothImage } from '@/components/frontend/SmoothImage';
+import { ScrollReveal } from '@/components/frontend/ScrollReveal';
 
 interface AboutSectionProps {
   onOpenConsultation?: () => void;
@@ -24,7 +25,7 @@ export function AboutSection({ onOpenConsultation }: AboutSectionProps) {
         >
           {/* Very light interior design reference illustration in warm brown shade (strictly no text/writings) */}
           <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
-            <Image
+            <SmoothImage
               src="/images/about-clean-interior-sketch-v2.jpg"
               alt="Interior design architectural sketch illustration"
               fill
@@ -37,7 +38,7 @@ export function AboutSection({ onOpenConsultation }: AboutSectionProps) {
             <div className="absolute inset-0 bg-gradient-to-r from-[#F5EEDB]/75 via-[#F5EEDB]/40 to-transparent pointer-events-none" />
           </div>
 
-          <div className="relative z-10">
+          <ScrollReveal distance={18} className="relative z-10">
             {/* Eyebrow */}
             <span className="font-sans text-[11px] sm:text-[12px] font-medium tracking-[0.24em] uppercase text-black mb-4 sm:mb-5 block">
               ABOUT EXCORTO
@@ -72,12 +73,12 @@ export function AboutSection({ onOpenConsultation }: AboutSectionProps) {
                 <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1.5" />
               </Link>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* Right Column: Full-Bleed Image Filling Top, Down, and Right */}
-        <div className="relative w-full h-full min-h-[460px] sm:min-h-[540px] lg:min-h-full overflow-hidden">
-          <Image
+        <div className="relative w-full h-full min-h-[460px] sm:min-h-[540px] lg:min-h-full overflow-hidden bg-[#EAE4D9]">
+          <SmoothImage
             src="/images/Warm Modern Living Retreat.png"
             alt="Warm Modern Living Retreat - Excorto Interior Architecture"
             fill

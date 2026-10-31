@@ -45,8 +45,8 @@ export function ServicesHeroSection({
       if (validHeadingLines.length > 0) {
         tl.fromTo(
           validHeadingLines,
-          { yPercent: 110, opacity: 0 },
-          { yPercent: 0, opacity: 1, duration: 1.05, stagger: 0.12 },
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out' },
           0.2
         );
       }
@@ -197,9 +197,9 @@ export function ServicesHeroSection({
           {/* Main Heading: Line-by-Line Upward Mask Reveal */}
           <h1 
             id="services-hero-heading"
-            className="font-serif text-[#292722] text-[36px] xs:text-[40px] sm:text-[46px] md:text-[52px] lg:text-[54px] xl:text-[60px] leading-[1.07] tracking-[-0.018em] font-normal mb-5 sm:mb-6 select-text"
+            className="font-serif text-[#292722] text-[36px] xs:text-[40px] sm:text-[46px] md:text-[52px] lg:text-[54px] xl:text-[60px] leading-[1.12] sm:leading-[1.15] tracking-[-0.018em] font-normal mb-5 sm:mb-6 select-text"
           >
-            <span className="block overflow-hidden py-0.5">
+            <span className="block">
               <span 
                 ref={(el) => { if (el) headingLinesRef.current[0] = el; }}
                 className="block will-change-transform"
@@ -207,7 +207,7 @@ export function ServicesHeroSection({
                 Thoughtful Design.
               </span>
             </span>
-            <span className="block overflow-hidden py-0.5">
+            <span className="block">
               <span 
                 ref={(el) => { if (el) headingLinesRef.current[1] = el; }}
                 className="block will-change-transform"
@@ -215,7 +215,7 @@ export function ServicesHeroSection({
                 Seamless Execution.
               </span>
             </span>
-            <span className="block overflow-hidden py-0.5">
+            <span className="block">
               <span 
                 ref={(el) => { if (el) headingLinesRef.current[2] = el; }}
                 className="block italic text-[#94745F] font-normal will-change-transform"

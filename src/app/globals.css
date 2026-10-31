@@ -167,10 +167,25 @@
   animation: servicePageFadeIn 0.25s ease-out forwards;
 }
 
+/* Premium Architectural Image Reveal */
+.img-reveal {
+  opacity: 0;
+  transform: scale(1.015);
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-reveal.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .service-page-enter {
-    animation: none;
-    opacity: 1;
+  .service-page-enter,
+  .img-reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
 

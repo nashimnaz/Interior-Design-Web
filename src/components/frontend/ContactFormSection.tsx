@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Clock, CheckCircle2, ArrowRight, Loader2 } from 'lucide-react';
 import { ContactContent } from '@/lib/types';
+import { ScrollReveal } from '@/components/frontend/ScrollReveal';
 
 export function ContactFormSection() {
   const [contactInfo, setContactInfo] = useState<Partial<ContactContent>>({});
@@ -84,7 +85,7 @@ export function ContactFormSection() {
           {/* =====================================================================
               LEFT COLUMN: STUDIO DETAILS & EDITORIAL INTRO (5 cols)
               ===================================================================== */}
-          <div className="lg:col-span-5 flex flex-col justify-between">
+          <ScrollReveal distance={16} className="lg:col-span-5 flex flex-col justify-between">
             <div>
               <span className="font-sans text-[11px] sm:text-[11.5px] font-semibold tracking-[0.24em] uppercase text-[#94745F] mb-3 block">
                 DIRECT ENQUIRIES
@@ -167,12 +168,12 @@ export function ContactFormSection() {
 
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* =====================================================================
               RIGHT COLUMN: EDITORIAL ENQUIRY FORM (7 cols)
               ===================================================================== */}
-          <div className="lg:col-span-7 bg-[#FCFAF4] border border-[#E5DFD4] p-8 sm:p-10 lg:p-12 shadow-xs">
+          <ScrollReveal delay={100} distance={16} className="lg:col-span-7 bg-[#FCFAF4] border border-[#E5DFD4] p-8 sm:p-10 lg:p-12 shadow-xs">
             {isSubmitted ? (
               <div className="py-12 sm:py-16 text-center flex flex-col items-center">
                 <div className="w-14 h-14 rounded-full bg-[#94745F]/12 text-[#94745F] flex items-center justify-center mb-5">
@@ -365,7 +366,7 @@ export function ContactFormSection() {
                 </div>
               </form>
             )}
-          </div>
+          </ScrollReveal>
 
         </div>
 

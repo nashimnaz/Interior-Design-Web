@@ -11,6 +11,7 @@ import { BlogSidebar } from '@/components/frontend/blog/BlogSidebar';
 import { BlogPost } from '@/lib/types';
 import { initialBlogs } from '@/lib/store';
 import { Loader2, Plus, Sparkles } from 'lucide-react';
+import { ScrollReveal } from '@/components/frontend/ScrollReveal';
 
 const CATEGORIES = [
   'All Articles',
@@ -168,11 +169,12 @@ export default function BlogListingPage() {
                 {/* Responsive Article Grid (1 column on mobile, 2 columns on tablet, 2-3 columns on desktop) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-7 sm:gap-8">
                   {visibleArticles.map((article, index) => (
-                    <BlogArticleCard 
-                      key={article.id} 
-                      article={article} 
-                      priority={index < 2} 
-                    />
+                    <ScrollReveal key={article.id} staggerIndex={index % 3} distance={14}>
+                      <BlogArticleCard 
+                        article={article} 
+                        priority={index < 2} 
+                      />
+                    </ScrollReveal>
                   ))}
                 </div>
 

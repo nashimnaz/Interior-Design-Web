@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Layers, Building2 } from 'lucide-react';
 
+import { ScrollReveal } from '@/components/frontend/ScrollReveal';
+
 export function ServicesSection() {
   const defaultIcons = [
     (
@@ -119,36 +121,42 @@ export function ServicesSection() {
           {/* 4 Services Columns */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 flex-1 divide-y sm:divide-y-0 lg:divide-x divide-[#E5DDD2]">
             {services.map((item, idx) => (
-              <Link 
-                key={item.id} 
-                href={getServiceHref(item.id, idx)}
-                className={`group flex flex-col justify-between py-6 sm:py-4 lg:py-2 transition-all duration-300 hover:bg-[#F3EDE2]/50 cursor-pointer ${
-                  idx === 0 ? 'lg:pl-8 xl:pl-10 lg:pr-8' : 'lg:px-8 xl:px-10'
-                }`}
+              <ScrollReveal
+                key={item.id}
+                staggerIndex={idx}
+                distance={14}
+                className="flex flex-col"
               >
-                <div>
-                  {/* Icon */}
-                  <div className="h-10 flex items-center mb-4 transition-transform duration-300 group-hover:scale-105">
-                    {item.icon}
+                <Link 
+                  href={getServiceHref(item.id, idx)}
+                  className={`group flex flex-col justify-between h-full py-6 sm:py-4 lg:py-2 transition-all duration-300 hover:bg-[#F3EDE2]/50 cursor-pointer ${
+                    idx === 0 ? 'lg:pl-8 xl:pl-10 lg:pr-8' : 'lg:px-8 xl:px-10'
+                  }`}
+                >
+                  <div>
+                    {/* Icon */}
+                    <div className="h-10 flex items-center mb-4 transition-transform duration-300 group-hover:scale-105">
+                      {item.icon}
+                    </div>
+
+                    {/* Service Title */}
+                    <h3 className="font-sans text-[12px] sm:text-[12.5px] font-semibold tracking-[0.18em] uppercase text-[#2C2018] group-hover:text-[#9C7A63] transition-colors mb-2.5">
+                      {item.title}
+                    </h3>
+
+                    {/* Service Description */}
+                    <p className="font-sans text-[13px] sm:text-[13.5px] text-[#665B51] leading-[1.62]">
+                      {item.description}
+                    </p>
                   </div>
 
-                  {/* Service Title */}
-                  <h3 className="font-sans text-[12px] sm:text-[12.5px] font-semibold tracking-[0.18em] uppercase text-[#2C2018] group-hover:text-[#9C7A63] transition-colors mb-2.5">
-                    {item.title}
-                  </h3>
-
-                  {/* Service Description */}
-                  <p className="font-sans text-[13px] sm:text-[13.5px] text-[#665B51] leading-[1.62]">
-                    {item.description}
-                  </p>
-                </div>
-
-                {/* Subtle explore prompt */}
-                <div className="mt-4 pt-2 flex items-center gap-1.5 text-[11px] font-sans font-medium uppercase tracking-[0.16em] text-[#9C7A63] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
-                  <span>Explore</span>
-                  <span>→</span>
-                </div>
-              </Link>
+                  {/* Subtle explore prompt */}
+                  <div className="mt-4 pt-2 flex items-center gap-1.5 text-[11px] font-sans font-medium uppercase tracking-[0.16em] text-[#9C7A63] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
+                    <span>Explore</span>
+                    <span>→</span>
+                  </div>
+                </Link>
+              </ScrollReveal>
             ))}
           </div>
         </div>

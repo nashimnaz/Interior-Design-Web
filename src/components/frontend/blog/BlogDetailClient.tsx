@@ -11,6 +11,8 @@ import { ArticleTableOfContents } from '@/components/frontend/blog/ArticleTableO
 import { BlogArticleCard } from '@/components/frontend/blog/BlogArticleCard';
 import { BlogPost } from '@/lib/types';
 import { ArrowLeft, Calendar, Clock, Tag, Sparkles } from 'lucide-react';
+import { SmoothImage } from '@/components/frontend/SmoothImage';
+import { ScrollReveal } from '@/components/frontend/ScrollReveal';
 
 interface BlogDetailClientProps {
   initialArticle: BlogPost;
@@ -90,8 +92,8 @@ export function BlogDetailClient({
         className="relative w-full min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden bg-[#F4F0E9] text-[#292722] select-text"
       >
         {/* Full-Screen Architectural Background Image */}
-        <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
-          <Image
+        <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden bg-[#EAE4D9]">
+          <SmoothImage
             src={article.coverImage || '/images/services/interior-hero.jpg'}
             alt={article.title}
             fill
@@ -269,8 +271,10 @@ export function BlogDetailClient({
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {relatedArticles.map((rel) => (
-              <BlogArticleCard key={rel.id} blog={rel} />
+            {relatedArticles.map((rel, idx) => (
+              <ScrollReveal key={rel.id} staggerIndex={idx % 3} distance={14}>
+                <BlogArticleCard blog={rel} />
+              </ScrollReveal>
             ))}
           </div>
         </section>

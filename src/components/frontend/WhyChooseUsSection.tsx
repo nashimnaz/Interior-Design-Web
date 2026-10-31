@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import { SmoothImage } from '@/components/frontend/SmoothImage';
+import { ScrollReveal } from '@/components/frontend/ScrollReveal';
 
 interface WhyChooseUsSectionProps {
   eyebrow?: string;
@@ -27,8 +28,8 @@ export function WhyChooseUsSection({
       aria-labelledby="why-us-heading"
     >
       {/* Desktop Continuous Panoramic Background Image (Full Bleed) */}
-      <div className="hidden lg:block absolute inset-0 z-0 pointer-events-none select-none">
-        <Image
+      <div className="hidden lg:block absolute inset-0 z-0 pointer-events-none select-none bg-[#D4C9BC]">
+        <SmoothImage
           src="/images/Minimalist Wabi-Sabi Vase Still Life.png"
           alt="Minimalist Wabi-Sabi ceramic vase with natural branches on stone console"
           fill
@@ -40,7 +41,7 @@ export function WhyChooseUsSection({
 
       {/* Mobile & Tablet Still Life Visual Frame */}
       <div className="lg:hidden relative w-full h-[260px] sm:h-[320px] md:h-[380px] overflow-hidden bg-[#DDD3C7]">
-        <Image
+        <SmoothImage
           src="/images/Minimalist Wabi-Sabi Vase Still Life.png"
           alt="Minimalist Wabi-Sabi ceramic vase with natural branches on stone console"
           fill
@@ -63,7 +64,7 @@ export function WhyChooseUsSection({
           />
 
           {/* Column 2: Centre Content (Eyebrow, Main Heading, Description) */}
-          <div className="lg:col-span-5 xl:col-span-5 flex flex-col justify-center">
+          <ScrollReveal distance={16} className="lg:col-span-5 xl:col-span-5 flex flex-col justify-center">
             {/* Small uppercase eyebrow text */}
             <span className="font-sans text-[11px] sm:text-[11.5px] lg:text-[12px] font-medium tracking-[0.28em] uppercase text-[#8E7462] mb-3 sm:mb-4 block">
               {eyebrow}
@@ -84,12 +85,12 @@ export function WhyChooseUsSection({
               creative thinking and attention to detail to every project, helping you
               transform your vision into well-considered spaces.
             </p>
-          </div>
+          </ScrollReveal>
 
           {/* Column 3: Right Key Values (Five statements with horizontal dashes) */}
-          <div className="lg:col-span-3 xl:col-span-3 flex flex-col justify-center lg:pt-8 xl:pt-9 lg:pl-2 xl:pl-4">
+          <ScrollReveal delay={120} distance={16} className="lg:col-span-3 xl:col-span-3 flex flex-col justify-center lg:pt-8 xl:pt-9 lg:pl-2 xl:pl-4">
             <ul className="space-y-4 sm:space-y-4.5 lg:space-y-5">
-              {valueStatements.map((statement) => (
+              {valueStatements.map((statement, idx) => (
                 <li 
                   key={statement} 
                   className="flex items-center gap-4 sm:gap-4.5 group select-none"
@@ -106,7 +107,7 @@ export function WhyChooseUsSection({
                 </li>
               ))}
             </ul>
-          </div>
+          </ScrollReveal>
 
         </div>
       </div>
