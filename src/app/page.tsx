@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { Preloader } from '@/components/frontend/Preloader';
 import { Navbar } from '@/components/frontend/Navbar';
 import { HeroSection } from '@/components/frontend/HeroSection';
 import { ServicesSection } from '@/components/frontend/ServicesSection';
@@ -14,6 +15,7 @@ import { ConsultationModal } from '@/components/frontend/ConsultationModal';
 
 export default function HomePage() {
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
+  const [isHeroReadyToAnimate, setIsHeroReadyToAnimate] = useState(false);
 
   const handleScrollToServices = () => {
     const el = document.getElementById('services');
@@ -24,6 +26,12 @@ export default function HomePage() {
 
   return (
     <main className="w-full bg-[#F7F4EE] min-h-screen selection:bg-[#C2633E] selection:text-white relative">
+      {/* Branded E Logo Cinematic Preloader (Plays once on initial site entry) */}
+      <Preloader
+        onStartReveal={() => setIsHeroReadyToAnimate(true)}
+        onComplete={() => setIsHeroReadyToAnimate(true)}
+      />
+
       {/* Editorial Studio Navbar */}
       <Navbar onOpenConsultation={() => setIsConsultationOpen(true)} />
 
@@ -31,6 +39,7 @@ export default function HomePage() {
       <HeroSection
         onOpenConsultation={() => setIsConsultationOpen(true)}
         onExploreServices={handleScrollToServices}
+        playEntranceAnimation={isHeroReadyToAnimate}
       />
 
       {/* Services Strip */}

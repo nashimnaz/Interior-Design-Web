@@ -10,9 +10,14 @@ import { gsap } from 'gsap';
 interface HeroSectionProps {
   onOpenConsultation?: () => void;
   onExploreServices?: () => void;
+  playEntranceAnimation?: boolean;
 }
 
-export function HeroSection({ onOpenConsultation, onExploreServices }: HeroSectionProps) {
+export function HeroSection({ 
+  onOpenConsultation, 
+  onExploreServices,
+  playEntranceAnimation = true 
+}: HeroSectionProps) {
   const [content, setContent] = useState<Partial<HomeContent>>({});
   const sectionRef = useRef<HTMLElement>(null);
   const eyebrowRef = useRef<HTMLParagraphElement>(null);
@@ -34,6 +39,8 @@ export function HeroSection({ onOpenConsultation, onExploreServices }: HeroSecti
   }, []);
 
   useEffect(() => {
+    if (!playEntranceAnimation) return;
+
     const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
@@ -85,7 +92,7 @@ export function HeroSection({ onOpenConsultation, onExploreServices }: HeroSecti
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [playEntranceAnimation]);
 
   const desktopImage = content.heroImageDesktop || '/images/AA4DD01B-86D5-45F3-991A-BC3AD98FE52B.png';
   const mobileImage = content.heroImageMobile || '/images/Sunlit Arched Nook with Olive Branches.png';

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { createPortal } from 'react-dom';
 
 interface NavbarProps {
@@ -124,33 +125,25 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
         }`}
       >
         <div className="max-w-[1520px] mx-auto px-5 sm:px-8 lg:px-12 xl:px-14 flex items-center justify-between">
-          {/* Brand / Logo with Split Arch Icon */}
+          {/* Brand / Official Studio Logo */}
           <Link
             href="/"
             onClick={() => {
               if (isOpen) closeMenu();
             }}
-            className="group flex items-center gap-2.5 sm:gap-3 focus:outline-none select-none"
+            className="group flex items-center focus:outline-none select-none"
+            aria-label="Excorto Builders & Interiors"
           >
-            {/* Geometric Split Arch Vector Icon */}
-            <div className="relative w-8 h-8 shrink-0 transition-transform duration-300 group-hover:scale-105">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Left Terracotta Quarter-Arch Ribbon */}
-                <path d="M3 16C3 8.82 8.82 3 16 3V7.5C11.306 7.5 7.5 11.306 7.5 16H3Z" fill="#C2633E" />
-                {/* Right Sage Green Monolith with Quarter-Circle Top-Right */}
-                <path d="M17.5 3H18.5C25.404 3 31 8.596 31 15.5V28H17.5V3Z" fill="#526653" />
-              </svg>
-            </div>
-
-            {/* Brand Name Typography */}
-            <div className="flex flex-col">
-              <span className="font-sans text-[16px] sm:text-[18px] font-medium tracking-[0.24em] text-[#292722] leading-none transition-colors group-hover:text-[#94745F]">
-                EXCORTO
-              </span>
-              <span className="text-[7px] sm:text-[7.5px] font-semibold tracking-[0.3em] text-[#94745F] uppercase mt-1 leading-none transition-colors group-hover:text-[#526653]">
-                BUILDERS &amp; INTERIORS
-              </span>
-            </div>
+            <Image
+              src="/images/excorto-logo.png"
+              alt="Excorto Builders and Interiors"
+              width={190}
+              height={46}
+              priority
+              unoptimized
+              style={{ width: 'auto' }}
+              className="h-7 sm:h-8 md:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-102"
+            />
           </Link>
 
           {/* Minimal Hamburger Trigger Button */}
@@ -260,22 +253,18 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
                 <Link
                   href="/"
                   onClick={() => closeMenu()}
-                  className="group flex items-center gap-2.5 focus:outline-none"
+                  className="group flex items-center focus:outline-none"
+                  aria-label="Excorto Builders & Interiors"
                 >
-                  <div className="relative w-6 h-6 sm:w-7 sm:h-7 shrink-0 transition-transform duration-300 group-hover:scale-105">
-                    <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3 16C3 8.82 8.82 3 16 3V7.5C11.306 7.5 7.5 11.306 7.5 16H3Z" fill="#C2633E" />
-                      <path d="M17.5 3H18.5C25.404 3 31 8.596 31 15.5V28H17.5V3Z" fill="#526653" />
-                    </svg>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="font-sans text-[13px] sm:text-[14px] font-semibold tracking-[0.24em] text-[#292722] leading-none transition-colors group-hover:text-[#94745F]">
-                      EXCORTO
-                    </span>
-                    <span className="text-[6.5px] sm:text-[7px] font-semibold tracking-[0.28em] text-[#94745F] uppercase mt-0.5 leading-none">
-                      BUILDERS &amp; INTERIORS
-                    </span>
-                  </div>
+                  <Image
+                    src="/images/excorto-logo.png"
+                    alt="Excorto Builders and Interiors"
+                    width={150}
+                    height={36}
+                    unoptimized
+                    style={{ width: 'auto' }}
+                    className="h-6 sm:h-7 w-auto object-contain transition-transform duration-300 group-hover:scale-102"
+                  />
                 </Link>
 
                 {/* Close Button with Subtle Rotation on Hover */}
