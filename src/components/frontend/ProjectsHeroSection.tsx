@@ -148,12 +148,12 @@ export function ProjectsHeroSection({ onExploreProjects }: ProjectsHeroSectionPr
         className="lg:hidden absolute inset-0 z-0 pointer-events-none select-none overflow-hidden"
       >
         <Image
-          src="/images/Serene Mediterranean Villa by the Sea.png"
-          alt="Excorto Builders & Interiors - Serene Mediterranean Villa by the Sea"
+          src="/images/projects-hero-mobile.jpg"
+          alt="Excorto Builders & Interiors - Contemporary Mediterranean Villa Portfolio"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[78%_center] sm:object-[82%_center] select-none pointer-events-none"
+          className="object-cover object-center select-none pointer-events-none"
         />
 
         {/* Soft mobile/tablet wash for low-density watermark background effect */}

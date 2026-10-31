@@ -140,12 +140,12 @@ export function ServicesHeroSection({
         className="lg:hidden absolute inset-0 z-0 pointer-events-none select-none overflow-hidden will-change-transform"
       >
         <Image
-          src="/images/Sunlit Minimalist Coastal Living Room.png"
+          src="/images/services-hero-mobile.jpg"
           alt="Excorto Builders & Interiors - Contemporary Luxury Architectural Interior"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[72%_center] sm:object-center select-none pointer-events-none will-change-transform"
+          className="object-cover object-center select-none pointer-events-none will-change-transform"
         />
 
         {/* Calibrated warm ivory overlay for increased image density and tactile architectural depth */}
