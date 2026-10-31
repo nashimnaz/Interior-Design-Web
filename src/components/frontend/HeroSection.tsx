@@ -100,7 +100,6 @@ export function HeroSection({ onOpenConsultation, onExploreServices }: HeroSecti
   }, []);
 
   const desktopImage = content.heroImageDesktop || '/images/AA4DD01B-86D5-45F3-991A-BC3AD98FE52B.png';
-  const mobileImage = content.heroImageMobile || '/images/Sunlit Arched Nook with Olive Branches.png';
   const eyebrow = content.heroEyebrow || 'SPACES THAT FEEL LIKE YOU';
   const line1 = content.heroHeadlineLine1 || 'Thoughtfully';
   const line2 = content.heroHeadlineLine2 || 'Designed.';
@@ -132,7 +131,6 @@ export function HeroSection({ onOpenConsultation, onExploreServices }: HeroSecti
           loop
           playsInline
           preload="auto"
-          poster={mobileImage}
           className="w-full h-full object-cover object-[20%_bottom] select-none pointer-events-none"
         >
           <source src="/videos/hero-mobile.mp4" type="video/mp4" />

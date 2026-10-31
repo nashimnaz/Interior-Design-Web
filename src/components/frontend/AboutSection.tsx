@@ -77,7 +77,7 @@ export function AboutSection({ onOpenConsultation }: AboutSectionProps) {
         </div>
 
         {/* Right Column: Full-Bleed Image Filling Top, Down, and Right */}
-        <div className="relative w-full h-full min-h-[460px] sm:min-h-[540px] lg:min-h-full overflow-hidden bg-[#EAE4D9]">
+        <div className="relative w-full h-[460px] sm:h-[540px] lg:h-full min-h-[460px] sm:min-h-[540px] lg:min-h-full overflow-hidden bg-[#EAE4D9]">
           <SmoothImage
             src="/images/Warm Modern Living Retreat.png"
             alt="Warm Modern Living Retreat - Excorto Interior Architecture"

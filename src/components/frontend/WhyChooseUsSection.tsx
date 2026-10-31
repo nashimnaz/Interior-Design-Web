@@ -34,6 +34,7 @@ export function WhyChooseUsSection({
           alt="Minimalist Wabi-Sabi ceramic vase with natural branches on stone console"
           fill
           priority
+          unoptimized
           sizes="100vw"
           className="object-cover object-left"
         />
@@ -46,7 +47,8 @@ export function WhyChooseUsSection({
           alt="Minimalist Wabi-Sabi ceramic vase with natural branches on stone console"
           fill
           priority
-          sizes="100vw"
+          unoptimized
+          sizes="(max-width: 1024px) 100vw, 50vw"
           className="object-cover object-[18%_center]"
         />
         {/* Subtle gradient feathering into the continuous warm beige background */}
