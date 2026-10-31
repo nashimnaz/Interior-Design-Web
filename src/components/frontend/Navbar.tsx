@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import { createPortal } from 'react-dom';
 
@@ -11,11 +11,18 @@ interface NavbarProps {
 
 export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+  const closeTimerRef = useRef<NodeJS.Timeout | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    return () => {
+      if (closeTimerRef.current) {
+        clearTimeout(closeTimerRef.current);
+      }
+    };
   }, []);
 
   // Scroll listener for header elevation
@@ -28,19 +35,38 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
   }, []);
 
   const closeMenu = useCallback((callback?: () => void) => {
-    setIsOpen(false);
-    if (callback) {
-      setTimeout(callback, 150);
+    if (!isOpen || isClosing) return;
+    setIsClosing(true);
+
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
     }
-  }, []);
+
+    closeTimerRef.current = setTimeout(() => {
+      setIsOpen(false);
+      setIsClosing(false);
+      if (callback) {
+        callback();
+      }
+    }, 380);
+  }, [isOpen, isClosing]);
 
   const openMenu = useCallback(() => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setIsClosing(false);
     setIsOpen(true);
   }, []);
 
   const handleToggle = useCallback(() => {
-    setIsOpen((prev) => !prev);
-  }, []);
+    if (isOpen && !isClosing) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }, [isOpen, isClosing, closeMenu, openMenu]);
 
   // Lock background scroll without layout jump while menu is open
   useEffect(() => {
@@ -64,13 +90,13 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
   // Handle ESC key to smoothly close menu
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) {
+      if (e.key === 'Escape' && isOpen && !isClosing) {
         closeMenu();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, closeMenu]);
+  }, [isOpen, isClosing, closeMenu]);
 
   // Navigation Links definition with exact indices and labels
   const navLinks = [
@@ -82,6 +108,8 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
     { num: '06', label: 'Blog', href: '/blog', badge: 'JOURNAL', active: activePage === 'blog' },
     { num: '07', label: 'Contact', href: '/contact', active: activePage === 'contact' },
   ];
+
+  const isMenuVisible = isOpen && !isClosing;
 
   return (
     <>
@@ -130,29 +158,40 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
             type="button"
             onClick={handleToggle}
             className={`w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xs active:scale-95 border ${
-              isOpen
+              isMenuVisible
                 ? 'bg-[#F5F2EC] text-[#292722] border-[#786450]/20 shadow-md ring-2 ring-[#94745F]/20'
                 : 'bg-[#F5F2EC]/80 hover:bg-[#F5F2EC] text-[#292722] border-white/70 backdrop-blur-md hover:border-[#786450]/20'
             }`}
-            aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            aria-expanded={isOpen}
+            aria-label={isMenuVisible ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isMenuVisible}
           >
             {/* Morphing 3-Line Hamburger to Elegant Centered X */}
             <div className="relative w-4.5 h-4 flex items-center justify-center pointer-events-none">
               <span
-                className={`absolute w-4 h-[1.5px] bg-[#292722] rounded-full transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center motion-reduce:transition-none ${
-                  isOpen ? 'translate-y-0 rotate-45' : '-translate-y-[5px]'
-                }`}
+                style={{
+                  transform: isMenuVisible 
+                    ? 'translateY(0px) rotate(45deg)' 
+                    : 'translateY(-5px) rotate(0deg)',
+                  transition: 'transform 350ms cubic-bezier(0.16, 1, 0.3, 1)',
+                }}
+                className="absolute w-4 h-[1.5px] bg-[#292722] rounded-full origin-center"
               />
               <span
-                className={`absolute w-4 h-[1.5px] bg-[#292722] rounded-full transition-all duration-250 ease-out origin-center motion-reduce:transition-none ${
-                  isOpen ? 'opacity-0 scale-x-0' : 'opacity-100 scale-x-100'
-                }`}
+                style={{
+                  opacity: isMenuVisible ? 0 : 1,
+                  transform: isMenuVisible ? 'scaleX(0)' : 'scaleX(1)',
+                  transition: 'opacity 250ms ease-out, transform 250ms ease-out',
+                }}
+                className="absolute w-4 h-[1.5px] bg-[#292722] rounded-full origin-center"
               />
               <span
-                className={`absolute w-4 h-[1.5px] bg-[#292722] rounded-full transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] origin-center motion-reduce:transition-none ${
-                  isOpen ? 'translate-y-0 -rotate-45' : 'translate-y-[5px]'
-                }`}
+                style={{
+                  transform: isMenuVisible 
+                    ? 'translateY(0px) rotate(-45deg)' 
+                    : 'translateY(5px) rotate(0deg)',
+                  transition: 'transform 350ms cubic-bezier(0.16, 1, 0.3, 1)',
+                }}
+                className="absolute w-4 h-[1.5px] bg-[#292722] rounded-full origin-center"
               />
             </div>
           </button>
@@ -166,40 +205,57 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
           - Cormorant Garamond / Canela serif typography
           - Numbering in small coffee brown (#94745F)
           - Sage-green rounded CTA (#526653)
+          - Fluid slide-down entrance and slide-down-out exit
           ========================================================================= */}
       {mounted && createPortal(
         <div
           onClick={() => closeMenu()}
-          className={`fixed inset-0 z-[100] flex items-center justify-center p-3.5 sm:p-6 md:p-8 bg-[#292722]/35 backdrop-blur-[12px] [-webkit-backdrop-filter:blur(12px)] select-none transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none ${
-            isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-          }`}
+          style={{
+            opacity: isMenuVisible ? 1 : 0,
+            pointerEvents: isMenuVisible ? 'auto' : 'none',
+            transition: 'opacity 380ms cubic-bezier(0.16, 1, 0.3, 1)',
+          }}
+          className="fixed inset-0 z-[100] flex items-center justify-center p-3.5 sm:p-6 md:p-8 bg-[#292722]/35 backdrop-blur-[12px] [-webkit-backdrop-filter:blur(12px)] select-none"
           role="dialog"
           aria-modal="true"
           aria-label="Site Navigation"
         >
-          {/* Glass Panel Card (Floating architectural atelier menu - compact & zero-scroll) */}
+          {/* Glass Panel Card (Slides smoothly down into view and down out when closing) */}
           <div
             onClick={(e) => e.stopPropagation()}
             style={{
               backgroundColor: 'rgba(245, 242, 236, 0.94)',
               backdropFilter: 'blur(24px)',
               WebkitBackdropFilter: 'blur(24px)',
+              opacity: isMenuVisible ? 1 : 0,
+              transform: isMenuVisible
+                ? 'translateY(0px) scale(1)'
+                : isClosing
+                ? 'translateY(60px) scale(0.97)'
+                : 'translateY(-60px) scale(0.97)',
+              transition: isClosing
+                ? 'opacity 340ms cubic-bezier(0.16, 1, 0.3, 1), transform 380ms cubic-bezier(0.16, 1, 0.3, 1)'
+                : 'opacity 450ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)',
+              pointerEvents: isMenuVisible ? 'auto' : 'none',
+              willChange: 'transform, opacity',
             }}
-            className={`relative w-full max-w-[430px] flex flex-col justify-between rounded-[22px] sm:rounded-[26px] border border-white/70 shadow-[0_24px_60px_-15px_rgba(41,39,34,0.18),0_0_0_1px_rgba(120,100,80,0.12)] p-4 sm:p-6 md:p-7 overflow-hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none ${
-              isOpen 
-                ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto' 
-                : 'opacity-0 scale-[0.98] -translate-y-4 pointer-events-none'
-            }`}
+            className="relative w-full max-w-[430px] flex flex-col justify-between rounded-[22px] sm:rounded-[26px] border border-white/70 shadow-[0_24px_60px_-15px_rgba(41,39,34,0.18),0_0_0_1px_rgba(120,100,80,0.12)] p-4 sm:p-6 md:p-7 overflow-hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
           >
             <div>
               {/* Panel Top Header: Brand + Close Trigger */}
               <div 
                 style={{
-                  transitionDelay: isOpen ? '100ms' : '0ms',
+                  opacity: isMenuVisible ? 1 : 0,
+                  transform: isMenuVisible
+                    ? 'translateY(0px)'
+                    : isClosing
+                    ? 'translateY(12px)'
+                    : 'translateY(-12px)',
+                  transition: isClosing
+                    ? 'opacity 240ms ease-out, transform 260ms ease-out'
+                    : 'opacity 380ms cubic-bezier(0.16, 1, 0.3, 1) 80ms, transform 400ms cubic-bezier(0.16, 1, 0.3, 1) 80ms',
                 }}
-                className={`flex items-center justify-between pb-3 sm:pb-3.5 border-b border-[#786450]/15 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none ${
-                  isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
-                }`}
+                className="flex items-center justify-between pb-3 sm:pb-3.5 border-b border-[#786450]/15"
               >
                 <Link
                   href="/"
@@ -251,11 +307,17 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
               {/* Eyebrow / Architectural Subtitle */}
               <div 
                 style={{
-                  transitionDelay: isOpen ? '140ms' : '0ms',
+                  opacity: isMenuVisible ? 1 : 0,
+                  transform: isMenuVisible
+                    ? 'translateY(0px)'
+                    : isClosing
+                    ? 'translateY(10px)'
+                    : 'translateY(-10px)',
+                  transition: isClosing
+                    ? 'opacity 240ms ease-out, transform 260ms ease-out'
+                    : 'opacity 380ms cubic-bezier(0.16, 1, 0.3, 1) 120ms, transform 400ms cubic-bezier(0.16, 1, 0.3, 1) 120ms',
                 }}
-                className={`pt-2.5 pb-1 sm:pt-3 sm:pb-1.5 flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none ${
-                  isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
-                }`}
+                className="pt-2.5 pb-1 sm:pt-3 sm:pb-1.5 flex items-center justify-between"
               >
                 <span className="font-mono text-[9px] font-medium tracking-[0.22em] uppercase text-[#94745F]">
                   01 – 07 · ARCHITECTURAL ATELIER
@@ -265,12 +327,11 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
                 </span>
               </div>
 
-              {/* Navigation Links (01 to 07) - Compact & Elegant with Fluid Stagger */}
+              {/* Navigation Links (01 to 07) - Cascading Downward Entrance and Downward Exit */}
               <nav className="flex flex-col space-y-0.5 py-0.5" aria-label="Main Navigation">
                 {navLinks.map((link, idx) => {
-                  const linkDelay = isOpen 
-                    ? `${170 + idx * 70}ms` 
-                    : `${(navLinks.length - 1 - idx) * 20}ms`;
+                  const openDelay = 140 + idx * 55;
+                  const closeDelay = (navLinks.length - 1 - idx) * 15;
 
                   return (
                     <Link
@@ -278,13 +339,17 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
                       href={link.href}
                       onClick={() => closeMenu()}
                       style={{
-                        transitionDelay: linkDelay,
+                        opacity: isMenuVisible ? 1 : 0,
+                        transform: isMenuVisible
+                          ? 'translateY(0px)'
+                          : isClosing
+                          ? 'translateY(14px)'
+                          : 'translateY(-14px)',
+                        transition: isClosing
+                          ? `opacity 220ms ease-out ${closeDelay}ms, transform 250ms ease-out ${closeDelay}ms`
+                          : `opacity 350ms cubic-bezier(0.16, 1, 0.3, 1) ${openDelay}ms, transform 380ms cubic-bezier(0.16, 1, 0.3, 1) ${openDelay}ms`,
                       }}
-                      className={`group flex items-center justify-between py-1.5 px-2.5 rounded-lg transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none ${
-                        isOpen 
-                          ? 'opacity-100 translate-y-0' 
-                          : 'opacity-0 translate-y-2.5'
-                      } ${
+                      className={`group flex items-center justify-between py-1.5 px-2.5 rounded-lg ${
                         link.active
                           ? 'bg-[#94745F]/10 text-[#292722]'
                           : 'text-[#292722] hover:bg-[#94745F]/5 hover:text-[#94745F]'
@@ -328,11 +393,17 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
             {/* Panel Bottom: Sage Green CTA & Studio Details with Fluid Entrance */}
             <div 
               style={{
-                transitionDelay: isOpen ? '540ms' : '0ms',
+                opacity: isMenuVisible ? 1 : 0,
+                transform: isMenuVisible
+                  ? 'translateY(0px)'
+                  : isClosing
+                  ? 'translateY(15px)'
+                  : 'translateY(-15px)',
+                transition: isClosing
+                  ? 'opacity 220ms ease-out, transform 250ms ease-out'
+                  : 'opacity 400ms cubic-bezier(0.16, 1, 0.3, 1) 480ms, transform 420ms cubic-bezier(0.16, 1, 0.3, 1) 480ms',
               }}
-              className={`pt-3 sm:pt-3.5 border-t border-[#786450]/15 mt-2 sm:mt-2.5 space-y-2 sm:space-y-2.5 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none ${
-                isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-              }`}
+              className="pt-3 sm:pt-3.5 border-t border-[#786450]/15 mt-2 sm:mt-2.5 space-y-2 sm:space-y-2.5"
             >
               {/* Rounded Sage-Green CTA Button */}
               {onOpenConsultation ? (
