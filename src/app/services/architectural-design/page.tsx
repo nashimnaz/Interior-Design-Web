@@ -15,20 +15,21 @@ if (typeof window !== 'undefined') {
 }
 
 const deliverables = [
-  { id: '01', title: 'Initial Project Consultation and Requirement Analysis', desc: 'In-depth brief capture exploring lifestyle preferences, functional demands, spatial priorities, and budget framework.' },
-  { id: '02', title: 'Basic Vastu Followed Plan', desc: 'Harmonious spatial orientation respecting cardinal directions, elemental balance, and traditional contextual principles.' },
-  { id: '03', title: 'Plan With Furniture Layout', desc: 'Human-scale space planning demonstrating ergonomic clearances, circulation corridors, and furniture zoning.' },
-  { id: '04', title: 'Set Back Plan / Site Plan', desc: 'Precise site boundary documentation, municipal setback compliance, vehicular access, and landscape zoning.' },
-  { id: '05', title: '3D Floor Plan', desc: 'Three-dimensional spatial rendering showcasing interior volume, floor plate depth, and wall partitioning.' },
-  { id: '06', title: 'Column & Footing Drawing', desc: 'Engineered structural load-distribution schematics detailing foundation footings and reinforcement specs.' },
-  { id: '07', title: 'Plinth Beam Drawing', desc: 'Foundation tie-beam layouts specifying concrete grading, bar diameters, and seismic tie-in coordinates.' },
-  { id: '08', title: 'Center Line Drawing', desc: 'Precise benchmark grid drawing ensuring exact on-site excavation, setting out, and column positioning.' },
-  { id: '09', title: 'Basic Electrical & Plumbing Drawing', desc: 'Strategic MEP schematic layouts detailing conduits, drainage pathways, sanitary lines, and distribution nodes.' },
-  { id: '10', title: 'Elevation 2D With Detailed Dimensions', desc: 'Orthographic front, rear, and lateral exterior elevations with complete vertical datum markers and finish annotations.' },
-  { id: '11', title: 'Joinery Drawings & Specification', desc: 'Custom architectural detail sheets for doors, window fenestrations, mullion depths, and hardware schedules.' },
-  { id: '12', title: 'Exterior 3D Elevation', desc: 'Photorealistic architectural facade visualization showcasing material textures, shadows, and natural daylighting.' },
-  { id: '13', title: 'Exterior Walkthrough Video', desc: 'Cinematic 3D animation exploring the exterior form, approach roadway, entrance portico, and landscape harmony.' },
-  { id: '14', title: 'Building Estimation for Bank Loan', desc: 'Comprehensive, structured itemized bill of quantities (BOQ) and valuation certificate for institutional financing.' },
+  { id: '01', title: 'Initial Project Consultation and Requirement Analysis', desc: 'Detailed client discovery session to assess spatial needs, lifestyle preferences, plot constraints, and budget framework.' },
+  { id: '02', title: 'Basic Vastu Followed Plan', desc: 'Harmonious architectural floor layouts designed in accordance with traditional Vastu principles, sunlight paths, and natural ventilation.' },
+  { id: '03', title: 'Building permit', desc: "Permit plan approval through 'ksmart' ensuring full compliance with local municipal building regulations and statutory clearances.", href: '/services/building-permit' },
+  { id: '04', title: 'Exterior 3D Elevation', desc: 'High-fidelity photorealistic 3D visualization showcasing modern architectural facades, material finishes, natural shadows, and lighting.' },
+  { id: '05', title: 'Elevation 2D With Detailed Dimensions', desc: 'Accurate orthographic drawings with vertical datum heights, detailed dimensioning, fenestration levels, and finish annotations.' },
+  { id: '06', title: 'Building Estimation for Bank Loan', desc: 'Comprehensive itemized bill of quantities (BOQ) and certified valuation schedules tailored for bank loan sanctioning.' },
+  { id: '07', title: 'Plan With Furniture Layout', desc: 'Functional space planning illustrating furniture arrangements, ergonomic circulation paths, and room proportions.' },
+  { id: '08', title: 'Set Back Plan / Site Plan', desc: 'Site boundary documentation detailing statutory municipal setback distances, vehicular access routes, and plot utilization.' },
+  { id: '09', title: '3D Floor Plan', desc: 'Cutaway three-dimensional perspective rendering demonstrating internal spatial continuity, room connections, and room depth.' },
+  { id: '10', title: 'Column & Footing Drawing', desc: 'Engineered structural foundation schematics detailing load-bearing column placements, footing depths, and steel rebar specifications.' },
+  { id: '11', title: 'Plinth Beam Drawing', desc: 'Foundation tie-beam engineering layouts specifying concrete mix grades, bar diameters, and seismic anchor ties.' },
+  { id: '12', title: 'Center Line Drawing', desc: 'Precision benchmark grid drawing providing accurate on-site coordinate gridlines for excavation and column setting out.' },
+  { id: '13', title: 'Basic Electrical & Plumbing Drawing', desc: 'Strategic MEP schematic layouts detailing electrical switch points, conduit runs, plumbing supply lines, and drainage nodes.' },
+  { id: '14', title: 'Joinery Drawings & Specification', desc: 'Architectural joinery details and material specifications for custom doors, windows, ventilators, and frame fixtures.' },
+  { id: '15', title: 'Exterior Walkthrough Video', desc: 'Cinematic 3D exterior animation capturing approaching road view, entrance gate, landscape harmony, and architectural contours.' },
 ];
 
 export default function ArchitecturalDesignPage() {
@@ -306,7 +307,7 @@ export default function ArchitecturalDesignPage() {
                 href="#deliverables"
                 className="inline-flex items-center justify-center px-6 py-3.5 bg-transparent hover:bg-[#65745A] text-[#292722] hover:text-white border border-[#65745A]/50 hover:border-[#65745A] font-sans font-medium text-[11px] sm:text-[11.5px] uppercase tracking-[0.16em] rounded-full transition-all duration-300 active:scale-98"
               >
-                View 14 Deliverables
+                View 15 Deliverables
               </a>
             </div>
 
@@ -359,27 +360,49 @@ export default function ArchitecturalDesignPage() {
           </div>
 
           <div ref={deliverablesGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {deliverables.map((item) => (
-              <div 
-                key={item.id} 
-                className="bg-[#EDE7DD]/40 border border-[#D9D0C4]/70 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:border-[#94745F]/60 hover:bg-[#EDE7DD]/70 will-change-transform"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-serif text-[18px] text-[#A65E3F] font-medium [font-variant-numeric:lining-nums]">
-                      {item.id}
-                    </span>
-                    <CheckCircle2 size={16} className="text-[#65745A]" />
+            {deliverables.map((item) => {
+              const cardContent = (
+                <div className="h-full flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-serif text-[18px] text-[#A65E3F] font-bold [font-variant-numeric:lining-nums]">
+                        {item.id}
+                      </span>
+                      <CheckCircle2 size={16} className="text-[#65745A] group-hover:scale-110 transition-transform" />
+                    </div>
+                    {/* Highlighted Bold Subcategory Service Headline */}
+                    <h3 className="font-serif text-[18px] sm:text-[19px] text-[#161B18] font-bold leading-snug mb-2.5 group-hover:text-[#A65E3F] transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="font-sans text-[13.5px] sm:text-[14px] text-[#423C35] leading-[1.65]">
+                      {item.desc}
+                    </p>
                   </div>
-                  <h3 className="font-serif text-[18px] sm:text-[19px] text-[#292722] font-normal leading-snug mb-2.5">
-                    {item.title}
-                  </h3>
-                  <p className="font-sans text-[12.5px] sm:text-[13px] text-[#554F49] leading-[1.6]">
-                    {item.desc}
-                  </p>
+
+                  {item.href && (
+                    <div className="mt-4 pt-3.5 border-t border-[#D9D0C4]/70 flex items-center justify-between text-[12px] font-sans font-bold text-[#8F5E3B] group-hover:text-[#6E4225] transition-colors">
+                      <span>View Permit &amp; K-SMART Process</span>
+                      <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                  )}
                 </div>
-              </div>
-            ))}
+              );
+
+              return (
+                <div 
+                  key={item.id} 
+                  className="bg-[#EDE7DD]/50 border border-[#D9D0C4] p-6 sm:p-7 transition-all duration-300 hover:border-[#94745F] hover:bg-[#E5DDD0] hover:shadow-[0_12px_32px_rgba(41,39,34,0.12)] hover:-translate-y-1.5 rounded-sm will-change-transform cursor-pointer group"
+                >
+                  {item.href ? (
+                    <Link href={item.href} className="block h-full focus:outline-none" aria-label={`View full details for ${item.title}`}>
+                      {cardContent}
+                    </Link>
+                  ) : (
+                    cardContent
+                  )}
+                </div>
+              );
+            })}
           </div>
 
         </div>

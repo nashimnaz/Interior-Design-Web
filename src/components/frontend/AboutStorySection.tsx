@@ -21,7 +21,7 @@ export function AboutStorySection() {
           observer.disconnect(); // Trigger strictly once when user scrolls and reaches the section
         }
       },
-      { 
+      {
         threshold: 0.15,
         rootMargin: '0px 0px -75px 0px',
       }
@@ -37,17 +37,16 @@ export function AboutStorySection() {
   }, []);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       id="about-story"
       aria-labelledby="about-story-heading"
       className="relative w-full flex items-center overflow-hidden bg-[#F7F4EE] select-text py-14 sm:py-16 lg:py-20 xl:py-24"
     >
       {/* Background Scandinavian Dining Interior - Glides Smoothly from Left to Right */}
-      <div 
-        className={`absolute inset-y-0 left-0 w-[calc(100%+80px)] sm:w-[calc(100%+120px)] z-0 transition-transform duration-[1800ms] ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transform-none ${
-          hasAnimated ? 'translate-x-0' : '-translate-x-20 sm:-translate-x-28'
-        }`}
+      <div
+        className={`absolute inset-y-0 left-0 w-[calc(100%+80px)] sm:w-[calc(100%+120px)] z-0 transition-transform duration-[1800ms] ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transform-none ${hasAnimated ? 'translate-x-0' : '-translate-x-20 sm:-translate-x-28'
+          }`}
       >
         <Image
           src="/images/Sunlit Scandinavian Dining Interior with Blank Space.png"
@@ -57,56 +56,55 @@ export function AboutStorySection() {
           sizes="100vw"
           className="object-cover object-[15%_center] sm:object-[22%_center] lg:object-[left_center] select-none pointer-events-none"
         />
-        {/* Soft mobile/tablet wash for crystalline contrast on narrow viewports while remaining completely transparent on desktop */}
-        <div 
+        {/* Soft mobile/tablet wash keeping the background image lighter as earlier on mobile */}
+        <div
           className="absolute inset-0 bg-[#F7F4EE]/90 sm:bg-[#F7F4EE]/80 lg:bg-transparent pointer-events-none transition-colors duration-300"
-          aria-hidden="true" 
+          aria-hidden="true"
         />
       </div>
 
       {/* Main Content Container - Safely positioned on the Right Canvas */}
       <div className="relative z-10 w-full max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
+
           {/* Left Spacer Column: Preserves the entire architectural dining scene on the left */}
           <div className="hidden lg:block lg:col-span-6 xl:col-span-6 pointer-events-none" aria-hidden="true" />
 
-          {/* Right Content Column: Left-aligned headings with justified body paragraphs */}
-          <div 
-            className={`lg:col-span-6 xl:col-span-5 xl:col-start-8 flex flex-col justify-center text-left transition-all duration-1000 delay-300 ease-out ${
-              hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-80 translate-y-3'
-            }`}
+          {/* Right Content Column: Left-aligned headings with readable body paragraphs */}
+          <div
+            className={`lg:col-span-6 xl:col-span-5 xl:col-start-8 flex flex-col justify-center text-left transition-all duration-1000 delay-300 ease-out ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-80 translate-y-3'
+              }`}
           >
-            
-            <div className="max-w-[480px] lg:max-w-[500px]">
+
+            <div className="max-w-[500px] lg:max-w-[540px]">
               {/* Eyebrow Label */}
-              <span className="font-sans text-[11px] sm:text-[11.5px] lg:text-[12px] font-semibold tracking-[0.24em] uppercase text-[#94745F] mb-3 sm:mb-3.5 block text-left">
+              <span className="font-sans text-[12px] sm:text-[12.5px] lg:text-[13px] font-semibold tracking-[0.24em] uppercase text-[#8F5E3B] mb-3 sm:mb-3.5 block text-left">
                 OUR PHILOSOPHY
               </span>
 
               {/* Main Section Heading */}
-              <h2 
+              <h2
                 id="about-story-heading"
-                className="font-serif text-[#1C201D] text-[30px] sm:text-[36px] lg:text-[40px] xl:text-[44px] leading-[1.14] tracking-[-0.015em] font-normal mb-5 sm:mb-6 text-left"
+                className="font-serif text-[#161B18] text-[32px] sm:text-[38px] lg:text-[42px] xl:text-[46px] leading-[1.14] tracking-[-0.015em] font-normal mb-5 sm:mb-6 text-left"
               >
                 Fresh Perspective.<br />Experience You Can Build On.
               </h2>
 
-              {/* Concise Narrative Body Copy - Left-aligned and Justified */}
-              <div className="space-y-4 text-justify [text-justify:inter-word] text-[#4D4843]">
+              {/* Concise Narrative Body Copy - High Readability Typography */}
+              <div className="space-y-4 text-justify [text-justify:inter-word] text-[#333A36]">
                 {/* Lead Paragraph */}
-                <p className="font-sans text-[14.5px] sm:text-[15.5px] text-[#242A26] font-medium leading-[1.68]">
+                <p className="font-sans text-[15.5px] sm:text-[16.5px] lg:text-[17.5px] text-[#1E2522] font-medium leading-[1.7]">
                   Excorto Builders &amp; Interiors is a design-focused architectural and interior solutions studio based in Thiruvananthapuram, Kerala. Supported by the founder&apos;s 12 years of industry experience, we specialize in architectural consultation, interior design, and turnkey installation.
                 </p>
 
                 {/* Second Paragraph */}
-                <p className="font-sans text-[13.5px] sm:text-[14px] leading-[1.72] text-[#554F49]">
+                <p className="font-sans text-[14.5px] sm:text-[15.5px] lg:text-[16.5px] leading-[1.75] text-[#38403B]">
                   We believe good design begins with listening. By uniting creative vision with practical planning, material awareness, and collaborative execution, we shape environments that support everyday living and reflect the people they are designed for.
                 </p>
               </div>
 
               {/* Subtle Editorial Accent Line Aligned to Left */}
-              <div className="w-14 h-[1.5px] bg-[#94745F]/50 mt-6 sm:mt-7" aria-hidden="true" />
+              <div className="w-16 h-[2px] bg-[#94745F]/70 mt-6 sm:mt-7" aria-hidden="true" />
             </div>
 
           </div>

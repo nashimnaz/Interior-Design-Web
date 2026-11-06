@@ -62,7 +62,7 @@ export function Preloader({ onComplete, onStartReveal }: PreloaderProps) {
     // Expose replay helper on window for easy testing in browser console
     if (typeof window !== 'undefined') {
       (window as unknown as { __replayPreloader?: () => void }).__replayPreloader = () => {
-        try { sessionStorage.removeItem('excorto_preloader_seen'); } catch {}
+        try { sessionStorage.removeItem('excorto_preloader_seen'); } catch { }
         window.location.reload();
       };
     }
@@ -73,7 +73,7 @@ export function Preloader({ onComplete, onStartReveal }: PreloaderProps) {
 
     // 3. Connect to homepage initial hero frame readiness
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-    const heroAssetUrl = isMobile 
+    const heroAssetUrl = isMobile
       ? '/images/Sunlit Arched Nook with Olive Branches.png'
       : '/images/AA4DD01B-86D5-45F3-991A-BC3AD98FE52B.png';
 
@@ -91,7 +91,7 @@ export function Preloader({ onComplete, onStartReveal }: PreloaderProps) {
     if (prefersReducedMotion) {
       try {
         sessionStorage.setItem('excorto_preloader_seen', '1');
-      } catch {}
+      } catch { }
       setIsActive(false);
       onStartRevealRef.current?.();
       onCompleteRef.current?.();
@@ -107,7 +107,7 @@ export function Preloader({ onComplete, onStartReveal }: PreloaderProps) {
       hasFinishedRef.current = true;
       try {
         sessionStorage.setItem('excorto_preloader_seen', '1');
-      } catch {}
+      } catch { }
       document.body.style.overflow = originalOverflow;
       setIsActive(false);
       onCompleteRef.current?.();
@@ -193,21 +193,25 @@ export function Preloader({ onComplete, onStartReveal }: PreloaderProps) {
           onStartRevealRef.current?.();
 
           // Logo scales up subtly and fades
-          exitTl.to(logoWrapperRef.current, {
-            opacity: 0,
-            scale: 1.03,
-            y: -10,
-            duration: 0.55,
-            ease: 'power2.inOut',
-          });
+          if (logoWrapperRef.current) {
+            exitTl.to(logoWrapperRef.current, {
+              opacity: 0,
+              scale: 1.03,
+              y: -10,
+              duration: 0.55,
+              ease: 'power2.inOut',
+            });
+          }
 
           // Warm ivory overlay fades out smoothly and slides up slightly
-          exitTl.to(containerRef.current, {
-            opacity: 0,
-            yPercent: -3,
-            duration: 0.65,
-            ease: 'power3.inOut',
-          }, '-=0.45');
+          if (containerRef.current) {
+            exitTl.to(containerRef.current, {
+              opacity: 0,
+              yPercent: -3,
+              duration: 0.65,
+              ease: 'power3.inOut',
+            }, logoWrapperRef.current ? '-=0.45' : 0);
+          }
         };
 
         if (isHeroReady || heroImg.complete) {
@@ -250,7 +254,7 @@ export function Preloader({ onComplete, onStartReveal }: PreloaderProps) {
       {/* Centered Logo Construction Window */}
       <div
         ref={logoWrapperRef}
-        className="relative w-[130px] sm:w-[160px] md:w-[195px] aspect-[365/516] flex items-center justify-center will-change-transform"
+        className="relative w-[130px] sm:w-[160px] md:w-[234px] aspect-[365/516] flex items-center justify-center will-change-transform"
       >
         <svg
           viewBox="0 0 365 516"

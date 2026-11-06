@@ -326,14 +326,14 @@ export function OurApproachSection() {
           {/* Left Column: Eyebrow and Large Display Heading (Static & Preserved) */}
           <ScrollReveal distance={16} className="lg:col-span-3 xl:col-span-3 flex flex-col justify-start">
             {/* Eyebrow */}
-            <span className="font-sans text-[11px] sm:text-[11.5px] lg:text-[12px] font-semibold tracking-[0.24em] uppercase text-[#8E7462] mb-3 sm:mb-4 block">
+            <span className="font-sans text-[12px] sm:text-[12.5px] lg:text-[13px] font-bold tracking-[0.24em] uppercase text-[#8E7462] mb-3 sm:mb-4 block">
               OUR APPROACH
             </span>
 
             {/* Main Heading */}
             <h2 
               id="our-approach-heading"
-              className="font-serif text-[34px] sm:text-[38px] lg:text-[42px] xl:text-[45px] leading-[1.12] tracking-tight text-[#1C201D] font-normal"
+              className="font-serif text-[36px] sm:text-[40px] lg:text-[44px] xl:text-[48px] leading-[1.12] tracking-tight text-[#1C201D] font-medium"
             >
               From the First<br />
               Idea to the<br />
@@ -396,13 +396,13 @@ export function OurApproachSection() {
 
                     {/* Step Title & Animated Color */}
                     <h3 
-                      className={`font-sans text-[11px] sm:text-[11.5px] lg:text-[12px] font-semibold tracking-[0.14em] uppercase mb-2 leading-snug transition-colors duration-300 anim-text-${idx}`}
+                      className={`font-sans text-[12.5px] sm:text-[13px] lg:text-[13.5px] font-bold tracking-[0.14em] uppercase mb-2 leading-snug transition-colors duration-300 anim-text-${idx}`}
                     >
                       {step.title}
                     </h3>
 
                     {/* Description Paragraph */}
-                    <p className="font-sans text-[12px] sm:text-[12.5px] lg:text-[13px] leading-[1.65] text-[#554F49]">
+                    <p className="font-sans text-[13.5px] sm:text-[14px] lg:text-[14.5px] leading-[1.65] text-[#3D3730] font-normal">
                       {step.description}
                     </p>
                   </div>
@@ -456,11 +456,11 @@ export function OurApproachSection() {
                   {/* Right Column: Title and Description */}
                   <div className={`pt-0.5 flex-1 min-w-0 ${idx === processSteps.length - 1 ? 'pb-1' : 'pb-8 sm:pb-9'}`}>
                     <h3 
-                      className={`font-sans text-[11.5px] sm:text-[12px] font-semibold tracking-[0.14em] uppercase mb-1.5 leading-snug transition-colors duration-300 anim-text-${idx}`}
+                      className={`font-sans text-[12.5px] sm:text-[13px] font-bold tracking-[0.14em] uppercase mb-1.5 leading-snug transition-colors duration-300 anim-text-${idx}`}
                     >
                       {step.title}
                     </h3>
-                    <p className="font-sans text-[12.5px] sm:text-[13px] leading-[1.65] text-[#554F49]">
+                    <p className="font-sans text-[13.5px] sm:text-[14px] leading-[1.65] text-[#3D3730] font-normal">
                       {step.description}
                     </p>
                   </div>

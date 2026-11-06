@@ -51,10 +51,10 @@ export function BlogArticleCard({ article, blog, priority = false }: BlogArticle
         <div>
           {/* Top Metadata: Category & Read Time */}
           <div className="flex items-center justify-between gap-3 mb-3">
-            <span className="font-sans text-[10.5px] uppercase tracking-[0.2em] font-semibold text-[#8F5E3B]">
+            <span className="font-sans text-[11.5px] sm:text-[12px] uppercase tracking-[0.2em] font-bold text-[#8F5E3B]">
               {item.category}
             </span>
-            <span className="font-sans text-[11px] text-[#7A746C]">
+            <span className="font-sans text-[12px] sm:text-[12.5px] font-medium text-[#686158]">
               {item.readTime || '5 min read'}
             </span>
           </div>
@@ -62,7 +62,7 @@ export function BlogArticleCard({ article, blog, priority = false }: BlogArticle
           {/* Article Title: Canela/Cormorant Garamond serif */}
           <h3 
             id={`article-title-${item.id}`}
-            className="font-serif text-[#292722] text-[20px] sm:text-[22px] leading-[1.25] tracking-[-0.015em] font-normal mb-3 transition-colors duration-200 group-hover:text-[#8F5E3B] line-clamp-2 select-text"
+            className="font-serif text-[#1C201D] text-[22px] sm:text-[24px] leading-[1.28] tracking-[-0.015em] font-medium mb-3 transition-colors duration-200 group-hover:text-[#8F5E3B] line-clamp-2 select-text"
           >
             <Link href={`/blog/${item.slug}`}>
               {item.title}
@@ -70,7 +70,7 @@ export function BlogArticleCard({ article, blog, priority = false }: BlogArticle
           </h3>
 
           {/* Short Excerpt */}
-          <p className="font-sans text-[13.5px] sm:text-[14px] leading-[1.65] text-[#554E48] line-clamp-3 mb-6 select-text">
+          <p className="font-sans text-[14.5px] sm:text-[15px] leading-[1.68] text-[#3D3730] font-normal line-clamp-3 mb-6 select-text">
             {item.excerpt}
           </p>
         </div>
@@ -79,15 +79,15 @@ export function BlogArticleCard({ article, blog, priority = false }: BlogArticle
         <div className="pt-4 border-t border-[#EDE7DC] flex items-center justify-between">
           <Link
             href={`/blog/${item.slug}`}
-            className="inline-flex items-center gap-2 font-sans text-[11px] sm:text-[11.5px] font-semibold tracking-[0.18em] uppercase text-[#292722] transition-colors duration-200 group-hover:text-[#8F5E3B]"
+            className="inline-flex items-center gap-2 font-sans text-[12px] sm:text-[12.5px] font-bold tracking-[0.18em] uppercase text-[#1C201D] transition-colors duration-200 group-hover:text-[#8F5E3B]"
           >
             <span>Read More</span>
-            <span className="transition-transform duration-200 group-hover:translate-x-1 inline-block text-[13px]" aria-hidden="true">
+            <span className="transition-transform duration-200 group-hover:translate-x-1 inline-block text-[14px]" aria-hidden="true">
               →
             </span>
           </Link>
 
-          <span className="font-sans text-[11px] text-[#8A8379]">
+          <span className="font-sans text-[12px] sm:text-[12.5px] font-medium text-[#6E675E]">
             {new Date(item.publishedAt || Date.now()).toLocaleDateString('en-US', {
               month: 'short',
               day: 'numeric',

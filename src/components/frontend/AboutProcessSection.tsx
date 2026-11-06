@@ -85,12 +85,12 @@ export function AboutProcessSection() {
                     </div>
 
                     {/* Step Title */}
-                    <h3 className="font-sans font-semibold text-[14.5px] sm:text-[15px] xl:text-[16px] text-[#9E6E49] mb-1.5 xl:mb-2 leading-snug">
+                    <h3 className="font-sans font-bold text-[15.5px] sm:text-[16px] xl:text-[17px] text-[#8F4A2D] mb-1.5 xl:mb-2 leading-snug">
                       {step.title}
                     </h3>
 
                     {/* Step Description */}
-                    <p className="font-sans text-[12.5px] sm:text-[13px] xl:text-[13.5px] text-[#635E58] leading-[1.58] max-w-[240px]">
+                    <p className="font-sans text-[13.5px] sm:text-[14px] xl:text-[14.5px] text-[#3D3731] leading-[1.65] max-w-[260px]">
                       {step.description}
                     </p>
 

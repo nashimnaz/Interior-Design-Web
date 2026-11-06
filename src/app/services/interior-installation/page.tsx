@@ -356,19 +356,20 @@ export default function InteriorInstallationPage() {
             {deliverables.map((item) => (
               <div 
                 key={item.id} 
-                className="bg-[#EDE7DD]/40 border border-[#D9D0C4]/70 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:border-[#94745F]/60 hover:bg-[#EDE7DD]/70 will-change-transform"
+                className="bg-[#EDE7DD]/50 border border-[#D9D0C4] p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:border-[#94745F] hover:bg-[#E5DDD0] hover:shadow-[0_12px_32px_rgba(41,39,34,0.12)] hover:-translate-y-1.5 rounded-sm will-change-transform cursor-pointer group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="font-serif text-[18px] text-[#A65E3F] font-medium [font-variant-numeric:lining-nums]">
+                    <span className="font-serif text-[18px] text-[#A65E3F] font-bold [font-variant-numeric:lining-nums]">
                       {item.id}
                     </span>
-                    <CheckCircle2 size={16} className="text-[#65745A]" />
+                    <CheckCircle2 size={16} className="text-[#65745A] group-hover:scale-110 transition-transform" />
                   </div>
-                  <h3 className="font-serif text-[18px] sm:text-[19px] text-[#292722] font-normal leading-snug mb-2.5">
+                  {/* Highlighted Bold Subcategory Service Headline */}
+                  <h3 className="font-serif text-[18px] sm:text-[19px] text-[#161B18] font-bold leading-snug mb-2.5 group-hover:text-[#A65E3F] transition-colors">
                     {item.title}
                   </h3>
-                  <p className="font-sans text-[12.5px] sm:text-[13px] text-[#554F49] leading-[1.6]">
+                  <p className="font-sans text-[13.5px] sm:text-[14px] text-[#423C35] leading-[1.65]">
                     {item.desc}
                   </p>
                 </div>

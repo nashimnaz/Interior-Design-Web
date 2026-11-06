@@ -138,14 +138,14 @@ export function CtaBannerSection({ onOpenConsultation }: CtaBannerSectionProps) 
         {/* Left Column: Eyebrow, Heading, Description */}
         <div ref={contentRef} className="max-w-[720px] flex flex-col justify-center">
           {/* Eyebrow */}
-          <span className="font-sans text-[10px] sm:text-[10.5px] lg:text-[11px] font-medium tracking-[0.24em] uppercase text-[#D0C0B2] mb-2 sm:mb-2.5 block will-change-transform">
+          <span className="font-sans text-[11px] sm:text-[11.5px] lg:text-[12px] font-bold tracking-[0.24em] uppercase text-[#DECFC1] mb-2 sm:mb-2.5 block will-change-transform">
             GOOD DESIGN STARTS WITH A CONVERSATION.
           </span>
 
           {/* Main Heading */}
           <h2 
             id="cta-banner-heading"
-            className="font-serif text-[24px] sm:text-[28px] lg:text-[32px] xl:text-[35px] leading-[1.16] tracking-normal text-[#F9F7F2] font-normal will-change-transform"
+            className="font-serif text-[26px] sm:text-[30px] lg:text-[34px] xl:text-[38px] leading-[1.18] tracking-normal text-[#FAF8F5] font-normal will-change-transform"
           >
             Have an idea for a new home, an interior{' '}
             <br className="hidden sm:inline" />
@@ -153,7 +153,7 @@ export function CtaBannerSection({ onOpenConsultation }: CtaBannerSectionProps) 
           </h2>
 
           {/* Description */}
-          <p className="mt-2.5 sm:mt-3 font-sans text-[12.5px] sm:text-[13px] lg:text-[13.5px] leading-[1.62] text-[#D8CEC5] max-w-[580px] will-change-transform">
+          <p className="mt-2.5 sm:mt-3 font-sans text-[14px] sm:text-[15px] lg:text-[15.5px] leading-[1.65] text-[#E2D9D1] max-w-[620px] will-change-transform">
             Let&apos;s discuss your vision, understand your requirements, and explore how thoughtful design can make a difference.
           </p>
         </div>
@@ -163,10 +163,10 @@ export function CtaBannerSection({ onOpenConsultation }: CtaBannerSectionProps) 
           <a
             href="#contact"
             onClick={handleClick}
-            className="group inline-flex items-center gap-3 px-6 sm:px-7 lg:px-8 py-3.5 sm:py-4 border border-white/40 hover:border-white/80 bg-[#1D1713]/40 hover:bg-[#1D1713]/70 backdrop-blur-xs text-[#FAF7F2] font-sans text-[11px] sm:text-[11.5px] uppercase tracking-[0.2em] font-medium transition-all duration-300 cursor-pointer select-none"
+            className="group inline-flex items-center gap-3 px-7 sm:px-8 lg:px-9 py-3.5 sm:py-4 border-2 border-white/60 hover:border-white bg-[#1D1713]/50 hover:bg-[#1D1713]/80 backdrop-blur-xs text-[#FAF7F2] font-sans text-[12px] sm:text-[12.5px] uppercase tracking-[0.2em] font-bold transition-all duration-300 cursor-pointer select-none"
           >
             <span>START YOUR PROJECT</span>
-            <span className="text-[13px] transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
+            <span className="text-[14px] transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
           </a>
         </div>
 

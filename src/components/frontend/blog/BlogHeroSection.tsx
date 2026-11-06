@@ -71,13 +71,13 @@ export function BlogHeroSection() {
           className="object-cover object-[center_35%] scale-102 transition-transform duration-1000"
         />
 
-        {/* Calibrated Warm Ivory Overlay with Low Visual Density */}
+        {/* Calibrated Warm Ivory Overlay ensuring desk journal photography is clearly recognizable on mobile */}
         <div 
-          className="absolute inset-0 bg-[#F4F0E9]/82 sm:bg-[#F4F0E9]/80 backdrop-blur-[1.5px]" 
+          className="absolute inset-0 bg-[#F4F0E9]/50 sm:bg-[#F4F0E9]/75" 
           aria-hidden="true" 
         />
         <div 
-          className="absolute inset-0 bg-gradient-to-t from-[#F4F0E9] via-transparent to-[#F4F0E9]/60" 
+          className="absolute inset-0 bg-gradient-to-t from-[#F4F0E9]/80 via-transparent to-[#F4F0E9]/40" 
           aria-hidden="true" 
         />
       </div>
@@ -90,17 +90,17 @@ export function BlogHeroSection() {
           ref={eyebrowRef}
           className="inline-flex items-center gap-3.5 mb-4 sm:mb-5 will-change-transform"
         >
-          <span className="w-8 sm:w-10 h-[1px] bg-[#94745F]/60 shrink-0" aria-hidden="true" />
-          <span className="font-sans text-[11px] sm:text-[11.5px] font-semibold tracking-[0.26em] uppercase text-[#94745F] block select-text">
+          <span className="w-8 sm:w-10 h-[1.5px] bg-[#8B6B56] shrink-0" aria-hidden="true" />
+          <span className="font-sans text-[12px] sm:text-[12.5px] font-bold tracking-[0.26em] uppercase text-[#8B6B56] block select-text">
             OUR BLOG
           </span>
-          <span className="w-8 sm:w-10 h-[1px] bg-[#94745F]/60 shrink-0" aria-hidden="true" />
+          <span className="w-8 sm:w-10 h-[1.5px] bg-[#8B6B56] shrink-0" aria-hidden="true" />
         </div>
 
         {/* Main Heading: Canela/Cormorant Garamond serif with "Better Living." in italic coffee-brown */}
         <h1 
           id="blog-hero-heading"
-          className="font-serif text-[#292722] text-[42px] xs:text-[48px] sm:text-[56px] md:text-[64px] lg:text-[72px] leading-[1.12] sm:leading-[1.15] tracking-[-0.018em] font-normal mb-5 sm:mb-6 max-w-[850px] select-text"
+          className="font-serif text-[#1C201D] text-[44px] xs:text-[50px] sm:text-[58px] md:text-[66px] lg:text-[74px] leading-[1.12] sm:leading-[1.15] tracking-[-0.018em] font-medium mb-5 sm:mb-6 max-w-[880px] select-text"
         >
           <span className="block">
             <span 
@@ -113,7 +113,7 @@ export function BlogHeroSection() {
           <span className="block">
             <span 
               ref={(el) => { if (el) headingLinesRef.current[1] = el; }}
-              className="block italic text-[#94745F] font-normal will-change-transform"
+              className="block italic text-[#8B6B56] font-normal will-change-transform"
             >
               Better Living.
             </span>
@@ -123,7 +123,7 @@ export function BlogHeroSection() {
         {/* Description in Satoshi */}
         <p 
           ref={descRef}
-          className="font-sans text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.7] text-[#4A443E] max-w-[580px] mx-auto select-text will-change-transform"
+          className="font-sans text-[16px] sm:text-[17.5px] lg:text-[18.5px] leading-[1.7] text-[#2E2822] max-w-[640px] mx-auto select-text will-change-transform font-normal"
         >
           Design insights, expert tips and inspiration to help you create spaces that feel like home.
         </p>

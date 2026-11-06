@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Navbar } from '@/components/frontend/Navbar';
 import { ServicesHeroSection } from '@/components/frontend/ServicesHeroSection';
 import { ServicesOverviewGrid } from '@/components/frontend/ServicesOverviewGrid';
+import { ServicesDeliverablesGrid } from '@/components/frontend/ServicesDeliverablesGrid';
 import { CtaBannerSection } from '@/components/frontend/CtaBannerSection';
 import { Footer } from '@/components/frontend/Footer';
 import { ConsultationModal } from '@/components/frontend/ConsultationModal';
@@ -26,6 +27,11 @@ export default function ServicesPage() {
 
       {/* 2. Four-Card Editorial Services Overview Section */}
       <ServicesOverviewGrid 
+        onOpenConsultation={() => setIsConsultationOpen(true)}
+      />
+
+      {/* 3. Fifteen Detailed Service Deliverables Section (1 to 15 in eye-catching template boxes) */}
+      <ServicesDeliverablesGrid 
         onOpenConsultation={() => setIsConsultationOpen(true)}
       />
 

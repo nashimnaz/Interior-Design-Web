@@ -195,16 +195,16 @@ export function ProjectsGallerySection() {
                   type="button"
                   onClick={() => handleCategoryChange(cat.id)}
                   aria-pressed={isActive}
-                  className={`relative shrink-0 font-sans text-[11px] sm:text-[11.5px] uppercase tracking-[0.2em] transition-colors duration-200 py-1 cursor-pointer ${
+                  className={`relative shrink-0 font-sans text-[13px] sm:text-[13.5px] uppercase tracking-[0.2em] transition-colors duration-200 py-1.5 cursor-pointer ${
                     isActive 
-                      ? 'text-[#292722] font-semibold' 
-                      : 'text-[#7A746C] hover:text-[#292722] font-medium'
+                      ? 'text-[#1C201D] font-bold' 
+                      : 'text-[#68625A] hover:text-[#1C201D] font-medium'
                   }`}
                 >
                   <span>{cat.label}</span>
                   {isActive && (
                     <span 
-                      className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#292722] transition-all duration-300" 
+                      className="absolute bottom-0 left-0 w-full h-[2px] bg-[#1C201D] transition-all duration-300" 
                       aria-hidden="true" 
                     />
                   )}
@@ -214,25 +214,25 @@ export function ProjectsGallerySection() {
           </nav>
 
           {/* Minimal Search Input */}
-          <div className="relative w-full sm:w-[220px] md:w-[260px] shrink-0">
+          <div className="relative w-full sm:w-[240px] md:w-[280px] shrink-0">
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search projects..."
               aria-label="Search projects by title, category, or location"
-              className="w-full bg-transparent border-b border-[#292722]/20 focus:border-[#292722] text-[12px] sm:text-[13px] text-[#292722] placeholder-[#8A847C] py-1.5 pl-0 pr-7 outline-none font-sans transition-colors"
+              className="w-full bg-transparent border-b-2 border-[#1C201D]/25 focus:border-[#1C201D] text-[13.5px] sm:text-[14px] font-medium text-[#1C201D] placeholder-[#736B63] py-1.5 pl-0 pr-7 outline-none font-sans transition-colors"
             />
             <Search 
-              size={14} 
-              className="absolute right-0 top-1/2 -translate-y-1/2 text-[#8A847C] pointer-events-none" 
+              size={15} 
+              className="absolute right-0 top-1/2 -translate-y-1/2 text-[#736B63] pointer-events-none" 
               aria-hidden="true" 
             />
             {searchQuery && (
               <button 
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="absolute right-5 top-1/2 -translate-y-1/2 text-[11px] text-[#8A847C] hover:text-[#292722] px-1"
+                className="absolute right-5 top-1/2 -translate-y-1/2 text-[12px] text-[#736B63] hover:text-[#1C201D] px-1 font-bold"
                 aria-label="Clear search input"
               >
                 ✕
@@ -326,14 +326,14 @@ export function ProjectsGallerySection() {
 
                   {/* Editorial Typography (No Arrow) */}
                   <div className="mt-3.5 sm:mt-4">
-                    <span className="font-sans text-[10px] sm:text-[10.5px] font-semibold tracking-[0.22em] uppercase text-[#94745F] block mb-1">
+                    <span className="font-sans text-[11px] sm:text-[11.5px] font-bold tracking-[0.22em] uppercase text-[#8B6B56] block mb-1.5">
                       {project.category}
                     </span>
-                    <h3 className="font-serif text-[18px] sm:text-[19px] lg:text-[20px] font-normal leading-[1.22] text-[#292722] group-hover:text-[#94745F] transition-colors duration-300">
+                    <h3 className="font-serif text-[19px] sm:text-[20px] lg:text-[21px] font-medium leading-[1.25] text-[#1C201D] group-hover:text-[#8B6B56] transition-colors duration-300">
                       {project.title}
                     </h3>
                     {project.location && (
-                      <p className="font-sans text-[11.5px] sm:text-[12px] text-[#7A746C] mt-1 font-light tracking-normal">
+                      <p className="font-sans text-[12.5px] sm:text-[13px] text-[#635C54] mt-1 font-normal tracking-normal">
                         {project.location}
                       </p>
                     )}
@@ -355,11 +355,11 @@ export function ProjectsGallerySection() {
               type="button"
               onClick={handleLoadMore}
               disabled={isLoadingMore}
-              className="inline-flex items-center justify-center gap-2.5 px-8 sm:px-10 py-3.5 sm:py-4 bg-transparent hover:bg-[#292722] text-[#292722] hover:text-[#FAF8F5] border border-[#292722]/30 hover:border-[#292722] font-sans font-medium text-[11.5px] sm:text-[12px] uppercase tracking-[0.18em] rounded-full transition-all duration-300 shadow-xs hover:shadow-md cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed active:scale-98"
+              className="inline-flex items-center justify-center gap-2.5 px-8 sm:px-10 py-3.5 sm:py-4 bg-transparent hover:bg-[#1C201D] text-[#1C201D] hover:text-[#FAF8F5] border-2 border-[#1C201D]/40 hover:border-[#1C201D] font-sans font-bold text-[12.5px] sm:text-[13px] uppercase tracking-[0.18em] rounded-full transition-all duration-300 shadow-xs hover:shadow-md cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed active:scale-98"
             >
               {isLoadingMore ? (
                 <>
-                  <Loader2 size={14} className="animate-spin text-[#94745F]" />
+                  <Loader2 size={15} className="animate-spin text-[#94745F]" />
                   <span>LOADING PROJECTS...</span>
                 </>
               ) : (

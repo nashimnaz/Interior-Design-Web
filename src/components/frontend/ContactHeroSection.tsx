@@ -111,15 +111,10 @@ export function ContactHeroSection({ onDiscussProject }: ContactHeroSectionProps
       aria-labelledby="contact-hero-heading"
       className="relative w-full min-h-[92vh] sm:min-h-screen flex items-center overflow-hidden bg-[#F4F0E9] text-[#292722] select-text"
     >
-      {/* =========================================================================
-          FULL-SCREEN LANDSCAPE ARCHITECTURAL BACKGROUND (Light Density)
-          - Landscape photograph of an architectural consultation in a warm brown wood interior room
-          - Covers 100% of the background on both mobile and desktop
-          - Calibrated ivory overlay for light-density watermark effect with high text contrast
-          ========================================================================= */}
+      {/* Desktop Background Image */}
       <div 
         ref={heroBgRef}
-        className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden will-change-transform"
+        className="hidden lg:block absolute inset-0 z-0 pointer-events-none select-none overflow-hidden will-change-transform"
       >
         <Image
           src="/images/contact/contact-hero-consultation.jpg"
@@ -127,26 +122,41 @@ export function ContactHeroSection({ onDiscussProject }: ContactHeroSectionProps
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[70%_center] sm:object-[65%_center] lg:object-center will-change-transform"
+          className="object-cover object-center will-change-transform"
         />
 
-        {/* Sophisticated Warm Ivory Gradient Overlays for Light Density:
-            Stronger on the left (92-95%) for pristine text legibility,
-            softly fading toward the right (30-38%) so the warm brown interior and consultation are clearly visible */}
+        {/* Sophisticated Warm Ivory Gradient Overlays for Light Density */}
         <div 
-          className="absolute inset-0 bg-gradient-to-r from-[#F4F0E9]/95 via-[#F4F0E9]/82 to-[#F4F0E9]/42 sm:from-[#F4F0E9]/94 sm:via-[#F4F0E9]/76 sm:to-[#F4F0E9]/35 lg:from-[#F4F0E9]/96 lg:via-[#F4F0E9]/74 lg:to-[#F4F0E9]/32 pointer-events-none" 
+          className="absolute inset-0 bg-gradient-to-r from-[#F4F0E9]/96 via-[#F4F0E9]/74 to-[#F4F0E9]/32 pointer-events-none" 
           aria-hidden="true" 
         />
 
-        {/* Vertical gradient wash for seamless top navbar and bottom section transitions */}
         <div 
           className="absolute inset-0 bg-gradient-to-b from-[#F4F0E9]/75 via-transparent to-[#F4F0E9]/85 pointer-events-none" 
           aria-hidden="true" 
         />
+      </div>
 
-        {/* Mobile-calibrated light density overlay ensuring crisp readability on small viewports */}
+      {/* Mobile & Tablet Background Image (Consultation Room) */}
+      <div 
+        className="lg:hidden absolute inset-0 z-0 pointer-events-none select-none overflow-hidden"
+      >
+        <Image
+          src="/images/contact/contact-hero-consultation.jpg"
+          alt="Excorto Builders & Interiors - Architectural Consultation"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[70%_center] pointer-events-none select-none"
+        />
+
+        {/* Calibrated mobile overlay ensuring consultation space is distinctly recognizable */}
         <div 
-          className="lg:hidden absolute inset-0 bg-gradient-to-b from-[#F4F0E9]/88 via-[#F4F0E9]/78 to-[#F4F0E9]/92 pointer-events-none" 
+          className="absolute inset-0 bg-gradient-to-b from-[#F4F0E9]/70 via-[#F4F0E9]/45 to-[#F4F0E9]/80 pointer-events-none" 
+          aria-hidden="true" 
+        />
+        <div 
+          className="absolute inset-0 bg-gradient-to-r from-[#F4F0E9]/75 via-[#F4F0E9]/40 to-transparent pointer-events-none" 
           aria-hidden="true" 
         />
       </div>
@@ -160,7 +170,7 @@ export function ContactHeroSection({ onDiscussProject }: ContactHeroSectionProps
           {/* Eyebrow: CONTACT EXCORTO, uppercase, letter-spaced, coffee-brown */}
           <span 
             ref={eyebrowRef}
-            className="font-sans text-[11px] sm:text-[11.5px] lg:text-[12px] font-semibold tracking-[0.26em] uppercase text-[#94745F] mb-3.5 sm:mb-4 lg:mb-5 block select-text will-change-transform"
+            className="font-sans text-[12px] sm:text-[12.5px] lg:text-[13px] font-bold tracking-[0.26em] uppercase text-[#8B6B56] mb-3.5 sm:mb-4 lg:mb-5 block select-text will-change-transform"
           >
             CONTACT EXCORTO
           </span>
@@ -168,7 +178,7 @@ export function ContactHeroSection({ onDiscussProject }: ContactHeroSectionProps
           {/* Main Heading: Canela/Cormorant Garamond large serif */}
           <h1 
             id="contact-hero-heading"
-            className="font-serif text-[#292722] text-[38px] xs:text-[42px] sm:text-[48px] md:text-[54px] lg:text-[56px] xl:text-[62px] leading-[1.12] sm:leading-[1.15] tracking-[-0.018em] font-normal mb-5 sm:mb-6 select-text"
+            className="font-serif text-[#1C201D] text-[40px] xs:text-[44px] sm:text-[50px] md:text-[56px] lg:text-[58px] xl:text-[64px] leading-[1.12] sm:leading-[1.15] tracking-[-0.018em] font-medium mb-5 sm:mb-6 select-text"
           >
             <span className="block">
               <span 
@@ -189,7 +199,7 @@ export function ContactHeroSection({ onDiscussProject }: ContactHeroSectionProps
             <span className="block">
               <span 
                 ref={(el) => { if (el) headingLinesRef.current[2] = el; }}
-                className="block italic text-[#94745F] font-normal will-change-transform text-[28px] xs:text-[32px] sm:text-[36px] md:text-[42px] lg:text-[44px] xl:text-[48px] mt-1"
+                className="block italic text-[#8B6B56] font-normal will-change-transform text-[30px] xs:text-[34px] sm:text-[38px] md:text-[44px] lg:text-[46px] xl:text-[50px] mt-1"
               >
                 Your Vision, Our Expertise.
               </span>
@@ -199,7 +209,7 @@ export function ContactHeroSection({ onDiscussProject }: ContactHeroSectionProps
           {/* Description in Satoshi, muted charcoal */}
           <p 
             ref={descRef}
-            className="font-sans text-[14px] sm:text-[15px] lg:text-[15.5px] leading-[1.72] text-[#3D3833] mb-6 sm:mb-7 select-text will-change-transform max-w-[500px]"
+            className="font-sans text-[15.5px] sm:text-[16.5px] lg:text-[17.5px] leading-[1.72] text-[#2E2822] font-normal mb-6 sm:mb-7 select-text will-change-transform max-w-[520px]"
           >
             Have a project in mind? Whether you&apos;re planning a new home, transforming an existing space or developing a commercial property, we&apos;re here to understand your ideas and bring them to life.
           </p>
@@ -209,8 +219,8 @@ export function ContactHeroSection({ onDiscussProject }: ContactHeroSectionProps
             ref={secondaryTextRef}
             className="flex items-center gap-2.5 sm:gap-3 mb-7 sm:mb-8 will-change-transform select-none"
           >
-            <span className="w-5 sm:w-6 h-[1px] bg-[#94745F]/70 shrink-0" aria-hidden="true" />
-            <span className="font-sans text-[10.5px] sm:text-[11px] font-semibold tracking-[0.24em] uppercase text-[#6B635A]">
+            <span className="w-5 sm:w-6 h-[1.5px] bg-[#8B6B56] shrink-0" aria-hidden="true" />
+            <span className="font-sans text-[11px] sm:text-[11.5px] font-bold tracking-[0.24em] uppercase text-[#554E46]">
               THIRUVANANTHAPURAM, KERALA
             </span>
           </div>
@@ -223,10 +233,10 @@ export function ContactHeroSection({ onDiscussProject }: ContactHeroSectionProps
             <a
               href="#contact-form"
               onClick={handleScrollToForm}
-              className="group inline-flex items-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-[#94745F] hover:bg-[#7D604D] text-[#FAF8F5] font-sans text-[11px] sm:text-[11.5px] font-medium tracking-[0.2em] uppercase transition-all duration-300 shadow-xs hover:shadow-md active:scale-98 cursor-pointer select-none"
+              className="group inline-flex items-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-[#8F5E3B] hover:bg-[#784B2B] text-[#FAF8F5] font-sans text-[12px] sm:text-[12.5px] font-bold tracking-[0.2em] uppercase transition-all duration-300 shadow-xs hover:shadow-md active:scale-98 cursor-pointer select-none"
             >
               <span>DISCUSS YOUR PROJECT</span>
-              <span className="transition-transform duration-300 group-hover:translate-x-1 inline-block text-[13px]" aria-hidden="true">
+              <span className="transition-transform duration-300 group-hover:translate-x-1 inline-block text-[14px]" aria-hidden="true">
                 →
               </span>
             </a>

@@ -40,18 +40,18 @@ export function AboutSection({ onOpenConsultation }: AboutSectionProps) {
 
           <ScrollReveal distance={18} className="relative z-10">
             {/* Eyebrow */}
-            <span className="font-sans text-[11px] sm:text-[12px] font-medium tracking-[0.24em] uppercase text-black mb-4 sm:mb-5 block">
+            <span className="font-sans text-[12px] sm:text-[13px] font-semibold tracking-[0.24em] uppercase text-black mb-4 sm:mb-5 block">
               ABOUT EXCORTO
             </span>
 
             {/* Main Headline in Black */}
-            <h2 className="font-serif text-black text-[34px] sm:text-[42px] lg:text-[48px] xl:text-[54px] leading-[1.12] tracking-tight mb-6 sm:mb-8">
+            <h2 className="font-serif text-black text-[36px] sm:text-[44px] lg:text-[50px] xl:text-[56px] leading-[1.12] tracking-tight mb-6 sm:mb-8">
               Designing Spaces.<br />
               Shaping Experiences.
             </h2>
 
-            {/* Body Paragraphs */}
-            <div className="space-y-4 sm:space-y-5 text-[#2B2B2B] font-sans text-[13.5px] sm:text-[14px] lg:text-[14.5px] leading-[1.72]">
+            {/* Body Paragraphs - High Readability */}
+            <div className="space-y-4 sm:space-y-5 text-[#1C1C1C] font-sans text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.75]">
               <p>
                 A great space is more than what you see. It is how naturally it functions, how comfortably it feels, and how meaningfully it connects with the people who use it.
               </p>
@@ -67,10 +67,11 @@ export function AboutSection({ onOpenConsultation }: AboutSectionProps) {
             <div className="mt-8 sm:mt-10">
               <Link
                 href="/about"
-                className="group inline-flex items-center gap-2 font-sans font-medium text-[11.5px] sm:text-[12px] uppercase tracking-[0.18em] text-black hover:text-black/70 border-b border-black hover:border-black/70 pb-1 transition-all cursor-pointer"
+                className="group inline-flex items-center gap-2.5 font-sans font-semibold text-[13px] sm:text-[13.5px] uppercase tracking-[0.2em] text-black hover:text-black/70 border-b-2 border-black hover:border-black/70 pb-1 transition-all cursor-pointer"
+                aria-label="Learn more about Excorto Builders and Interiors"
               >
                 <span>MORE ABOUT US</span>
-                <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1.5" />
+                <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1.5" />
               </Link>
             </div>
           </ScrollReveal>

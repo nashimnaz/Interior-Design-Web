@@ -118,11 +118,10 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
           SITE HEADER (Sticky elevation & minimal glass hamburger trigger)
           ========================================================================= */}
       <header
-        className={`fixed top-0 left-0 right-0 z-[60] w-full transition-all duration-300 ${
-          isScrolled
+        className={`fixed top-0 left-0 right-0 z-[60] w-full transition-all duration-300 ${isScrolled
             ? 'bg-[#F5F2EC]/90 backdrop-blur-md border-b border-[#786450]/15 shadow-xs py-3.5 sm:py-4'
             : 'bg-transparent py-5 sm:py-6 lg:py-7'
-        }`}
+          }`}
       >
         <div className="max-w-[1520px] mx-auto px-5 sm:px-8 lg:px-12 xl:px-14 flex items-center justify-between">
           {/* Brand / Official Studio Logo */}
@@ -137,12 +136,12 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
             <Image
               src="/images/excorto-logo.png"
               alt="Excorto Builders and Interiors"
-              width={190}
-              height={46}
+              width={220}
+              height={53}
               priority
               unoptimized
               style={{ width: 'auto' }}
-              className="h-7 sm:h-8 md:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-102"
+              className="h-7 sm:h-8 md:h-[43.2px] w-auto object-contain transition-transform duration-300 group-hover:scale-102"
             />
           </Link>
 
@@ -150,11 +149,10 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
           <button
             type="button"
             onClick={handleToggle}
-            className={`w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xs active:scale-95 border ${
-              isMenuVisible
+            className={`w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xs active:scale-95 border ${isMenuVisible
                 ? 'bg-[#F5F2EC] text-[#292722] border-[#786450]/20 shadow-md ring-2 ring-[#94745F]/20'
                 : 'bg-[#F5F2EC]/80 hover:bg-[#F5F2EC] text-[#292722] border-white/70 backdrop-blur-md hover:border-[#786450]/20'
-            }`}
+              }`}
             aria-label={isMenuVisible ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={isMenuVisible}
           >
@@ -162,8 +160,8 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
             <div className="relative w-4.5 h-4 flex items-center justify-center pointer-events-none">
               <span
                 style={{
-                  transform: isMenuVisible 
-                    ? 'translateY(0px) rotate(45deg)' 
+                  transform: isMenuVisible
+                    ? 'translateY(0px) rotate(45deg)'
                     : 'translateY(-5px) rotate(0deg)',
                   transition: 'transform 350ms cubic-bezier(0.16, 1, 0.3, 1)',
                 }}
@@ -179,8 +177,8 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
               />
               <span
                 style={{
-                  transform: isMenuVisible 
-                    ? 'translateY(0px) rotate(-45deg)' 
+                  transform: isMenuVisible
+                    ? 'translateY(0px) rotate(-45deg)'
                     : 'translateY(5px) rotate(0deg)',
                   transition: 'transform 350ms cubic-bezier(0.16, 1, 0.3, 1)',
                 }}
@@ -224,8 +222,8 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
               transform: isMenuVisible
                 ? 'translateY(0px) scale(1)'
                 : isClosing
-                ? 'translateY(60px) scale(0.97)'
-                : 'translateY(-60px) scale(0.97)',
+                  ? 'translateY(60px) scale(0.97)'
+                  : 'translateY(-60px) scale(0.97)',
               transition: isClosing
                 ? 'opacity 340ms cubic-bezier(0.16, 1, 0.3, 1), transform 380ms cubic-bezier(0.16, 1, 0.3, 1)'
                 : 'opacity 450ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)',
@@ -236,14 +234,14 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
           >
             <div>
               {/* Panel Top Header: Brand + Close Trigger */}
-              <div 
+              <div
                 style={{
                   opacity: isMenuVisible ? 1 : 0,
                   transform: isMenuVisible
                     ? 'translateY(0px)'
                     : isClosing
-                    ? 'translateY(12px)'
-                    : 'translateY(-12px)',
+                      ? 'translateY(12px)'
+                      : 'translateY(-12px)',
                   transition: isClosing
                     ? 'opacity 240ms ease-out, transform 260ms ease-out'
                     : 'opacity 380ms cubic-bezier(0.16, 1, 0.3, 1) 80ms, transform 400ms cubic-bezier(0.16, 1, 0.3, 1) 80ms',
@@ -259,11 +257,11 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
                   <Image
                     src="/images/excorto-logo.png"
                     alt="Excorto Builders and Interiors"
-                    width={150}
-                    height={36}
+                    width={180}
+                    height={43}
                     unoptimized
                     style={{ width: 'auto' }}
-                    className="h-6 sm:h-7 w-auto object-contain transition-transform duration-300 group-hover:scale-102"
+                    className="h-6 sm:h-7 md:h-[33.6px] w-auto object-contain transition-transform duration-300 group-hover:scale-102"
                   />
                 </Link>
 
@@ -274,11 +272,11 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
                   className="w-8 h-8 rounded-full bg-[#F5F2EC]/90 hover:bg-[#EAE5DE] text-[#292722] border border-[#786450]/15 flex items-center justify-center transition-all duration-300 cursor-pointer active:scale-95 group"
                   aria-label="Close navigation menu"
                 >
-                  <svg 
-                    width="13" 
-                    height="13" 
-                    viewBox="0 0 16 16" 
-                    fill="none" 
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 16 16"
+                    fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     className="transition-transform duration-300 group-hover:rotate-90"
                   >
@@ -294,14 +292,14 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
               </div>
 
               {/* Eyebrow / Architectural Subtitle */}
-              <div 
+              <div
                 style={{
                   opacity: isMenuVisible ? 1 : 0,
                   transform: isMenuVisible
                     ? 'translateY(0px)'
                     : isClosing
-                    ? 'translateY(10px)'
-                    : 'translateY(-10px)',
+                      ? 'translateY(10px)'
+                      : 'translateY(-10px)',
                   transition: isClosing
                     ? 'opacity 240ms ease-out, transform 260ms ease-out'
                     : 'opacity 380ms cubic-bezier(0.16, 1, 0.3, 1) 120ms, transform 400ms cubic-bezier(0.16, 1, 0.3, 1) 120ms',
@@ -332,27 +330,25 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
                         transform: isMenuVisible
                           ? 'translateY(0px)'
                           : isClosing
-                          ? 'translateY(14px)'
-                          : 'translateY(-14px)',
+                            ? 'translateY(14px)'
+                            : 'translateY(-14px)',
                         transition: isClosing
                           ? `opacity 220ms ease-out ${closeDelay}ms, transform 250ms ease-out ${closeDelay}ms`
                           : `opacity 350ms cubic-bezier(0.16, 1, 0.3, 1) ${openDelay}ms, transform 380ms cubic-bezier(0.16, 1, 0.3, 1) ${openDelay}ms`,
                       }}
-                      className={`group flex items-center justify-between py-1.5 px-2.5 rounded-lg ${
-                        link.active
+                      className={`group flex items-center justify-between py-1.5 px-2.5 rounded-lg ${link.active
                           ? 'bg-[#94745F]/10 text-[#292722]'
                           : 'text-[#292722] hover:bg-[#94745F]/5 hover:text-[#94745F]'
-                      }`}
+                        }`}
                     >
                       {/* Link Number & Serif Heading */}
                       <div className="flex items-baseline gap-2.5 sm:gap-3 transition-transform duration-200 ease-out group-hover:translate-x-1.5">
-                        <span className="font-mono text-[10px] sm:text-[10.5px] text-[#94745F] font-medium tracking-wider">
+                        <span className="font-mono text-[11px] sm:text-[11.5px] text-[#94745F] font-semibold tracking-wider">
                           {link.num}
                         </span>
                         <span
-                          className={`font-serif text-[17px] sm:text-[18px] font-normal tracking-tight leading-snug transition-colors duration-200 ${
-                            link.active ? 'text-[#292722] font-medium' : 'text-[#292722] group-hover:text-[#94745F]'
-                          }`}
+                          className={`font-serif text-[19px] sm:text-[21px] font-normal tracking-tight leading-snug transition-colors duration-200 ${link.active ? 'text-[#292722] font-semibold' : 'text-[#292722] group-hover:text-[#94745F]'
+                            }`}
                         >
                           {link.label}
                         </span>
@@ -380,14 +376,14 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
             </div>
 
             {/* Panel Bottom: Sage Green CTA & Studio Details with Fluid Entrance */}
-            <div 
+            <div
               style={{
                 opacity: isMenuVisible ? 1 : 0,
                 transform: isMenuVisible
                   ? 'translateY(0px)'
                   : isClosing
-                  ? 'translateY(15px)'
-                  : 'translateY(-15px)',
+                    ? 'translateY(15px)'
+                    : 'translateY(-15px)',
                 transition: isClosing
                   ? 'opacity 220ms ease-out, transform 250ms ease-out'
                   : 'opacity 400ms cubic-bezier(0.16, 1, 0.3, 1) 480ms, transform 420ms cubic-bezier(0.16, 1, 0.3, 1) 480ms',

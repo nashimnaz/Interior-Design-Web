@@ -106,7 +106,7 @@ export function ProjectsHeroSection({ onExploreProjects }: ProjectsHeroSectionPr
   };
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       id="projects-hero"
       aria-labelledby="projects-hero-heading"
@@ -119,9 +119,9 @@ export function ProjectsHeroSection({ onExploreProjects }: ProjectsHeroSectionPr
           - Mobile: soft warm ivory wash ensuring crisp typography readability.
           - Section background is #FDF8F0 matching the exact ivory canvas of the image.
           ========================================================================= */}
-      
+
       {/* Desktop zoomed-out natural contain background */}
-      <div 
+      <div
         ref={heroBgRef}
         className="hidden lg:block absolute inset-0 z-0 pointer-events-none select-none overflow-hidden"
       >
@@ -137,35 +137,35 @@ export function ProjectsHeroSection({ onExploreProjects }: ProjectsHeroSectionPr
         </div>
 
         {/* Desktop subtle feathered wash on the left to guarantee seamless text contrast regardless of screen width */}
-        <div 
-          className="absolute inset-y-0 left-0 w-[42%] bg-gradient-to-r from-[#FDF8F0] via-[#FDF8F0]/70 to-transparent pointer-events-none" 
-          aria-hidden="true" 
+        <div
+          className="absolute inset-y-0 left-0 w-[42%] bg-gradient-to-r from-[#FDF8F0] via-[#FDF8F0]/70 to-transparent pointer-events-none"
+          aria-hidden="true"
         />
       </div>
 
       {/* Mobile & Tablet background */}
-      <div 
+      <div
         className="lg:hidden absolute inset-0 z-0 pointer-events-none select-none overflow-hidden"
       >
         <Image
           src="/images/projects-hero-mobile.jpg"
-          alt="Excorto Builders & Interiors - Contemporary Mediterranean Villa Portfolio"
+          alt="Excorto Builders & Interiors - Contemporary Mediterranean Villa Projects"
           fill
           priority
           sizes="100vw"
           className="object-cover object-center select-none pointer-events-none"
         />
 
-        {/* Soft mobile/tablet wash for low-density watermark background effect */}
-        <div 
-          className="absolute inset-0 bg-gradient-to-b from-[#FDF8F0]/88 via-[#FDF8F0]/70 to-[#FDF8F0]/90 sm:from-[#FDF8F0]/85 sm:via-[#FDF8F0]/65 sm:to-[#FDF8F0]/85 pointer-events-none" 
-          aria-hidden="true" 
+        {/* Calibrated mobile/tablet wash ensuring architecture is clearly recognizable */}
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-[#FDF8F0]/55 via-[#FDF8F0]/30 to-[#FDF8F0]/65 sm:from-[#FDF8F0]/50 sm:via-[#FDF8F0]/25 to-[#FDF8F0]/60 pointer-events-none"
+          aria-hidden="true"
         />
 
-        {/* Soft horizontal gradient prioritizing text readability on mobile */}
-        <div 
-          className="absolute inset-0 bg-gradient-to-r from-[#FDF8F0]/85 via-[#FDF8F0]/45 to-transparent pointer-events-none" 
-          aria-hidden="true" 
+        {/* Soft horizontal gradient prioritizing text contrast on mobile */}
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-[#FDF8F0]/65 via-[#FDF8F0]/30 to-transparent pointer-events-none"
+          aria-hidden="true"
         />
       </div>
 
@@ -174,22 +174,22 @@ export function ProjectsHeroSection({ onExploreProjects }: ProjectsHeroSectionPr
           ========================================================================= */}
       <div className="relative z-10 w-full max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 pt-32 sm:pt-36 md:pt-40 lg:pt-0 pb-16 sm:pb-20 lg:pb-0 flex items-center lg:h-full">
         <div className="w-full lg:w-[42%] xl:w-[40%] flex flex-col justify-center max-w-[540px] xl:max-w-[580px]">
-          
+
           {/* Eyebrow: OUR PROJECTS, uppercase, muted terracotta */}
-          <span 
+          <span
             ref={eyebrowRef}
-            className="font-sans text-[11px] sm:text-[11.5px] lg:text-[12px] font-semibold tracking-[0.26em] uppercase text-[#C2633E] mb-3.5 sm:mb-4 lg:mb-5 block select-text will-change-transform"
+            className="font-sans text-[12px] sm:text-[12.5px] lg:text-[13px] font-bold tracking-[0.26em] uppercase text-[#C2633E] mb-3.5 sm:mb-4 lg:mb-5 block select-text will-change-transform"
           >
             OUR PROJECTS
           </span>
 
           {/* Main Heading: Canela/Cormorant Garamond serif with "to Life." in italic coffee brown (#94745F) */}
-          <h1 
+          <h1
             id="projects-hero-heading"
-            className="font-serif text-[#292722] text-[38px] xs:text-[42px] sm:text-[48px] md:text-[54px] lg:text-[56px] xl:text-[62px] leading-[1.12] sm:leading-[1.15] tracking-[-0.018em] font-normal mb-5 sm:mb-6 select-text"
+            className="font-serif text-[#1C201D] text-[40px] xs:text-[44px] sm:text-[50px] md:text-[56px] lg:text-[60px] xl:text-[66px] leading-[1.12] sm:leading-[1.15] tracking-[-0.018em] font-medium mb-5 sm:mb-6 select-text"
           >
             <span className="block">
-              <span 
+              <span
                 ref={(el) => { if (el) headingLinesRef.current[0] = el; }}
                 className="block will-change-transform"
               >
@@ -197,46 +197,46 @@ export function ProjectsHeroSection({ onExploreProjects }: ProjectsHeroSectionPr
               </span>
             </span>
             <span className="block">
-              <span 
+              <span
                 ref={(el) => { if (el) headingLinesRef.current[1] = el; }}
-                className="block italic text-[#94745F] font-normal will-change-transform"
+                className="block italic text-[#8B6B56] font-normal will-change-transform"
               >
                 to Life.
               </span>
             </span>
           </h1>
 
-          {/* Description in Satoshi, dark charcoal (#49443E) */}
-          <p 
+          {/* Description in Satoshi, dark charcoal */}
+          <p
             ref={descRef}
-            className="font-sans text-[14px] sm:text-[15px] lg:text-[15.5px] leading-[1.72] text-[#49443E] mb-6 sm:mb-7 select-text will-change-transform max-w-[500px]"
+            className="font-sans text-[15.5px] sm:text-[16.5px] lg:text-[17.5px] leading-[1.72] text-[#332E29] font-normal mb-6 sm:mb-7 select-text will-change-transform max-w-[520px]"
           >
             Explore our completed projects across residential and commercial spaces. Each project reflects our commitment to thoughtful design, functional planning and quality execution.
           </p>
 
           {/* Secondary Text: DESIGNED WITH PURPOSE. BUILT WITH PRECISION. */}
-          <div 
+          <div
             ref={secondaryTextRef}
             className="flex items-center gap-2.5 sm:gap-3 mb-7 sm:mb-8 will-change-transform select-none"
           >
-            <span className="w-5 sm:w-6 h-[1px] bg-[#C2633E]/70 shrink-0" aria-hidden="true" />
-            <span className="font-sans text-[10px] sm:text-[10.5px] font-semibold tracking-[0.24em] uppercase text-[#736B63]">
+            <span className="w-5 sm:w-6 h-[1.5px] bg-[#C2633E] shrink-0" aria-hidden="true" />
+            <span className="font-sans text-[11px] sm:text-[11.5px] font-bold tracking-[0.24em] uppercase text-[#554E46]">
               DESIGNED WITH PURPOSE. BUILT WITH PRECISION.
             </span>
           </div>
 
           {/* Primary CTA: Minimal EXPLORE OUR PROJECTS ↓ with a thin underline */}
-          <div 
+          <div
             ref={ctaRef}
             className="will-change-transform"
           >
             <a
               href="#projects-showcase"
               onClick={handleScrollToProjects}
-              className="group inline-flex items-center gap-2 font-sans text-[11px] sm:text-[11.5px] font-semibold tracking-[0.22em] uppercase text-[#292722] hover:text-[#94745F] transition-colors duration-300 pb-1 border-b border-[#292722]/40 hover:border-[#94745F] w-fit cursor-pointer select-none"
+              className="group inline-flex items-center gap-2 font-sans text-[12px] sm:text-[12.5px] font-bold tracking-[0.22em] uppercase text-[#1C201D] hover:text-[#94745F] transition-colors duration-300 pb-1 border-b-2 border-[#1C201D]/50 hover:border-[#94745F] w-fit cursor-pointer select-none"
             >
               <span>EXPLORE OUR PROJECTS</span>
-              <span className="transition-transform duration-300 group-hover:translate-y-1 inline-block text-[13px]" aria-hidden="true">
+              <span className="transition-transform duration-300 group-hover:translate-y-1 inline-block text-[14px]" aria-hidden="true">
                 ↓
               </span>
             </a>

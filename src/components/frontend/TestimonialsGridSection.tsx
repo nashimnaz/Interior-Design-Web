@@ -19,7 +19,7 @@ function TestimonialCard({
   return (
     <article 
       className={`shrink-0 bg-[#FCFAF4] border border-[#E5DFD4] rounded-[4px] p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-lg hover:border-[#94745F]/50 select-text ${
-        className || 'w-[330px] sm:w-[370px] lg:w-[410px] h-[225px] sm:h-[235px] hover:-translate-y-1'
+        className || 'w-[340px] sm:w-[380px] lg:w-[420px] h-[235px] sm:h-[245px] hover:-translate-y-1'
       }`}
       aria-label={`Testimonial from ${item.clientName}`}
     >
@@ -28,19 +28,19 @@ function TestimonialCard({
         <div className="flex items-center justify-between gap-3 mb-3.5">
           <div className="flex items-center gap-1 text-[#8F5E3B]" aria-label={`${item.rating || 5} out of 5 stars`}>
             {[...Array(item.rating || 5)].map((_, i) => (
-              <Star key={i} size={13} className="fill-[#8F5E3B] text-[#8F5E3B]" />
+              <Star key={i} size={14} className="fill-[#8F5E3B] text-[#8F5E3B]" />
             ))}
           </div>
 
           {item.projectTitle && (
-            <span className="font-sans text-[10px] uppercase tracking-[0.16em] font-semibold text-[#94745F] bg-[#F4F0E9] px-2.5 py-0.5 rounded-[3px] truncate max-w-[175px]">
+            <span className="font-sans text-[11px] uppercase tracking-[0.16em] font-bold text-[#8B6B56] bg-[#F4F0E9] px-2.5 py-0.5 rounded-[3px] truncate max-w-[185px]">
               {item.projectTitle}
             </span>
           )}
         </div>
 
         {/* Quote Text */}
-        <blockquote className="font-serif text-[14px] sm:text-[15px] leading-[1.48] text-[#292722] font-normal line-clamp-3 select-text">
+        <blockquote className="font-serif text-[15px] sm:text-[16px] leading-[1.55] text-[#1E1C19] font-normal line-clamp-3 select-text">
           &ldquo;{item.quote}&rdquo;
         </blockquote>
       </div>
@@ -48,27 +48,27 @@ function TestimonialCard({
       {/* Client Profile Footer */}
       <div className="flex items-center gap-3 pt-3.5 border-t border-[#EDE7DC]">
         {item.clientPhoto ? (
-          <div className="relative w-9 h-9 rounded-full overflow-hidden bg-[#E5DFD4] shrink-0 border border-[#D9D0C4]">
+          <div className="relative w-10 h-10 rounded-full overflow-hidden bg-[#E5DFD4] shrink-0 border border-[#D9D0C4]">
             <SmoothImage
               src={item.clientPhoto}
               alt={item.clientName}
               fill
-              sizes="36px"
+              sizes="40px"
               unoptimized
               className="object-cover"
             />
           </div>
         ) : (
-          <div className="w-9 h-9 rounded-full bg-[#E8E0D2] flex items-center justify-center shrink-0 font-serif text-[14.5px] text-[#94745F] font-semibold">
+          <div className="w-10 h-10 rounded-full bg-[#E8E0D2] flex items-center justify-center shrink-0 font-serif text-[15px] text-[#94745F] font-bold">
             {item.clientName.charAt(0)}
           </div>
         )}
 
         <div className="min-w-0">
-          <h3 className="font-sans text-[13px] sm:text-[13.5px] font-semibold text-[#292722] tracking-normal truncate">
+          <h3 className="font-sans text-[14px] sm:text-[14.5px] font-bold text-[#1C201D] tracking-normal truncate">
             {item.clientName}
           </h3>
-          <p className="font-sans text-[11px] sm:text-[11.5px] text-[#6E675E] truncate">
+          <p className="font-sans text-[12px] sm:text-[12.5px] text-[#554E46] font-medium truncate">
             {item.clientRole}
           </p>
         </div>
@@ -135,24 +135,24 @@ export function TestimonialsGridSection() {
       <div className="max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 mb-12 sm:mb-14">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-6 border-b border-[#DDD5C7]">
           <div>
-            <span className="font-sans text-[11px] sm:text-[11.5px] font-semibold tracking-[0.24em] uppercase text-[#94745F] mb-3 block">
+            <span className="font-sans text-[12px] sm:text-[12.5px] font-bold tracking-[0.24em] uppercase text-[#8B6B56] mb-3 block">
               VERIFIED CLIENT EXPERIENCES
             </span>
             <h2 
               id="testimonials-grid-heading"
-              className="font-serif text-[#292722] text-[30px] sm:text-[36px] lg:text-[42px] leading-[1.14] tracking-[-0.015em] font-normal"
+              className="font-serif text-[#1C201D] text-[32px] sm:text-[38px] lg:text-[44px] leading-[1.14] tracking-[-0.015em] font-medium"
             >
               What It Feels Like to <br className="hidden sm:inline" />
-              <span className="italic text-[#94745F]">Live in an Excorto Home.</span>
+              <span className="italic text-[#8B6B56] font-normal">Live in an Excorto Home.</span>
             </h2>
           </div>
 
-          <div className="max-w-[440px]">
-            <p className="font-sans text-[13.5px] sm:text-[14px] text-[#554E48] leading-relaxed mb-2">
+          <div className="max-w-[460px]">
+            <p className="font-sans text-[15px] sm:text-[15.5px] text-[#423C35] leading-relaxed mb-2 font-normal">
               Discover firsthand experiences from homeowners, entrepreneurs, and families across Kerala who trusted Excorto with their most personal spaces.
             </p>
-            <span className="inline-flex items-center gap-2 font-sans text-[11px] tracking-[0.16em] uppercase text-[#94745F]/80 font-medium">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#94745F]/70 animate-pulse" />
+            <span className="inline-flex items-center gap-2 font-sans text-[11.5px] tracking-[0.16em] uppercase text-[#8B6B56] font-bold">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#8B6B56] animate-pulse" />
               Hover or touch any card to pause scrolling
             </span>
           </div>
@@ -306,20 +306,20 @@ export function TestimonialsGridSection() {
       <div className="max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16">
         <div className="mt-14 sm:mt-18 pt-10 border-t border-[#DDD5C7] grid grid-cols-2 md:grid-cols-4 gap-8 text-center sm:text-left">
           <div>
-            <span className="font-serif text-[30px] sm:text-[36px] text-[#292722] font-normal block leading-tight">100%</span>
-            <span className="font-sans text-[11px] uppercase tracking-[0.18em] text-[#7A746C] mt-1 block">Client Satisfaction</span>
+            <span className="font-serif text-[32px] sm:text-[38px] text-[#1C201D] font-medium block leading-tight">100%</span>
+            <span className="font-sans text-[12px] sm:text-[12.5px] uppercase tracking-[0.18em] text-[#554E46] mt-1.5 block font-semibold">Client Satisfaction</span>
           </div>
           <div>
-            <span className="font-serif text-[30px] sm:text-[36px] text-[#292722] font-normal block leading-tight">50+</span>
-            <span className="font-sans text-[11px] uppercase tracking-[0.18em] text-[#7A746C] mt-1 block">Completed Projects</span>
+            <span className="font-serif text-[32px] sm:text-[38px] text-[#1C201D] font-medium block leading-tight">50+</span>
+            <span className="font-sans text-[12px] sm:text-[12.5px] uppercase tracking-[0.18em] text-[#554E46] mt-1.5 block font-semibold">Completed Projects</span>
           </div>
           <div>
-            <span className="font-serif text-[30px] sm:text-[36px] text-[#292722] font-normal block leading-tight">14+</span>
-            <span className="font-sans text-[11px] uppercase tracking-[0.18em] text-[#7A746C] mt-1 block">Years of Craftsmanship</span>
+            <span className="font-serif text-[32px] sm:text-[38px] text-[#1C201D] font-medium block leading-tight">14+</span>
+            <span className="font-sans text-[12px] sm:text-[12.5px] uppercase tracking-[0.18em] text-[#554E46] mt-1.5 block font-semibold">Years of Craftsmanship</span>
           </div>
           <div>
-            <span className="font-serif text-[30px] sm:text-[36px] text-[#8F5E3B] font-normal block leading-tight">5.0 ★</span>
-            <span className="font-sans text-[11px] uppercase tracking-[0.18em] text-[#7A746C] mt-1 block">Average Rating</span>
+            <span className="font-serif text-[32px] sm:text-[38px] text-[#8F5E3B] font-medium block leading-tight">5.0 ★</span>
+            <span className="font-sans text-[12px] sm:text-[12.5px] uppercase tracking-[0.18em] text-[#554E46] mt-1.5 block font-semibold">Average Rating</span>
           </div>
         </div>
       </div>

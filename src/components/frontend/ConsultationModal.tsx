@@ -108,26 +108,26 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
         ) : (
           <div>
             <div className="mb-6">
-              <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#8D6545] block">
+              <span className="text-[11px] sm:text-[11.5px] font-bold uppercase tracking-[0.25em] text-[#8D6545] block">
                 Excorto Builders &amp; Interiors
               </span>
-              <h2 className="font-serif text-2xl sm:text-[28px] text-[#221E1B] mt-1 leading-snug">
+              <h2 className="font-serif text-2xl sm:text-[28px] font-medium text-[#1C201D] mt-1 leading-snug">
                 Discuss Your Project
               </h2>
-              <p className="text-[13.5px] text-[#665E57] mt-1.5 leading-relaxed">
+              <p className="text-[14px] sm:text-[14.5px] text-[#554E46] mt-1.5 leading-relaxed font-normal">
                 Connect with our senior architects and interior stylists for your bespoke residence or commercial development.
               </p>
             </div>
 
             {error && (
-              <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-800 text-[12.5px] rounded-[1px]">
+              <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-800 text-[13px] rounded-[1px] font-medium">
                 {error}
               </div>
             )}
 
             <form onSubmit={handleSubmit} className="space-y-4 text-left">
               <div>
-                <label className="block text-[11px] font-medium uppercase tracking-[0.12em] text-[#4A3F37] mb-1">
+                <label className="block text-[12px] font-bold uppercase tracking-[0.12em] text-[#3A322C] mb-1">
                   Full Name *
                 </label>
                 <input
@@ -136,13 +136,13 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Anand Menon"
-                  className="w-full bg-[#FFFFFF] border border-[#DDD5C9] focus:border-[#6D4933] text-[#221E1B] text-[13.5px] px-3.5 py-2.5 outline-none rounded-[1px] transition-colors"
+                  className="w-full bg-[#FFFFFF] border-2 border-[#DDD5C9] focus:border-[#6D4933] text-[#1C201D] text-[14px] sm:text-[14.5px] font-medium px-3.5 py-2.5 outline-none rounded-[1px] transition-colors"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[11px] font-medium uppercase tracking-[0.12em] text-[#4A3F37] mb-1">
+                  <label className="block text-[12px] font-bold uppercase tracking-[0.12em] text-[#3A322C] mb-1">
                     Email Address
                   </label>
                   <input
@@ -150,11 +150,11 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="name@example.com"
-                    className="w-full bg-[#FFFFFF] border border-[#DDD5C9] focus:border-[#6D4933] text-[#221E1B] text-[13.5px] px-3.5 py-2.5 outline-none rounded-[1px] transition-colors"
+                    className="w-full bg-[#FFFFFF] border-2 border-[#DDD5C9] focus:border-[#6D4933] text-[#1C201D] text-[14px] sm:text-[14.5px] font-medium px-3.5 py-2.5 outline-none rounded-[1px] transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-[11px] font-medium uppercase tracking-[0.12em] text-[#4A3F37] mb-1">
+                  <label className="block text-[12px] font-bold uppercase tracking-[0.12em] text-[#3A322C] mb-1">
                     Phone / WhatsApp *
                   </label>
                   <input
@@ -162,19 +162,19 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+91 98765 43210"
-                    className="w-full bg-[#FFFFFF] border border-[#DDD5C9] focus:border-[#6D4933] text-[#221E1B] text-[13.5px] px-3.5 py-2.5 outline-none rounded-[1px] transition-colors"
+                    className="w-full bg-[#FFFFFF] border-2 border-[#DDD5C9] focus:border-[#6D4933] text-[#1C201D] text-[14px] sm:text-[14.5px] font-medium px-3.5 py-2.5 outline-none rounded-[1px] transition-colors"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[11px] font-medium uppercase tracking-[0.12em] text-[#4A3F37] mb-1">
+                <label className="block text-[12px] font-bold uppercase tracking-[0.12em] text-[#3A322C] mb-1">
                   Service Interest
                 </label>
                 <select
                   value={service}
                   onChange={(e) => setService(e.target.value)}
-                  className="w-full bg-[#FFFFFF] border border-[#DDD5C9] focus:border-[#6D4933] text-[#221E1B] text-[13.5px] px-3.5 py-2.5 outline-none rounded-[1px] transition-colors"
+                  className="w-full bg-[#FFFFFF] border-2 border-[#DDD5C9] focus:border-[#6D4933] text-[#1C201D] text-[14px] sm:text-[14.5px] font-medium px-3.5 py-2.5 outline-none rounded-[1px] transition-colors cursor-pointer"
                 >
                   <option value="Architectural Design">Architectural Design &amp; Planning</option>
                   <option value="Interior Designing">Complete Interior Designing</option>
@@ -185,7 +185,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
               </div>
 
               <div>
-                <label className="block text-[11px] font-medium uppercase tracking-[0.12em] text-[#4A3F37] mb-1">
+                <label className="block text-[12px] font-bold uppercase tracking-[0.12em] text-[#3A322C] mb-1">
                   Project Details / Location
                 </label>
                 <textarea
@@ -193,7 +193,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Tell us about your plot location, requirements, or vision..."
-                  className="w-full bg-[#FFFFFF] border border-[#DDD5C9] focus:border-[#6D4933] text-[#221E1B] text-[13.5px] px-3.5 py-2.5 outline-none rounded-[1px] transition-colors resize-none"
+                  className="w-full bg-[#FFFFFF] border-2 border-[#DDD5C9] focus:border-[#6D4933] text-[#1C201D] text-[14px] sm:text-[14.5px] font-medium px-3.5 py-2.5 outline-none rounded-[1px] transition-colors resize-none"
                 />
               </div>
 
@@ -201,10 +201,10 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full flex items-center justify-center gap-2 bg-[#6D4933] hover:bg-[#583A27] disabled:opacity-70 text-white text-[12px] font-medium tracking-[0.16em] uppercase py-3.5 rounded-[1px] transition-all cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 bg-[#6D4933] hover:bg-[#583A27] disabled:opacity-70 text-white text-[12.5px] sm:text-[13px] font-bold tracking-[0.18em] uppercase py-3.5 rounded-[1px] transition-all cursor-pointer"
                 >
                   {loading ? 'Submitting...' : 'Submit Project Enquiry'}
-                  <ArrowRight size={14} />
+                  <ArrowRight size={15} />
                 </button>
               </div>
             </form>

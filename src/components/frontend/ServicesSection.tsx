@@ -157,11 +157,11 @@ export function ServicesSection() {
           >
             <div className="flex items-center gap-2">
               <span className="w-4 h-[1px] bg-[#9C7A63]" />
-              <span className="text-[10.5px] font-medium tracking-[0.28em] uppercase text-[#7E563B]">
+              <span className="text-[12px] font-bold tracking-[0.28em] uppercase text-[#7E563B]">
                 OUR SERVICES
               </span>
             </div>
-            <span className="text-[11px] font-sans text-[#9C7A63] tracking-widest uppercase">
+            <span className="text-[12px] font-sans font-semibold text-[#8F5E3B] tracking-widest uppercase">
               VIEW ALL →
             </span>
           </Link>
@@ -199,19 +199,19 @@ export function ServicesSection() {
                         {item.icon}
                       </div>
 
-                      {/* Service Title */}
-                      <h3 className="font-sans text-[12px] sm:text-[12.5px] font-semibold tracking-[0.18em] uppercase text-[#2C2018] group-hover:text-[#9C7A63] transition-colors mb-2.5">
+                      {/* Service Title - Bold and Readable */}
+                      <h3 className="font-sans text-[13.5px] sm:text-[14px] font-bold tracking-[0.16em] uppercase text-[#1C1612] group-hover:text-[#9C7A63] transition-colors mb-2.5">
                         {item.title}
                       </h3>
 
                       {/* Service Description */}
-                      <p className="font-sans text-[13px] sm:text-[13.5px] text-[#665B51] leading-[1.62]">
+                      <p className="font-sans text-[14px] sm:text-[14.5px] text-[#423A33] leading-[1.65]">
                         {item.description}
                       </p>
                     </div>
 
                     {/* Subtle explore prompt */}
-                    <div className="mt-4 pt-2 flex items-center gap-1.5 text-[11px] font-sans font-medium uppercase tracking-[0.16em] text-[#9C7A63] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
+                    <div className="mt-4 pt-2 flex items-center gap-1.5 text-[12px] font-sans font-bold uppercase tracking-[0.18em] text-[#8F4A2D] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
                       <span>Explore</span>
                       <span>→</span>
                     </div>

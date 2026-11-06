@@ -68,21 +68,21 @@ export function WhyChooseUsSection({
           {/* Column 2: Centre Content (Eyebrow, Main Heading, Description) */}
           <ScrollReveal distance={16} className="lg:col-span-5 xl:col-span-5 flex flex-col justify-center">
             {/* Small uppercase eyebrow text */}
-            <span className="font-sans text-[11px] sm:text-[11.5px] lg:text-[12px] font-medium tracking-[0.28em] uppercase text-[#8E7462] mb-3 sm:mb-4 block">
+            <span className="font-sans text-[12px] sm:text-[12.5px] lg:text-[13px] font-bold tracking-[0.28em] uppercase text-[#8E7462] mb-3 sm:mb-4 block">
               {eyebrow}
             </span>
 
             {/* Main Editorial Serif Heading */}
             <h2 
               id="why-us-heading"
-              className="font-serif text-[32px] sm:text-[40px] lg:text-[46px] xl:text-[50px] leading-[1.10] tracking-tight text-[#1C201D] font-normal"
+              className="font-serif text-[34px] sm:text-[42px] lg:text-[48px] xl:text-[52px] leading-[1.10] tracking-tight text-[#1C201D] font-medium"
             >
               A Thoughtful Approach<br />
-              to <span className="text-[#9C7055]">Every Space.</span>
+              to <span className="text-[#9C7055] font-normal">Every Space.</span>
             </h2>
 
             {/* Clean, readable sans-serif descriptive paragraph */}
-            <p className="mt-5 sm:mt-6 font-sans text-[13.5px] sm:text-[14px] lg:text-[14.5px] leading-[1.72] text-[#4F4943] max-w-[460px]">
+            <p className="mt-5 sm:mt-6 font-sans text-[15.5px] sm:text-[16.5px] lg:text-[17px] leading-[1.72] text-[#35302B] font-normal max-w-[480px]">
               With 12 years of industry experience, we bring professional understanding,
               creative thinking and attention to detail to every project, helping you
               transform your vision into well-considered spaces.
@@ -99,11 +99,11 @@ export function WhyChooseUsSection({
                 >
                   {/* Thin horizontal dash */}
                   <span 
-                    className="w-5 sm:w-6 h-[1px] bg-[#8E7E73] shrink-0 transition-all duration-300 group-hover:w-8 group-hover:bg-[#9C7055]" 
+                    className="w-5 sm:w-6 h-[1.5px] bg-[#8E7E73] shrink-0 transition-all duration-300 group-hover:w-8 group-hover:bg-[#9C7055]" 
                     aria-hidden="true" 
                   />
                   {/* Value Statement Text */}
-                  <span className="font-sans text-[13.5px] sm:text-[14px] lg:text-[14.5px] xl:text-[15px] font-normal text-[#1E2420] tracking-[0.01em] transition-colors duration-200 group-hover:text-[#9C7055]">
+                  <span className="font-sans text-[15px] sm:text-[15.5px] lg:text-[16px] xl:text-[16.5px] font-bold text-[#1E2420] tracking-[0.01em] transition-colors duration-200 group-hover:text-[#9C7055]">
                     {statement}
                   </span>
                 </li>

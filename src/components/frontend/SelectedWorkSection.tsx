@@ -106,10 +106,10 @@ export function SelectedWorkSection({ onOpenConsultation }: SelectedWorkSectionP
 
           {/* Typography Below Image */}
           <div className="mt-3.5 sm:mt-4">
-            <h3 className="font-sans text-[11px] sm:text-[11.5px] font-medium tracking-[0.16em] uppercase text-[#292722] transition-colors group-hover:text-[#94745F]">
+            <h3 className="font-sans text-[12.5px] sm:text-[13px] font-bold tracking-[0.16em] uppercase text-[#1C201D] transition-colors group-hover:text-[#8B6B56]">
               {project.number} — {project.title}
             </h3>
-            <p className="font-sans text-[11.5px] sm:text-[12px] font-light text-[#8A7E73] mt-1 tracking-normal">
+            <p className="font-sans text-[12.5px] sm:text-[13px] font-medium text-[#5E574F] mt-1 tracking-normal">
               {project.location}
             </p>
           </div>
@@ -164,12 +164,12 @@ export function SelectedWorkSection({ onOpenConsultation }: SelectedWorkSectionP
           <ScrollReveal distance={16} className="w-full lg:w-[22%] xl:w-[20%] shrink-0 flex flex-col justify-between pt-1 lg:pt-2">
             <div>
               {/* Eyebrow Label */}
-              <span className="font-sans text-[11px] sm:text-[11.5px] uppercase tracking-[0.24em] font-medium text-[#94745F] mb-3 sm:mb-4 block">
+              <span className="font-sans text-[12px] sm:text-[12.5px] uppercase tracking-[0.24em] font-bold text-[#8B6B56] mb-3 sm:mb-4 block">
                 SELECTED WORK
               </span>
 
               {/* Large Elegant Editorial Serif Heading */}
-              <h2 className="font-serif text-[#292722] text-[34px] sm:text-[38px] lg:text-[38px] xl:text-[42px] leading-[1.12] tracking-[-0.015em] font-normal">
+              <h2 className="font-serif text-[#1C201D] text-[36px] sm:text-[40px] lg:text-[40px] xl:text-[44px] leading-[1.12] tracking-[-0.015em] font-medium">
                 Spaces<br />
                 that inspire<br />
                 everyday life.
@@ -180,12 +180,12 @@ export function SelectedWorkSection({ onOpenConsultation }: SelectedWorkSectionP
             <div className="mt-8 sm:mt-10 lg:mt-14">
               <Link
                 href="/projects"
-                className="group inline-flex items-center gap-2 font-sans text-[11px] sm:text-[11.5px] uppercase tracking-[0.18em] font-medium text-[#292722] hover:text-[#94745F] transition-colors cursor-pointer"
+                className="group inline-flex items-center gap-2 font-sans text-[12px] sm:text-[12.5px] uppercase tracking-[0.18em] font-bold text-[#1C201D] hover:text-[#8B6B56] transition-colors cursor-pointer"
               >
-                <span className="border-b border-[#94745F] pb-0.5 transition-colors group-hover:border-[#292722]">
+                <span className="border-b-2 border-[#8B6B56] pb-0.5 transition-colors group-hover:border-[#1C201D]">
                   VIEW ALL PROJECTS
                 </span>
-                <ArrowRight size={13} className="text-[#94745F] group-hover:text-[#292722] transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight size={14} className="text-[#8B6B56] group-hover:text-[#1C201D] transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
           </ScrollReveal>

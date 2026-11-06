@@ -81,24 +81,24 @@ export function AboutWhyChooseSection({ onOpenConsultation }: AboutWhyChooseSect
           />
 
           {/* Right Column: Kept strictly within the right empty space */}
-          <ScrollReveal distance={16} className="lg:col-span-6 xl:col-span-5 flex flex-col justify-center max-w-[480px] xl:max-w-[500px] lg:ml-auto">
+          <ScrollReveal distance={16} className="lg:col-span-6 xl:col-span-5 flex flex-col justify-center max-w-[500px] xl:max-w-[540px] lg:ml-auto">
             
             {/* Small uppercase eyebrow */}
-            <span className="font-sans text-[10.5px] sm:text-[11px] font-semibold tracking-[0.24em] uppercase text-[#8E7462] mb-1.5 sm:mb-2 block">
+            <span className="font-sans text-[12px] sm:text-[12.5px] font-semibold tracking-[0.24em] uppercase text-[#8F5E3B] mb-2 sm:mb-2.5 block">
               WHY CHOOSE EXCORTO
             </span>
 
             {/* Main Heading: Editorial Serif */}
             <h2 
               id="why-choose-excorto-heading"
-              className="font-serif text-[#292722] text-[28px] sm:text-[32px] lg:text-[34px] xl:text-[38px] leading-[1.12] tracking-[-0.015em] font-normal mb-3 sm:mb-3.5"
+              className="font-serif text-[#161B18] text-[30px] sm:text-[35px] lg:text-[38px] xl:text-[42px] leading-[1.14] tracking-[-0.015em] font-normal mb-3 sm:mb-4"
             >
               More Than Design.<br />
               A Better Way to Live.
             </h2>
 
             {/* Supporting Paragraph: Clean modern sans-serif */}
-            <p className="font-sans text-[12.5px] sm:text-[13px] lg:text-[13.5px] leading-[1.65] text-[#4F4A43] mb-4 sm:mb-5 text-justify sm:text-left [text-justify:inter-word]">
+            <p className="font-sans text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.7] text-[#333A36] mb-4 sm:mb-5 text-justify sm:text-left [text-justify:inter-word]">
               At Excorto Builders &amp; Interiors, we believe exceptional spaces begin with understanding the people who use them. We combine thoughtful design, quality craftsmanship and careful execution to create spaces that feel personal and last for years.
             </p>
 
@@ -107,31 +107,31 @@ export function AboutWhyChooseSection({ onOpenConsultation }: AboutWhyChooseSect
               {advantages.map((item) => (
                 <div 
                   key={item.number} 
-                  className="py-2.5 sm:py-3 border-b border-[#E2D8CC] group"
+                  className="py-3 sm:py-3.5 border-b border-[#E2D8CC] group"
                 >
                   {/* Advantage Title Row: Number + Em-Dash + Heading */}
-                  <div className="flex items-baseline gap-2 sm:gap-2.5">
+                  <div className="flex items-baseline gap-2.5 sm:gap-3">
                     {/* Terracotta Number Accent */}
-                    <span className="font-serif text-[14px] sm:text-[15px] text-[#A65E3F] font-medium tracking-normal shrink-0 [font-variant-numeric:lining-nums]">
+                    <span className="font-serif text-[16px] sm:text-[17px] text-[#A65E3F] font-bold tracking-normal shrink-0 [font-variant-numeric:lining-nums]">
                       {item.number}
                     </span>
 
                     {/* Secondary Accent: Olive Green Em-dash */}
                     <span 
-                      className="text-[#65745A] text-[12px] sm:text-[13px] font-light select-none shrink-0" 
+                      className="text-[#65745A] text-[13px] sm:text-[14px] font-medium select-none shrink-0" 
                       aria-hidden="true"
                     >
                       —
                     </span>
 
                     {/* Advantage Title in Dark Charcoal */}
-                    <h3 className="font-sans font-semibold text-[12px] sm:text-[12.5px] lg:text-[13px] uppercase tracking-[0.07em] text-[#292722] transition-colors duration-200 group-hover:text-[#A65E3F]">
+                    <h3 className="font-sans font-bold text-[13.5px] sm:text-[14px] lg:text-[14.5px] uppercase tracking-[0.08em] text-[#161B18] transition-colors duration-200 group-hover:text-[#A65E3F]">
                       {item.title}
                     </h3>
                   </div>
 
                   {/* Advantage Description */}
-                  <p className="font-sans text-[11.5px] sm:text-[12px] lg:text-[12.5px] text-[#555049] leading-[1.55] mt-0.5 pl-[28px] sm:pl-[32px] max-w-[440px]">
+                  <p className="font-sans text-[13px] sm:text-[13.5px] lg:text-[14px] text-[#423D37] leading-[1.65] mt-1 pl-[30px] sm:pl-[34px] max-w-[460px]">
                     {item.description}
                   </p>
                 </div>

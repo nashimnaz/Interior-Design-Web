@@ -1049,6 +1049,34 @@ export const initialServices: ServiceItem[] = [
     seoTitle: 'Architectural & Interior Consultation | Excorto Builders',
     seoDesc: 'Schedule a discovery session with Excorto architects in Thiruvananthapuram, Kerala.',
     createdAt: '2026-01-18T10:00:00Z'
+  },
+  {
+    id: 'srv-5',
+    number: '05',
+    title: 'Building Permit & K-SMART Approval',
+    slug: 'building-permit',
+    shortDescription: 'From architectural building plan preparation and documentation to online application submission and approval through Kerala’s K-SMART platform.',
+    fullDescription: 'Planning to build your dream home? EXCORTO provides professional building permit assistance, guiding you through the process from architectural plan preparation and documentation to online application submission and approval through Kerala\'s K-SMART platform. We ensure full regulatory compliance, organized documentation, and active liaisoning.',
+    heroImage: '/images/services/arch-fullscreen-hero.jpg',
+    additionalImages: ['/images/services/arch-fullscreen-hero.jpg'],
+    deliverables: [
+      'Site & Land Assessment',
+      'Architectural Building Plan Preparation',
+      'Building Rule Compliance (KMBR/KPBR)',
+      'Documentation & K-SMART Application',
+      'Application Follow-up & Permit Approval'
+    ],
+    features: [
+      'Kerala Municipal & Panchayat Building Rules Scrutiny',
+      'Digital Submission through K-SMART Platform',
+      'Coordination and Response to Observations',
+      'End-to-End Tracking to Final Sanction'
+    ],
+    displayOrder: 5,
+    status: 'Published',
+    seoTitle: 'Building Permit & K-SMART Approval | Excorto Builders & Interiors',
+    seoDesc: 'Professional building permit assistance from plan preparation to K-SMART approval in Kerala.',
+    createdAt: '2026-03-01T10:00:00Z'
   }
 ];
 
@@ -1059,7 +1087,7 @@ export const initialPageContent: PageContent = {
     heroHeadlineLine2: 'Designed.',
     heroHeadlineHighlight: 'Beautifully Executed.',
     heroDescription: 'Architecture and interiors designed with intent, crafted with care, and built to endure across generations.',
-    heroImageDesktop: '/images/AA4DD01B-86D5-45F3-991A-BC3AD98FE52B.png',
+    heroImageDesktop: '/images/desktop-hero-bright-villa.jpg',
     heroImageMobile: '/images/Sunlit Arched Nook with Olive Branches.png',
     heroCtaText: 'START A CONVERSATION',
     aboutEyebrow: 'ABOUT EXCORTO',

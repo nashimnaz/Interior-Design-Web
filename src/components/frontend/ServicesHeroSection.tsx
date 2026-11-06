@@ -148,15 +148,9 @@ export function ServicesHeroSection({
           className="object-cover object-center select-none pointer-events-none will-change-transform"
         />
 
-        {/* Calibrated warm ivory overlay for increased image density and tactile architectural depth */}
+        {/* Calibrated warm wash allowing the architectural interior to be clearly recognizable */}
         <div 
-          className="absolute inset-0 bg-gradient-to-b from-[#F5F0E8]/82 via-[#F5F0E8]/65 to-[#F5F0E8]/88 pointer-events-none" 
-          aria-hidden="true" 
-        />
-
-        {/* Soft horizontal gradient prioritizing text contrast on the left */}
-        <div 
-          className="absolute inset-0 bg-gradient-to-r from-[#F5F0E8]/60 via-[#F5F0E8]/20 to-transparent pointer-events-none" 
+          className="absolute inset-0 bg-gradient-to-b from-[#F5F0E8]/70 via-[#F5F0E8]/40 to-[#F5F0E8]/75 pointer-events-none" 
           aria-hidden="true" 
         />
       </div>
@@ -189,7 +183,7 @@ export function ServicesHeroSection({
           {/* Eyebrow Label */}
           <span 
             ref={eyebrowRef}
-            className="font-sans text-[11px] sm:text-[11.5px] lg:text-[12px] font-semibold tracking-[0.26em] uppercase text-[#94745F] mb-3.5 sm:mb-4 lg:mb-5 block select-text will-change-transform"
+            className="font-sans text-[12px] sm:text-[12.5px] lg:text-[13px] font-semibold tracking-[0.26em] uppercase text-[#8F5E3B] mb-3.5 sm:mb-4 lg:mb-5 block select-text will-change-transform"
           >
             WHAT WE DO
           </span>
@@ -197,7 +191,7 @@ export function ServicesHeroSection({
           {/* Main Heading: Line-by-Line Upward Mask Reveal */}
           <h1 
             id="services-hero-heading"
-            className="font-serif text-[#292722] text-[36px] xs:text-[40px] sm:text-[46px] md:text-[52px] lg:text-[54px] xl:text-[60px] leading-[1.12] sm:leading-[1.15] tracking-[-0.018em] font-normal mb-5 sm:mb-6 select-text"
+            className="font-serif text-[#161B18] text-[38px] xs:text-[42px] sm:text-[48px] md:text-[54px] lg:text-[58px] xl:text-[64px] leading-[1.12] sm:leading-[1.15] tracking-[-0.018em] font-normal mb-5 sm:mb-6 select-text"
           >
             <span className="block">
               <span 
@@ -218,24 +212,24 @@ export function ServicesHeroSection({
             <span className="block">
               <span 
                 ref={(el) => { if (el) headingLinesRef.current[2] = el; }}
-                className="block italic text-[#94745F] font-normal will-change-transform"
+                className="block italic text-[#8F5E3B] font-normal will-change-transform"
               >
                 Beautiful Spaces.
               </span>
             </span>
           </h1>
 
-          {/* Supporting Description */}
-          <div className="space-y-3 sm:space-y-3.5 mb-7 sm:mb-8 lg:mb-9 max-w-[490px]">
+          {/* Supporting Description - High Readability Typography */}
+          <div className="space-y-3 sm:space-y-3.5 mb-7 sm:mb-8 lg:mb-9 max-w-[520px]">
             <p 
               ref={(el) => { if (el) descRef.current[0] = el; }}
-              className="font-sans text-[13.5px] sm:text-[14.5px] lg:text-[15px] leading-[1.68] text-[#4A453E] select-text will-change-transform"
+              className="font-sans text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.72] text-[#2C332F] select-text will-change-transform font-normal"
             >
               From architectural planning to thoughtfully designed interiors and precise installation, we bring every element of your space together.
             </p>
             <p 
               ref={(el) => { if (el) descRef.current[1] = el; }}
-              className="font-sans text-[13px] sm:text-[13.5px] lg:text-[14px] leading-[1.68] text-[#5C564E] select-text will-change-transform"
+              className="font-sans text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.72] text-[#3D4440] select-text will-change-transform font-normal"
             >
               At Excorto Builders &amp; Interiors, we combine creativity, functionality and craftsmanship to transform your ideas into spaces that reflect your lifestyle.
             </p>

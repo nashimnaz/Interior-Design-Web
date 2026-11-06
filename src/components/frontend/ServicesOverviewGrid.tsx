@@ -225,23 +225,23 @@ export function ServicesOverviewGrid({ onOpenConsultation }: ServicesOverviewGri
                       <span className="w-3 h-[1px] bg-[#D9D0C4]" aria-hidden="true" />
                     </div>
 
-                    {/* Elegant Serif Service Title with Fixed Min-Height for Symmetry */}
+                    {/* Elegant Serif Service Title with Fixed Min-Height for Symmetry - Bold as requested */}
                     <div className="min-h-[48px] sm:min-h-[52px] lg:min-h-[56px] mb-2 sm:mb-3 flex items-start">
-                      <h3 className="font-serif text-[#292722] text-[20px] sm:text-[21px] lg:text-[22px] xl:text-[23px] font-normal leading-[1.18] tracking-[-0.015em] transition-colors duration-300 group-hover:text-[#A65E3F]">
+                      <h3 className="font-serif text-[#161B18] text-[21px] sm:text-[22px] lg:text-[23px] xl:text-[24px] font-bold leading-[1.18] tracking-[-0.015em] transition-colors duration-300 group-hover:text-[#A65E3F]">
                         {service.title}
                       </h3>
                     </div>
 
-                    {/* Short Description with Min-Height for Perfect Baseline Alignment */}
+                    {/* Short Description with High Readability */}
                     <div className="min-h-[80px] sm:min-h-[85px] lg:min-h-[92px] mb-5 sm:mb-6 flex items-start">
-                      <p className="font-sans text-[12.5px] sm:text-[13px] lg:text-[13.5px] leading-[1.66] text-[#554F49]">
+                      <p className="font-sans text-[14px] sm:text-[14.5px] lg:text-[15px] leading-[1.68] text-[#3D3731] font-normal">
                         {service.description}
                       </p>
                     </div>
 
                     {/* Underlined LEARN MORE link without arrow */}
                     <div className="mt-auto pt-2 border-t border-[#D9D0C4]/40">
-                      <span className="inline-flex items-center font-sans font-semibold text-[11px] sm:text-[11.5px] uppercase tracking-[0.2em] text-[#94745F] group-hover:text-[#A65E3F] underline underline-offset-4 decoration-[#D9D0C4] group-hover:decoration-[#A65E3F] transition-all duration-300">
+                      <span className="inline-flex items-center font-sans font-bold text-[12px] sm:text-[12.5px] uppercase tracking-[0.2em] text-[#8F4A2D] group-hover:text-[#A65E3F] underline underline-offset-4 decoration-[#D9D0C4] group-hover:decoration-[#A65E3F] transition-all duration-300">
                         <span>LEARN MORE</span>
                       </span>
                     </div>

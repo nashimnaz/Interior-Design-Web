@@ -13,10 +13,10 @@ interface HeroSectionProps {
   playEntranceAnimation?: boolean;
 }
 
-export function HeroSection({ 
-  onOpenConsultation, 
+export function HeroSection({
+  onOpenConsultation,
   onExploreServices,
-  playEntranceAnimation = true 
+  playEntranceAnimation = true
 }: HeroSectionProps) {
   const [content, setContent] = useState<Partial<HomeContent>>({});
   const sectionRef = useRef<HTMLElement>(null);
@@ -35,7 +35,7 @@ export function HeroSection({
           setContent(data.data);
         }
       })
-      .catch(() => {});
+      .catch(() => { });
   }, []);
 
   useEffect(() => {
@@ -94,7 +94,7 @@ export function HeroSection({
     return () => ctx.revert();
   }, [playEntranceAnimation]);
 
-  const desktopImage = content.heroImageDesktop || '/images/AA4DD01B-86D5-45F3-991A-BC3AD98FE52B.png';
+  const desktopImage = content.heroImageDesktop || '/images/desktop-hero-bright-villa.jpg';
   const mobileImage = content.heroImageMobile || '/images/Sunlit Arched Nook with Olive Branches.png';
   const eyebrow = content.heroEyebrow || 'SPACES THAT FEEL LIKE YOU';
   const line1 = content.heroHeadlineLine1 || 'Thoughtfully';
@@ -114,7 +114,12 @@ export function HeroSection({
           loading="eager"
           unoptimized
           sizes="100vw"
-          className="object-cover md:object-[72%_bottom] lg:object-[center_bottom] select-none pointer-events-none"
+          className="object-cover object-center md:object-center lg:object-center select-none pointer-events-none"
+        />
+        {/* Soft, feathered editorial gradient wash on the left to guarantee crystalline text legibility */}
+        <div 
+          className="absolute inset-y-0 left-0 w-[55%] lg:w-[45%] bg-gradient-to-r from-[#F7F4EE] via-[#F7F4EE]/90 to-transparent pointer-events-none z-1" 
+          aria-hidden="true" 
         />
       </div>
 
@@ -134,24 +139,24 @@ export function HeroSection({
 
       {/* Main Content Container - Centralized vertically with balanced space above & below */}
       <div className="relative z-10 w-full max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 pt-16 sm:pt-20 md:pt-16 pb-6 sm:pb-8">
-        <div className="max-w-[340px] sm:max-w-[420px] md:max-w-[560px] xl:max-w-[600px]">
+        <div className="max-w-[340px] sm:max-w-[420px] md:max-w-[560px] xl:max-w-[620px]">
           {/* Eyebrow Tag */}
-          <p ref={eyebrowRef} className="text-[11px] sm:text-[11.5px] font-medium tracking-[0.22em] text-[#A07355] md:text-[#636A64] uppercase mb-2 sm:mb-3.5 select-text">
+          <p ref={eyebrowRef} className="text-[12px] sm:text-[13px] md:text-[13.5px] font-semibold tracking-[0.24em] text-[#8F5E3B] md:text-[#4A554D] uppercase mb-2 sm:mb-3.5 select-text">
             {eyebrow}
           </p>
 
           {/* Main Headline - Larger luxury editorial serif with unified font size across all lines */}
-          <h1 className="font-serif text-[35px] sm:text-[48px] md:text-[58px] lg:text-[64px] xl:text-[70px] leading-[1.12] sm:leading-[1.15] tracking-[-0.015em] font-normal select-text">
+          <h1 className="font-serif text-[36px] sm:text-[48px] md:text-[58px] lg:text-[66px] xl:text-[72px] leading-[1.12] sm:leading-[1.15] tracking-[-0.015em] font-normal select-text">
             <span className="block">
-              <span ref={el => { if (el) headingLinesRef.current[0] = el; }} className="block font-normal text-[#1E2522]">{line1}</span>
+              <span ref={el => { if (el) headingLinesRef.current[0] = el; }} className="block font-normal text-[#161B18]">{line1}</span>
             </span>
             <span className="block">
-              <span ref={el => { if (el) headingLinesRef.current[1] = el; }} className="block font-normal text-[#1E2522]">{line2}</span>
+              <span ref={el => { if (el) headingLinesRef.current[1] = el; }} className="block font-normal text-[#161B18]">{line2}</span>
             </span>
             <span className="block">
-              <span 
-                ref={el => { if (el) headingLinesRef.current[2] = el; }} 
-                className="block font-normal text-[#8F5E3B] md:text-[#1E2522] whitespace-nowrap"
+              <span
+                ref={el => { if (el) headingLinesRef.current[2] = el; }}
+                className="block font-normal text-[#8F5E3B] md:text-[#161B18] whitespace-nowrap"
               >
                 {highlight}
               </span>
@@ -159,56 +164,55 @@ export function HeroSection({
           </h1>
 
           {/* Subheading */}
-          <p ref={subheadingRef} className="font-sans font-medium text-[#29302C] text-[13.5px] xs:text-[14px] sm:text-[15px] lg:text-[17px] mt-3.5 sm:mt-4 mb-2 tracking-[-0.01em] leading-snug">
+          <p ref={subheadingRef} className="font-sans font-semibold text-[#1C201D] text-[15px] sm:text-[16.5px] md:text-[18px] lg:text-[20px] mt-3.5 sm:mt-4 mb-2.5 tracking-[-0.01em] leading-snug">
             We Transform Ideas into Inspiring Spaces.
           </p>
 
-          {/* Description Paragraph - Sized and constrained to stay in the left white area */}
-          <p ref={descRef} className="font-sans font-normal text-[#5A605C] text-[12px] xs:text-[12.5px] sm:text-[13px] md:text-[14px] leading-[1.65] max-w-[275px] xs:max-w-[300px] sm:max-w-[340px] md:max-w-[440px]">
+          {/* Description Paragraph - High contrast, legible, comfortable typography */}
+          <p ref={descRef} className="font-sans font-normal text-[#333A36] text-[13.5px] sm:text-[14.5px] md:text-[16px] lg:text-[17px] leading-[1.7] max-w-[310px] sm:max-w-[380px] md:max-w-[480px] lg:max-w-[520px]">
             {description}
           </p>
 
-          {/* Mobile 2 Curved Edged Buttons in 2 Rows */}
-          <div ref={ctaMobileRef} className="flex md:hidden flex-col items-start gap-2.5 sm:gap-3 mt-5 sm:mt-6">
-            {/* Row 1: Explore Services Glass Pill Button */}
+          {/* Mobile 2 Curved Edged Highlighted Buttons in 2 Rows */}
+          <div ref={ctaMobileRef} className="flex md:hidden flex-col items-start gap-3 mt-6">
+            {/* Row 1: Explore Services Highlighted Pill */}
             <button
               type="button"
               onClick={onExploreServices}
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 shadow-[0_2px_12px_rgba(0,0,0,0.04)] text-[#1E2522] hover:bg-white/80 hover:border-white text-[12px] font-medium tracking-[0.05em] transition-all duration-300 active:scale-95 cursor-pointer"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#344637] text-white hover:bg-[#253328] text-[12.5px] font-bold tracking-[0.08em] uppercase transition-all duration-300 shadow-[0_4px_14px_rgba(52,70,55,0.25)] active:scale-95 cursor-pointer"
             >
-              Explore Services
+              Explore Our Services
             </button>
 
-            {/* Row 2: Explore Projects Outline Pill Button */}
-            <Link
-              href="/projects"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-transparent border border-[#1E2522]/40 text-[#1E2522] hover:bg-white/40 hover:border-[#1E2522] text-[12px] font-medium tracking-[0.05em] transition-all duration-300 active:scale-95 cursor-pointer"
-            >
-              Explore Projects
-            </Link>
-          </div>
-
-          {/* Action CTAs - Hidden on mobile (< md), visible on desktop */}
-          <div ref={ctaDesktopRef} className="hidden md:flex flex-wrap items-center gap-4 sm:gap-5 mt-6 sm:mt-7">
-            {/* Primary Circular Sage Arrow Button */}
-            <button
-              type="button"
-              onClick={onExploreServices}
-              className="group inline-flex items-center gap-3.5 cursor-pointer focus:outline-none"
-            >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#4E6151] hover:bg-[#3E4F41] text-white flex items-center justify-center transition-all duration-300 shadow-sm group-hover:scale-105 active:scale-95">
-                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5" />
-              </div>
-              <span className="text-[13.5px] sm:text-[14px] font-medium text-[#1E2522] group-hover:text-[#C2633E] transition-colors">
-                Explore Our Services
-              </span>
-            </button>
-
-            {/* Secondary Project Consultation Button */}
+            {/* Row 2: Discuss Your Project Highlighted Terracotta Pill */}
             <button
               type="button"
               onClick={onOpenConsultation}
-              className="inline-flex items-center justify-center bg-[#EDE7DE]/85 hover:bg-[#1E2522] hover:text-white text-[#2C332F] border border-[#DDD7CE] text-[11px] sm:text-[11.5px] font-medium tracking-[0.14em] uppercase px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer shadow-xs active:scale-[0.98]"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white text-[#8F4A2D] border-2 border-[#A65E3F] text-[12.5px] font-bold tracking-[0.1em] uppercase transition-all duration-300 shadow-[0_2px_10px_rgba(166,94,63,0.15)] active:scale-95 cursor-pointer"
+            >
+              Discuss Your Project
+            </button>
+          </div>
+
+          {/* Action CTAs - Highlighted Both 'Explore Our Services' and 'Discuss Your Project' on Desktop */}
+          <div ref={ctaDesktopRef} className="hidden md:flex flex-wrap items-center gap-4 sm:gap-5 mt-7 sm:mt-8">
+            {/* Primary Highlighted Button: Explore Our Services */}
+            <button
+              type="button"
+              onClick={onExploreServices}
+              className="group inline-flex items-center gap-3.5 bg-[#344637] hover:bg-[#253328] text-white text-[13px] sm:text-[13.5px] font-semibold tracking-[0.08em] uppercase px-6 sm:px-7 py-3.5 rounded-full shadow-[0_4px_16px_rgba(52,70,55,0.24)] transition-all duration-300 hover:scale-102 active:scale-98 cursor-pointer focus:outline-none"
+            >
+              <span>Explore Our Services</span>
+              <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+                <ArrowRight size={14} className="text-white" />
+              </div>
+            </button>
+
+            {/* Secondary Highlighted Button: Discuss Your Project */}
+            <button
+              type="button"
+              onClick={onOpenConsultation}
+              className="inline-flex items-center justify-center bg-white/95 hover:bg-[#A65E3F] text-[#8F4A2D] hover:text-white border-2 border-[#A65E3F] text-[12.5px] sm:text-[13px] font-bold tracking-[0.14em] uppercase px-6 sm:px-7 py-3.5 rounded-full shadow-[0_4px_16px_rgba(166,94,63,0.14)] transition-all duration-300 hover:scale-102 cursor-pointer active:scale-[0.98]"
             >
               DISCUSS YOUR PROJECT
             </button>
