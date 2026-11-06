@@ -136,12 +136,12 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
             <Image
               src="/images/excorto-logo.png"
               alt="Excorto Builders and Interiors"
-              width={220}
-              height={53}
+              width={240}
+              height={58}
               priority
               unoptimized
               style={{ width: 'auto' }}
-              className="h-7 sm:h-8 md:h-[43.2px] w-auto object-contain transition-transform duration-300 group-hover:scale-102"
+              className="h-[32px] sm:h-[37px] md:h-[50px] w-auto object-contain transition-transform duration-300 group-hover:scale-102"
             />
           </Link>
 
@@ -257,11 +257,11 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
                   <Image
                     src="/images/excorto-logo.png"
                     alt="Excorto Builders and Interiors"
-                    width={180}
-                    height={43}
+                    width={200}
+                    height={48}
                     unoptimized
                     style={{ width: 'auto' }}
-                    className="h-6 sm:h-7 md:h-[33.6px] w-auto object-contain transition-transform duration-300 group-hover:scale-102"
+                    className="h-[28px] sm:h-[32px] md:h-[39px] w-auto object-contain transition-transform duration-300 group-hover:scale-102"
                   />
                 </Link>
 

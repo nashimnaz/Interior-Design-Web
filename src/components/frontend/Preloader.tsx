@@ -272,7 +272,7 @@ export function Preloader({ onComplete, onStartReveal }: PreloaderProps) {
       <div className="fixed inset-0 flex items-center justify-center pointer-events-none">
         <div
           ref={logoWrapperRef}
-          className="relative w-[130px] sm:w-[160px] md:w-[234px] aspect-[365/516] flex items-center justify-center will-change-transform pointer-events-auto"
+          className="relative w-[150px] sm:w-[184px] md:w-[269px] aspect-[365/516] flex items-center justify-center will-change-transform pointer-events-auto"
         >
         <svg
           viewBox="0 0 365 516"
