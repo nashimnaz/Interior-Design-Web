@@ -98,9 +98,21 @@ export function Preloader({ onComplete, onStartReveal }: PreloaderProps) {
       return;
     }
 
-    // 5. Lock background scroll while preloader is active
+    // 5. Lock background scroll and sync background color while preloader is active
     const originalOverflow = document.body.style.overflow;
+    const originalBg = document.body.style.backgroundColor;
+    const originalHtmlBg = document.documentElement.style.backgroundColor;
+
     document.body.style.overflow = 'hidden';
+    document.body.style.backgroundColor = '#F7F5F0';
+    document.documentElement.style.backgroundColor = '#F7F5F0';
+
+    const preventTouch = (e: TouchEvent) => {
+      if (e.cancelable) {
+        e.preventDefault();
+      }
+    };
+    window.addEventListener('touchmove', preventTouch, { passive: false });
 
     const finishPreloader = () => {
       if (hasFinishedRef.current) return;
@@ -109,6 +121,9 @@ export function Preloader({ onComplete, onStartReveal }: PreloaderProps) {
         sessionStorage.setItem('excorto_preloader_seen', '1');
       } catch { }
       document.body.style.overflow = originalOverflow;
+      document.body.style.backgroundColor = originalBg;
+      document.documentElement.style.backgroundColor = originalHtmlBg;
+      window.removeEventListener('touchmove', preventTouch);
       setIsActive(false);
       onCompleteRef.current?.();
     };
@@ -192,7 +207,7 @@ export function Preloader({ onComplete, onStartReveal }: PreloaderProps) {
           // Signal homepage hero to start its entrance timeline right as preloader lifts
           onStartRevealRef.current?.();
 
-          // Logo scales up subtly and fades
+          // Logo scales up subtly and floats slightly upward
           if (logoWrapperRef.current) {
             exitTl.to(logoWrapperRef.current, {
               opacity: 0,
@@ -203,13 +218,12 @@ export function Preloader({ onComplete, onStartReveal }: PreloaderProps) {
             });
           }
 
-          // Warm ivory overlay fades out smoothly and slides up slightly
+          // Warm ivory overlay fades out smoothly without vertical displacement to prevent bottom gap
           if (containerRef.current) {
             exitTl.to(containerRef.current, {
               opacity: 0,
-              yPercent: -3,
               duration: 0.65,
-              ease: 'power3.inOut',
+              ease: 'power2.inOut',
             }, logoWrapperRef.current ? '-=0.45' : 0);
           }
         };
@@ -236,6 +250,9 @@ export function Preloader({ onComplete, onStartReveal }: PreloaderProps) {
     return () => {
       clearTimeout(safetyTimer);
       document.body.style.overflow = originalOverflow;
+      document.body.style.backgroundColor = originalBg;
+      document.documentElement.style.backgroundColor = originalHtmlBg;
+      window.removeEventListener('touchmove', preventTouch);
       ctx.revert();
     };
   }, []); // Empty dependency array ensures GSAP context is never accidentally killed by parent re-renders
@@ -245,17 +262,18 @@ export function Preloader({ onComplete, onStartReveal }: PreloaderProps) {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[100] w-full h-full min-h-screen flex items-center justify-center bg-[#F7F5F0] select-none pointer-events-auto"
-      style={{ willChange: 'opacity, transform' }}
+      className="fixed -inset-x-0 -top-[25vh] -bottom-[35vh] z-[100] w-full min-h-[160dvh] h-[160vh] bg-[#F7F5F0] select-none pointer-events-auto touch-none overflow-hidden"
+      style={{ willChange: 'opacity' }}
       aria-label="Loading Excorto Builders & Interiors"
       role="dialog"
       aria-modal="true"
     >
-      {/* Centered Logo Construction Window */}
-      <div
-        ref={logoWrapperRef}
-        className="relative w-[130px] sm:w-[160px] md:w-[234px] aspect-[365/516] flex items-center justify-center will-change-transform"
-      >
+      {/* Centered Logo Construction Window - locked to screen center */}
+      <div className="fixed inset-0 flex items-center justify-center pointer-events-none">
+        <div
+          ref={logoWrapperRef}
+          className="relative w-[130px] sm:w-[160px] md:w-[234px] aspect-[365/516] flex items-center justify-center will-change-transform pointer-events-auto"
+        >
         <svg
           viewBox="0 0 365 516"
           className="w-full h-full overflow-visible"
@@ -376,6 +394,7 @@ export function Preloader({ onComplete, onStartReveal }: PreloaderProps) {
             style={{ mixBlendMode: 'overlay', pointerEvents: 'none' }}
           />
         </svg>
+      </div>
       </div>
     </div>
   );
