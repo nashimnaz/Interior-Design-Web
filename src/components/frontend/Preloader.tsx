@@ -262,8 +262,20 @@ export function Preloader({ onComplete, onStartReveal }: PreloaderProps) {
   return (
     <div
       ref={containerRef}
-      className="fixed -inset-x-0 -top-[25vh] -bottom-[35vh] z-[100] w-full min-h-[160dvh] h-[160vh] bg-[#F7F5F0] select-none pointer-events-auto touch-none overflow-hidden"
-      style={{ willChange: 'opacity' }}
+      className="fixed inset-0 z-[9999] w-screen h-screen select-none pointer-events-auto touch-none overflow-hidden"
+      style={{
+        position: 'fixed',
+        top: '-20vh',
+        bottom: '-25vh',
+        left: 0,
+        right: 0,
+        width: '100vw',
+        height: '145vh',
+        minHeight: '145dvh',
+        backgroundColor: '#F7F5F0',
+        willChange: 'opacity',
+        zIndex: 9999,
+      }}
       aria-label="Loading Excorto Builders & Interiors"
       role="dialog"
       aria-modal="true"
