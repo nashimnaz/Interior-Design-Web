@@ -78,10 +78,10 @@ export function Footer({ onOpenConsultation }: FooterProps) {
                         <div>
                             {/* Brand Typography */}
                             <Link href="/" className="inline-block group focus:outline-none">
-                                <span className="font-sans text-[18px] sm:text-[19px] font-medium tracking-[0.24em] text-[#1E2522] leading-none block transition-colors group-hover:text-[#C2633E]">
+                                <span className="font-sans text-[21.5px] sm:text-[23px] font-medium tracking-[0.24em] text-[#1E2522] leading-none block transition-colors group-hover:text-[#C2633E]">
                                     EXCORTO
                                 </span>
-                                <span className="font-sans text-[8px] sm:text-[8.5px] font-semibold tracking-[0.3em] text-[#746E68] uppercase mt-1.5 leading-none block transition-colors group-hover:text-[#536453]">
+                                <span className="font-sans text-[9.5px] sm:text-[10px] font-semibold tracking-[0.3em] text-[#1E2522] uppercase mt-1.5 leading-none block transition-colors group-hover:text-[#C2633E]">
                                     BUILDERS &amp; INTERIORS
                                 </span>
                             </Link>
