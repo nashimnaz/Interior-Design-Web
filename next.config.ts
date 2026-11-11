@@ -12,6 +12,25 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/lander',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/defaultsite',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/home',
+        destination: '/',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
