@@ -137,8 +137,11 @@ export function HeroSection({
         />
       </div>
 
-      {/* Main Content Container - Centralized vertically with balanced space above & below */}
-      <div className="relative z-10 w-full max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 pt-16 sm:pt-20 md:pt-16 pb-6 sm:pb-8">
+      {/* Main Content Container - Centralized vertically and raised by 1.5cm for optimal visual balance */}
+      <div
+        className="relative z-10 w-full max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 pt-16 sm:pt-20 md:pt-16 pb-6 sm:pb-8 -translate-y-[1.5cm]"
+        style={{ transform: 'translateY(-1.5cm)' }}
+      >
         <div className="max-w-[340px] sm:max-w-[420px] md:max-w-[560px] xl:max-w-[620px]">
           {/* Eyebrow Tag */}
           <p ref={eyebrowRef} className="text-[12px] sm:text-[13px] md:text-[13.5px] font-semibold tracking-[0.24em] text-[#8F5E3B] md:text-[#4A554D] uppercase mb-2 sm:mb-3.5 select-text">
