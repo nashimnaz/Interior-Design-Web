@@ -137,10 +137,9 @@ export function HeroSection({
         />
       </div>
 
-      {/* Main Content Container - Centralized vertically and raised by 1.5cm for optimal visual balance */}
+      {/* Main Content Container - Mobile raised by 1.5cm for bottom clearance; Tablet/Desktop sits comfortably below navbar */}
       <div
-        className="relative z-10 w-full max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 pt-16 sm:pt-20 md:pt-16 pb-6 sm:pb-8 -translate-y-[1.5cm]"
-        style={{ transform: 'translateY(-1.5cm)' }}
+        className="relative z-10 w-full max-w-[1520px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 pt-16 sm:pt-20 md:pt-20 pb-6 sm:pb-8 -translate-y-[57px] md:translate-y-0"
       >
         <div className="max-w-[340px] sm:max-w-[420px] md:max-w-[560px] xl:max-w-[620px]">
           {/* Eyebrow Tag */}
