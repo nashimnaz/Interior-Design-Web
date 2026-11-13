@@ -14,7 +14,6 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const closeTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -24,15 +23,6 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
         clearTimeout(closeTimerRef.current);
       }
     };
-  }, []);
-
-  // Scroll listener for header elevation
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const closeMenu = useCallback((callback?: () => void) => {
@@ -115,13 +105,10 @@ export function Navbar({ onOpenConsultation, activePage = 'home' }: NavbarProps)
   return (
     <>
       {/* =========================================================================
-          SITE HEADER (Sticky elevation & minimal glass hamburger trigger)
+          SITE HEADER (Constant architectural ivory bar with minimal glass trigger)
           ========================================================================= */}
       <header
-        className={`fixed top-0 left-0 right-0 z-[60] w-full transition-all duration-300 ${isScrolled
-            ? 'bg-[#F5F2EC]/90 backdrop-blur-md border-b border-[#786450]/15 shadow-xs py-3.5 sm:py-4'
-            : 'bg-transparent py-5 sm:py-6 lg:py-7'
-          }`}
+        className="fixed top-0 left-0 right-0 z-[60] w-full bg-[#F5F2EC]/90 backdrop-blur-md border-b border-[#786450]/15 shadow-xs py-3.5 sm:py-4 transition-all duration-300"
       >
         <div className="max-w-[1520px] mx-auto px-5 sm:px-8 lg:px-12 xl:px-14 flex items-center justify-between">
           {/* Brand / Official Studio Logo */}
